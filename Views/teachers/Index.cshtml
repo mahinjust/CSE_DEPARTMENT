@@ -1,0 +1,75 @@
+﻿@model IEnumerable<CSE_DEPARTMENT.Models.teacher>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.teacher__name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.designation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.favorite_quote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.work_area)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.achievement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.publication)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.publication_links)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.website)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.teacher__name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.designation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.favorite_quote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.work_area)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.achievement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.publication)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.publication_links)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.website)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.teacher_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.teacher_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.teacher_id })
+        </td>
+    </tr>
+}
+
+</table>

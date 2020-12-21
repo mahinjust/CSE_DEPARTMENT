@@ -1,0 +1,82 @@
+﻿@model CSE_DEPARTMENT.Models.staff_career
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>staff_career</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Staff.staff_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Staff.staff_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.joining_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.joining_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diploma_result)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diploma_result)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diploma_institute)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diploma_institute)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hsc_result)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hsc_result)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hsc_institute)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hsc_institute)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ssc_result)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ssc_result)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ssc_institute)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ssc_institute)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.staffcareer_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

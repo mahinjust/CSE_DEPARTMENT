@@ -1,0 +1,93 @@
+﻿@model IEnumerable<CSE_DEPARTMENT.Models.notice>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.notice_upload)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.notice_topic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.published_by)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.publish_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.created_by)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.created_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.updated_by)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.updated_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.deadline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.priority)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.specification)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.notice_upload)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.notice_topic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.published_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.publish_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.created_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.created_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.updated_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.updated_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.deadline)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.priority)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.specification)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.notice_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.notice_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.notice_id })
+        </td>
+    </tr>
+}
+
+</table>

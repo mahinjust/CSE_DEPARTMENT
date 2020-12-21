@@ -1,0 +1,105 @@
+﻿@model IEnumerable<CSE_DEPARTMENT.Models.teacher_career>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.teacher.teacher__name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.joining_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phd_status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phd_institute)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.msc_status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.msc_institute)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.msc_session)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.msc_result)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bsc_status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bsc_institute)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bsc_session)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bsc_result)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ex_workplaces)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.teacher.teacher__name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.joining_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phd_status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phd_institute)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.msc_status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.msc_institute)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.msc_session)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.msc_result)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bsc_status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bsc_institute)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bsc_session)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bsc_result)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ex_workplaces)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.teachercareer_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.teachercareer_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.teachercareer_id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,64 @@
+﻿@model CSE_DEPARTMENT.Models.result
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>result</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Session.session_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Session.session_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.student.quata_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.student.quata_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year.year_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year.year_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Roll_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Roll_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cgpa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cgpa)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,72 @@
+﻿@model CSE_DEPARTMENT.Models.book
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject.Subject_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject.Subject_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year.year_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year.year_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.specification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.specification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edition)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

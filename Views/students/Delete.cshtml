@@ -1,0 +1,152 @@
+﻿@model CSE_DEPARTMENT.Models.student
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Session.session_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Session.session_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year.year_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year.year_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Roll_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Roll_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quata_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quata_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.skills)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.skills)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hobby)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hobby)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fathers_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fathers_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fathers_occupation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fathers_occupation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fathers_contact_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fathers_contact_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mothers_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mothers_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mothers_occupation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mothers_occupation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mothers_contact_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mothers_contact_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.guardians_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.guardians_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.guardians_occupation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.guardians_occupation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.guardians_contact_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.guardians_contact_no)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

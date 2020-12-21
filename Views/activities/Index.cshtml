@@ -1,0 +1,69 @@
+﻿@model IEnumerable<CSE_DEPARTMENT.Models.activities>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.student.quata_description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.club_membership)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.club_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.designation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.achievement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.others_co_curricular_activities)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.student.quata_description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.club_membership)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.club_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.designation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.achievement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.others_co_curricular_activities)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.activities_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.activities_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.activities_id })
+        </td>
+    </tr>
+}
+
+</table>

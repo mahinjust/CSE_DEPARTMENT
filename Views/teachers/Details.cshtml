@@ -1,0 +1,82 @@
+﻿@model CSE_DEPARTMENT.Models.teacher
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>teacher</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.teacher__name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teacher__name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.designation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.designation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.favorite_quote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.favorite_quote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.work_area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.work_area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.achievement)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.achievement)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.publication)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.publication)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.publication_links)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.publication_links)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.website)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.website)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.teacher_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

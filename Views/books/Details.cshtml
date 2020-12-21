@@ -1,0 +1,66 @@
+﻿@model CSE_DEPARTMENT.Models.book
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject.Subject_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject.Subject_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year.year_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year.year_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.specification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.specification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edition)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.book_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

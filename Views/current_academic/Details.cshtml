@@ -1,0 +1,66 @@
+﻿@model CSE_DEPARTMENT.Models.current_academic
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>current_academic</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.result.result_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.result.result_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Session.session_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Session.session_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.student.quata_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.student.quata_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year.year_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year.year_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.admission_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.admission_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dept)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dept)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.currentacademic_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

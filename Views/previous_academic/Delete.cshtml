@@ -1,0 +1,128 @@
+﻿@model CSE_DEPARTMENT.Models.previous_academic
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>previous_academic</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.student.quata_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.student.quata_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hsc_roll)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hsc_roll)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hsc_reg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hsc_reg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hsc_result)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hsc_result)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hsc_board)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hsc_board)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hsc_college)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hsc_college)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hsc_section)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hsc_section)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ssc_roll)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ssc_roll)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ssc_reg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ssc_reg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ssc_result)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ssc_result)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ssc_board)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ssc_board)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ssc_school)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ssc_school)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ssc_section)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ssc_section)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

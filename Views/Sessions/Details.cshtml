@@ -1,0 +1,26 @@
+﻿@model CSE_DEPARTMENT.Models.Session
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Session</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.session_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.session_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.session_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

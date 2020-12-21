@@ -1,0 +1,128 @@
+﻿@model CSE_DEPARTMENT.Models.teacher_career
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>teacher_career</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.teacher.teacher__name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teacher.teacher__name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.joining_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.joining_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phd_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phd_status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phd_institute)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phd_institute)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.msc_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.msc_status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.msc_institute)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.msc_institute)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.msc_session)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.msc_session)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.msc_result)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.msc_result)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bsc_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bsc_status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bsc_institute)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bsc_institute)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bsc_session)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bsc_session)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bsc_result)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bsc_result)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ex_workplaces)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ex_workplaces)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

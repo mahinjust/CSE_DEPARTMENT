@@ -1,0 +1,63 @@
+﻿@model IEnumerable<CSE_DEPARTMENT.Models.current_academic>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.result.result_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Session.session_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.student.quata_description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year.year_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.admission_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dept)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.result.result_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Session.session_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.student.quata_description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Year.year_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.admission_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dept)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.currentacademic_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.currentacademic_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.currentacademic_id })
+        </td>
+    </tr>
+}
+
+</table>

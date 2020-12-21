@@ -1,0 +1,112 @@
+﻿@model CSE_DEPARTMENT.Models.notice
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>notice</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.notice_upload)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.notice_upload)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.notice_topic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.notice_topic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.published_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.published_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.publish_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.publish_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.created_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.created_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.created_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.created_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.updated_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updated_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.updated_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updated_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.deadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.deadline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.priority)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.priority)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.specification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.specification)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

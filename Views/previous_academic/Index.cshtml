@@ -1,0 +1,105 @@
+﻿@model IEnumerable<CSE_DEPARTMENT.Models.previous_academic>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.student.quata_description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hsc_roll)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hsc_reg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hsc_result)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hsc_board)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hsc_college)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hsc_section)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ssc_roll)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ssc_reg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ssc_result)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ssc_board)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ssc_school)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ssc_section)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.student.quata_description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hsc_roll)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hsc_reg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hsc_result)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hsc_board)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hsc_college)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hsc_section)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ssc_roll)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ssc_reg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ssc_result)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ssc_board)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ssc_school)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ssc_section)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.previousacademic_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.previousacademic_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.previousacademic_id })
+        </td>
+    </tr>
+}
+
+</table>

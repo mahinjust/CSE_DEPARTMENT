@@ -1,0 +1,122 @@
+﻿@model CSE_DEPARTMENT.Models.previous_academic
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>previous_academic</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.student.quata_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.student.quata_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hsc_roll)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hsc_roll)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hsc_reg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hsc_reg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hsc_result)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hsc_result)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hsc_board)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hsc_board)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hsc_college)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hsc_college)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hsc_section)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hsc_section)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ssc_roll)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ssc_roll)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ssc_reg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ssc_reg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ssc_result)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ssc_result)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ssc_board)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ssc_board)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ssc_school)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ssc_school)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ssc_section)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ssc_section)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.previousacademic_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

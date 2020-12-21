@@ -1,0 +1,88 @@
+﻿@model CSE_DEPARTMENT.Models.teacher
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>teacher</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.teacher__name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teacher__name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.designation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.designation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.favorite_quote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.favorite_quote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.work_area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.work_area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.achievement)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.achievement)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.publication)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.publication)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.publication_links)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.publication_links)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.website)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.website)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,123 @@
+﻿@model IEnumerable<CSE_DEPARTMENT.Models.student>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Session.session_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year.year_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Roll_No)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quata_description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.skills)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hobby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fathers_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fathers_occupation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fathers_contact_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mothers_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mothers_occupation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mothers_contact_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.guardians_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.guardians_occupation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.guardians_contact_no)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Session.session_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Year.year_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Roll_No)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quata_description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.skills)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hobby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fathers_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fathers_occupation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fathers_contact_no)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mothers_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mothers_occupation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mothers_contact_no)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.guardians_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.guardians_occupation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.guardians_contact_no)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.student_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.student_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.student_id })
+        </td>
+    </tr>
+}
+
+</table>

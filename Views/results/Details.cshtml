@@ -1,0 +1,58 @@
+﻿@model CSE_DEPARTMENT.Models.result
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>result</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Session.session_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Session.session_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.student.quata_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.student.quata_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year.year_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year.year_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Roll_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Roll_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cgpa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cgpa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.result_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,74 @@
+﻿@model CSE_DEPARTMENT.Models.materials
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>materials</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject.Subject_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject.Subject_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year.year_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year.year_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.materials_topic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.materials_topic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.arranged_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.arranged_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reference)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reference)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.publish_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.publish_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.specification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.specification)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.materials_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CSE_DEPARTMENT.Models.Staff>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.staff_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.favorite_quote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.designation)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.staff_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.favorite_quote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.designation)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.staff_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.staff_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.staff_id })
+        </td>
+    </tr>
+}
+
+</table>
