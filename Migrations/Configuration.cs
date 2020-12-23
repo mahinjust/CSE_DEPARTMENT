@@ -3,6 +3,7 @@ namespace CSE_DEPARTMENT.Migrations
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
+using System.Data.Entity.ModelConfiguration.Conventions;
     using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<CSE_DEPARTMENT.Models.ApplicationDbContext>
@@ -18,6 +19,9 @@ namespace CSE_DEPARTMENT.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+
         }
+        
+
     }
 }

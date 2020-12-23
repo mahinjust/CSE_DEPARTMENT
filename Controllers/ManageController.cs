@@ -32,9 +32,9 @@ namespace CSE_DEPARTMENT.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -331,7 +331,7 @@ namespace CSE_DEPARTMENT.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -382,6 +382,6 @@ namespace CSE_DEPARTMENT.Controllers
             Error
         }
 
-#endregion
+        #endregion
     }
 }

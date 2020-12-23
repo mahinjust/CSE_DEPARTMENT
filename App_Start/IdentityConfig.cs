@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using CSE_DEPARTMENT.Models;
+using System.Net.Mail;
+using System.Net.Mime;
 using System.Configuration;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
@@ -21,18 +23,25 @@ namespace CSE_DEPARTMENT
 {
     public class EmailService : IIdentityMessageService
     {
+       
+
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
             return Task.FromResult(0);
+
+
         }
-      
+        
+
     }
 
     public class SmsService : IIdentityMessageService
     {
         public Task SendAsync(IdentityMessage message)
         {
+            // Plug in your SMS service here to send a text message.
+            //return Task.FromResult(0);
             // Twilio Begin
             var accountSid = ConfigurationManager.AppSettings["SMSAccountIdentification"];
             var authToken = ConfigurationManager.AppSettings["SMSAccountPassword"];
@@ -51,18 +60,6 @@ namespace CSE_DEPARTMENT
             //Twilio doesn't currently have an async API, so return success.
             return Task.FromResult(0);
             // Twilio End
-
-            // ASPSMS Begin 
-            // var soapSms = new MvcPWx.ASPSMSX2.ASPSMSX2SoapClient("ASPSMSX2Soap");
-            // soapSms.SendSimpleTextSMS(
-            //   System.Configuration.ConfigurationManager.AppSettings["SMSAccountIdentification"],
-            //   System.Configuration.ConfigurationManager.AppSettings["SMSAccountPassword"],
-            //   message.Destination,
-            //   System.Configuration.ConfigurationManager.AppSettings["SMSAccountFrom"],
-            //   message.Body);
-            // soapSms.Close();
-            // return Task.FromResult(0);
-            // ASPSMS End
         }
     }
 
