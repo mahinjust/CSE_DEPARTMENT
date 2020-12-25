@@ -54,15 +54,15 @@ namespace CSE_DEPARTMENT
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "3940182199359781",
+               appSecret: "c93ace0179e8219edee74b6aaad26d00");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "79944842592-sgo9o3nasrmhsk4rpv64cj1f8uqio63q.apps.googleusercontent.com",
+                ClientSecret = "Q1-ThHfNymN0bbgbqtW1Afd7"
+            });
         }
     }
 }
