@@ -214,6 +214,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\activitiesController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\booksController.cs" />
     <Compile Include="Controllers\current_academicController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -241,6 +242,10 @@
     <Compile Include="Migrations\202012211459048_database1.cs" />
     <Compile Include="Migrations\202012211459048_database1.Designer.cs">
       <DependentUpon>202012211459048_database1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012280728334_Role.cs" />
+    <Compile Include="Migrations\202012280728334_Role.Designer.cs">
+      <DependentUpon>202012280728334_Role.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -404,6 +409,10 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Web.config" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\CreateUser.cshtml" />
+    <Content Include="Views\Admin\AssignRole.cshtml" />
+    <Content Include="Views\Admin\CreateRole.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -424,6 +433,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012211459048_database1.resx">
       <DependentUpon>202012211459048_database1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012280728334_Role.resx">
+      <DependentUpon>202012280728334_Role.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

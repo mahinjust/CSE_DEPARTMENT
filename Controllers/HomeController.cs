@@ -13,10 +13,10 @@ namespace CSE_DEPARTMENT.Controllers
         {
             return View();
         }
-
+        [Authorize]
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Your application description page. Only for the authorized people.";
 
             return View();
         }
