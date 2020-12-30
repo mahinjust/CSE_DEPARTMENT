@@ -3,14 +3,14 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Admin Index</h2>
 <br />
 <br />
-<ul>
-    <li>@Html.ActionLink("Create User", "CreateUser", "Admin")</li>
-    <br />
-    <li>@Html.ActionLink("Create Role", "CreateRole", "Admin")</li>
-    <br />
-    <li>@Html.ActionLink("Assign Role", "AssignRole", "Admin")</li>
+<div>
+    @Html.ActionLink("Create User", "CreateUser", "Admin", null, new { @class = "btn btn-info" })
+    <br /><br />
+    @Html.ActionLink("Create Role", "CreateRole", "Admin", null, new { @class = "btn btn-info" })
+    <br /><br />
+    @Html.ActionLink("Assign Role", "AssignRole", "Admin", null, new { @class = "btn btn-info" })
 
-</ul>
+</div>

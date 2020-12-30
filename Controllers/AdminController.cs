@@ -39,7 +39,8 @@ namespace CSE_DEPARTMENT.Controllers
 
             var newuser = usermanager.Create(user, pwd);
 
-            return View("Index");
+            return View("");
+
         }
 
         public ActionResult AssignRole()
@@ -60,7 +61,7 @@ namespace CSE_DEPARTMENT.Controllers
 
 
 
-            return View("Index");
+            return View("");
         }
 
         public ActionResult CreateRole()
@@ -79,7 +80,9 @@ namespace CSE_DEPARTMENT.Controllers
                 var role = new IdentityRole(rolename);
                 rolemanager.Create(role);
             }
-            return View("Index");
+            return View("");
         }
+
+
     }
 }

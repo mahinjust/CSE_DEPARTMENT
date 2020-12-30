@@ -1,0 +1,16 @@
+﻿@model CSE_DEPARTMENT.ViewModel.Multipledata
+
+@{
+    ViewBag.Title = "Multidata";
+}
+
+<h2>All Roles</h2>
+<br />
+<br />
+<div>
+
+    @{WebGrid obj = new WebGrid(source: Model.AspNetRole, canPage: true, rowsPerPage: 10);}
+    @obj.GetHtml()
+</div>
+
+@Html.ActionLink("Back To List", "Index", "Admin", null, new { @class = "btn btn-warning" })

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CSE_DEPARTMENT.Models
 {
@@ -25,10 +26,14 @@ namespace CSE_DEPARTMENT.Models
         public string publication { get; set; }
         public string publication_links { get; set; }
         public string website { get; set; }
+        [Display(Name = "UserId")]
+        public virtual string Id { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<routine> routines { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<teacher_career> teacher_career { get; set; }
+        [ForeignKey("Id")]
+        public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }

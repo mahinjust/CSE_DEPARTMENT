@@ -36,6 +36,8 @@ namespace CSE_DEPARTMENT.Models
         public string guardians_name { get; set; }
         public string guardians_occupation { get; set; }
         public string guardians_contact_no { get; set; }
+        [Display(Name = "UserId")]
+        public virtual string Id { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<result> results { get; set; }
@@ -49,5 +51,7 @@ namespace CSE_DEPARTMENT.Models
         public virtual ICollection<previous_academic> previous_academic { get; set; }
         [ForeignKey("year_id")]
         public virtual Year Year { get; set; }
+        [ForeignKey("Id")]
+        public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }

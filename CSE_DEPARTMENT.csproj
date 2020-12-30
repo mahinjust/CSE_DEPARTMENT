@@ -107,6 +107,7 @@
     </Reference>
     <Reference Include="System.Net" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -225,6 +226,7 @@
     <Compile Include="Controllers\resultsController.cs" />
     <Compile Include="Controllers\routinesController.cs" />
     <Compile Include="Controllers\SessionsController.cs" />
+    <Compile Include="Controllers\ShowDataController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
     <Compile Include="Controllers\staff_careerController.cs" />
     <Compile Include="Controllers\studentsController.cs" />
@@ -247,9 +249,19 @@
     <Compile Include="Migrations\202012280728334_Role.Designer.cs">
       <DependentUpon>202012280728334_Role.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012292014389_userforeignid.cs" />
+    <Compile Include="Migrations\202012292014389_userforeignid.Designer.cs">
+      <DependentUpon>202012292014389_userforeignid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\activities.cs" />
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>UserRoleAssign.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>UserRoleAssign.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\book.cs" />
     <Compile Include="Models\current_academic.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -266,9 +278,25 @@
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\teacher.cs" />
     <Compile Include="Models\teacher_career.cs" />
+    <Compile Include="Models\UserRoleAssign.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserRoleAssign.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserRoleAssign.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserRoleAssign.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserRoleAssign.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserRoleAssign.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Year.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\Multipledata.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -287,8 +315,25 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Global.asax" />
+    <Content Include="Models\UserRoleAssign.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UserRoleAssign.edmx</DependentUpon>
+      <LastGenOutput>UserRoleAssign.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\UserRoleAssign.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UserRoleAssign.edmx</DependentUpon>
+      <LastGenOutput>UserRoleAssign.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\UserRoleAssign.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UserRoleAssign.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\UserRoleAssign.edmx.diagram">
+      <DependentUpon>UserRoleAssign.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -413,6 +458,8 @@
     <Content Include="Views\Admin\CreateUser.cshtml" />
     <Content Include="Views\Admin\AssignRole.cshtml" />
     <Content Include="Views\Admin\CreateRole.cshtml" />
+    <Content Include="Views\ShowData\Multidata.cshtml" />
+    <Content Include="Views\ShowData\Multidata2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -437,6 +484,12 @@
     <EmbeddedResource Include="Migrations\202012280728334_Role.resx">
       <DependentUpon>202012280728334_Role.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012292014389_userforeignid.resx">
+      <DependentUpon>202012292014389_userforeignid.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
