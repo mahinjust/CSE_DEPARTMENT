@@ -5,6 +5,7 @@
 }
 
 <h2>@ViewBag.Title</h2>
+<br />
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
@@ -16,7 +17,7 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-7input-group">
+        <div class="col-lg-offset-1">
             @*<div class="input-group">*@
                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
             @*</div>*@
