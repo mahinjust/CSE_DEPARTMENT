@@ -1,8 +1,11 @@
-﻿using CSE_DEPARTMENT.Models;
+﻿
+using CSE_DEPARTMENT.Models;
+using CSE_DEPARTMENT.ViewModel;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -15,10 +18,12 @@ namespace CSE_DEPARTMENT.Controllers
         ApplicationDbContext context = new ApplicationDbContext();
 
         // GET: Admin
+
         public ActionResult Index()
         {
             return View();
         }
+
 
         public ActionResult CreateUser()
         {
@@ -39,8 +44,7 @@ namespace CSE_DEPARTMENT.Controllers
 
             var newuser = usermanager.Create(user, pwd);
 
-            return View("");
-
+            return RedirectToAction("Multidata2", "ShowData");
         }
 
         public ActionResult AssignRole()
@@ -58,10 +62,7 @@ namespace CSE_DEPARTMENT.Controllers
             ApplicationUser user = context.Users.Where(u => u.UserName.Equals(usrname, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
             userManager.AddToRole(user.Id, rolname);
-
-
-
-            return View("");
+            return RedirectToAction("UsersWithRoles", "ManageUsers");
         }
 
         public ActionResult CreateRole()
@@ -80,9 +81,7 @@ namespace CSE_DEPARTMENT.Controllers
                 var role = new IdentityRole(rolename);
                 rolemanager.Create(role);
             }
-            return View("");
+            return RedirectToAction("Multidata", "ShowData");
         }
-
-
     }
 }

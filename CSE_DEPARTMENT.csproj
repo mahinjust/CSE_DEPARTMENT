@@ -220,6 +220,7 @@
     <Compile Include="Controllers\current_academicController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ManageUsersController.cs" />
     <Compile Include="Controllers\materialsController.cs" />
     <Compile Include="Controllers\noticesController.cs" />
     <Compile Include="Controllers\previous_academicController.cs" />
@@ -297,6 +298,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\Multipledata.cs" />
+    <Compile Include="ViewModel\Users-in-Role_ViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -315,6 +317,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Global.asax" />
+    <Content Include="Images\eye-icon.png" />
     <Content Include="Models\UserRoleAssign.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>UserRoleAssign.edmx</DependentUpon>
@@ -346,6 +349,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Site.js" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
@@ -460,6 +464,7 @@
     <Content Include="Views\Admin\CreateRole.cshtml" />
     <Content Include="Views\ShowData\Multidata.cshtml" />
     <Content Include="Views\ShowData\Multidata2.cshtml" />
+    <Content Include="Views\ManageUsers\UsersWithRoles.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

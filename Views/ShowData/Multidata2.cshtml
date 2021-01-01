@@ -1,16 +1,89 @@
 ﻿@model CSE_DEPARTMENT.ViewModel.Multipledata
 
 @{
-    ViewBag.Title = "Multidata2";
+    Layout = null;
+
+    WebGrid obj1 = new WebGrid(source: Model.AspNetUser, canPage: true, rowsPerPage: 5);
 }
 
-<h2>All Users</h2>
-<br />
-<br />
-<div>
-    @{WebGrid obj1 = new WebGrid(source: Model.AspNetUser, canPage: true, rowsPerPage: 10);}
-    @obj1.GetHtml()
 
-</div>
+<!DOCTYPE html>
 
-@Html.ActionLink("Back To List", "Index","Admin", null, new { @class = "btn btn-warning" })
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Users</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+        .Grid {
+            border: 3px solid #5f6660;
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+            .Grid th {
+                background-color: #8ca191;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .Grid th, .Grid td {
+                padding: 5px;
+                border: 1px solid #ccc;
+            }
+
+            .Grid, .Grid table td {
+                border: 0px solid #ccc;
+            }
+
+                .Grid th a, .Grid th a:visited {
+                    color: #333;
+                }
+
+        h2 {
+            text-align: center;
+        }
+
+        .buttonback {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <br /><br />
+    <h2>Users</h2>
+    <br />
+    @obj1.GetHtml(
+    htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
+    fillEmptyRows: true,
+    //show empty row when there is only one record on page to it will display all empty rows there.
+    headerStyle: "header", //applying style.
+    footerStyle: "grid-footer", //applying style.
+    mode: WebGridPagerModes.All, //paging to grid
+    firstText: "<< First",
+    previousText: "< Prev",
+    nextText: "Next >",
+    lastText: "Last >>",
+    columns: obj1.Columns(
+                 obj1.Column("Id", "ID"),
+                 obj1.Column("Email", "Email"),
+                 obj1.Column("EmailConfirmed", "Email-Confirmed"),
+                 obj1.Column("PhoneNumber", "Phone-Number"),
+                 obj1.Column("PhoneNumberConfirmed", "PhoneNumber-Confirmed"),
+                 obj1.Column("TwoFactorEnabled", "TwoFactor-Enabled"),
+                 obj1.Column("LockoutEnabled", "Lockout-Enabled"),
+                 obj1.Column("UserName", "UserName")))
+    <br />
+    <div class=" buttonback">
+        @Html.ActionLink("Back To List", "Index", "Admin", null, new { @class = "btn btn-warning btn-lg" })
+    </div>
+</body>
+
+
+</html>

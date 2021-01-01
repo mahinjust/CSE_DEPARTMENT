@@ -1,16 +1,28 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "Admin-Section";
 }
-
-<h2>Admin Index</h2>
 <br />
 <br />
-<div>
-    @Html.ActionLink("Create User", "CreateUser", "Admin", null, new { @class = "btn btn-info" })
-    <br /><br />
-    @Html.ActionLink("Create Role", "CreateRole", "Admin", null, new { @class = "btn btn-info" })
-    <br /><br />
-    @Html.ActionLink("Assign Role", "AssignRole", "Admin", null, new { @class = "btn btn-info" })
 
+<h2>Admin Arena</h2>
+<br />
+<br />
+<div class="row">
+    <div class="col-md-6">
+        @Html.ActionLink("Create User", "CreateUser", "Admin", null, new { @class = "btn btn-info btn-lg btn-block" })<br /><br />
+    </div>
+    <div class="col-md-6">
+        @Html.ActionLink("Create Role", "CreateRole", "Admin", null, new { @class = "btn btn-primary btn-lg btn-block" })<br /><br />
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        @Html.ActionLink("Assign Role", "AssignRole", "Admin", null, new { @class = "btn btn-success btn-lg btn-block" })<br /><br />
+    </div>
+    <div class="col-md-6">
+        @Html.ActionLink("View User With Role", "UsersWithRoles", "ManageUsers", null, new { @class = "btn btn-warning btn-lg btn-block" })
+
+    </div>
 </div>

@@ -1,16 +1,85 @@
 ﻿@model CSE_DEPARTMENT.ViewModel.Multipledata
 
+@*@{WebGrid obj = new WebGrid(source: Model.AspNetRole, canPage: true, rowsPerPage: 5);}*@
 @{
-    ViewBag.Title = "Multidata";
+    Layout = null;
+
+    WebGrid obj = new WebGrid(source: Model.AspNetRole, canPage: true, rowsPerPage: 5);
 }
 
-<h2>All Roles</h2>
-<br />
-<br />
-<div>
 
-    @{WebGrid obj = new WebGrid(source: Model.AspNetRole, canPage: true, rowsPerPage: 10);}
-    @obj.GetHtml()
-</div>
 
-@Html.ActionLink("Back To List", "Index", "Admin", null, new { @class = "btn btn-warning" })
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Roles</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 15pt;
+        }
+
+        .Grid {
+            border: 3px solid #5f6660;
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+            .Grid th {
+                background-color: #8ca191;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .Grid th, .Grid td {
+                padding: 5px;
+                border: 1px solid #ccc;
+            }
+
+            .Grid, .Grid table td {
+                border: 0px solid #ccc;
+            }
+
+                .Grid th a, .Grid th a:visited {
+                    color: #333;
+                }
+
+        h2 {
+            text-align: center;
+        }
+
+        .buttonback {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <br /><br />
+    <h2>Roles</h2>
+    <br />
+    @obj.GetHtml(
+    htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
+    fillEmptyRows: true,
+    //show empty row when there is only one record on page to it will display all empty rows there.
+    headerStyle: "header", //applying style.
+    footerStyle: "grid-footer", //applying style.
+    mode: WebGridPagerModes.All, //paging to grid
+    firstText: "<< First",
+    previousText: "< Prev",
+    nextText: "Next >",
+    lastText: "Last >>",
+    columns: obj.Columns(
+                 obj.Column("ID", "ID"),
+                 obj.Column("Name", "Name")))
+    <br />
+    <div class=" buttonback">
+        @Html.ActionLink("Back To List", "Index", "Admin", null, new { @class = "btn btn-warning btn-lg" })
+    </div>
+</body>
+
+
+</html>
