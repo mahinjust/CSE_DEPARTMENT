@@ -4,13 +4,14 @@
     ViewBag.Title = "Register";
 }
 
-<h2>@ViewBag.Title</h2>
+
+<br />
 <br />
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Create a new account</h4>
+    <h3>Create a new account</h3>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
 
@@ -19,7 +20,7 @@
         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
         <div class="col-lg-offset-1">
             @*<div class="input-group">*@
-                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
             @*</div>*@
         </div>
     </div>
