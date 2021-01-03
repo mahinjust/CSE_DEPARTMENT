@@ -3,7 +3,7 @@
     ViewBag.Title = "Manage";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
@@ -12,38 +12,40 @@
     <dl class="dl-horizontal">
         <dt>Password:</dt>
         <dd>
-            [
+            
             @if (Model.HasPassword)
             {
-                @Html.ActionLink("Change your password", "ChangePassword")
+                @Html.ActionLink("Change your password", "ChangePassword", null, new { @class = "btn btn-info" })
             }
             else
             {
-                @Html.ActionLink("Create", "SetPassword")
+                @Html.ActionLink("Create", "SetPassword", null, new { @class = "btn btn-success" })
             }
-            ]
+            
         </dd>
+        <br />
         <dt>External Logins:</dt>
         <dd>
-            @Model.Logins.Count [
-            @Html.ActionLink("Manage", "ManageLogins") ]
+            @Model.Logins.Count 
+            @Html.ActionLink("Manage", "ManageLogins", null, new { @class = "btn btn-warning" }) 
         </dd>
-
+        <br />
         <dt>Phone Number:</dt>
         <dd>
-            @(Model.PhoneNumber ?? "None") [
+            @(Model.PhoneNumber ?? "None") 
             @if (Model.PhoneNumber != null)
             {
-                @Html.ActionLink("Change", "AddPhoneNumber")
+                @Html.ActionLink("Change", "AddPhoneNumber", null, new { @class = "btn btn-primary" })
                 @: &nbsp;|&nbsp;
-                @Html.ActionLink("Remove", "RemovePhoneNumber")
+                @Html.ActionLink("Remove", "RemovePhoneNumber", null, new { @class = "btn btn-danger" })
             }
             else
             {
-                @Html.ActionLink("Add", "AddPhoneNumber")
+                @Html.ActionLink("Add", "AddPhoneNumber", null, new { @class = "btn btn-success" })
             }
-            ]
+            
         </dd>
+        <br />
         <dt>Two-Factor Authentication:</dt>
         <dd>
             @if (Model.TwoFactor)
@@ -52,7 +54,7 @@
                 {
                     @Html.AntiForgeryToken()
                     <text>Enabled
-                        <input type="submit" value="Disable" class="btn btn-link" />
+                        <input type="submit" value="Disable" class="btn btn-danger" />
                     </text>
                 }
             }
@@ -62,7 +64,7 @@
                 {
                     @Html.AntiForgeryToken()
                     <text>Disabled
-                        <input type="submit" value="Enable" class="btn btn-link" />
+                        <input type="submit" value="Enable" class="btn btn-primary" />
                     </text>
                 }
             }

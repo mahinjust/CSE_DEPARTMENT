@@ -3,7 +3,7 @@
     ViewBag.Title = "Send";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 
 @using (Html.BeginForm("SendCode", "Account", new { ReturnUrl = Model.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
     @Html.AntiForgeryToken()
@@ -14,7 +14,7 @@
         <div class="col-md-8">
             Select Two-Factor Authentication Provider:
             @Html.DropDownListFor(model => model.SelectedProvider, Model.Providers)
-            <input type="submit" value="Submit" class="btn btn-default" />
+            <input type="submit" value="Submit" class="btn btn-success" />
         </div>
     </div>
 }
