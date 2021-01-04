@@ -1,5 +1,4 @@
-﻿
-using CSE_DEPARTMENT.Models;
+﻿using CSE_DEPARTMENT.Models;
 using CSE_DEPARTMENT.ViewModel;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;

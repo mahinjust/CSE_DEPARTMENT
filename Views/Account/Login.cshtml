@@ -1,8 +1,11 @@
 ﻿@using CSE_DEPARTMENT.Models
+
 @model LoginViewModel
 @{
     ViewBag.Title = "Log in";
 }
+
+
 <br />
 <div class="row">
     <div class="col-md-8">
@@ -11,6 +14,7 @@
             {
                 @Html.AntiForgeryToken()
                 <h2>Use a local account to log in</h2>
+                <hr />
                 <br />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
@@ -18,10 +22,12 @@
                     <div class="col-md-6 input-group ">
 
                         @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        <br /><br />
+                        @Html.ValidationMessageFor(m => m.Email, ""@*, new { @class = "text-danger" }*@, new { @style = "color: white" })
 
                     </div>
                 </div>
+
                 <div class="form-group">
                     @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
                     <div class="col-md-5 input-group">
@@ -30,7 +36,7 @@
                             <span class="input-group-addon"><img id="btnShow" src="~/Images/eye-icon.png" /></span>
                         </div>
 
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @style = "color: white" })
                     </div>
                 </div>
                 <div class="form-group">
@@ -41,20 +47,30 @@
                         </div>
                     </div>
                 </div>
+
+
                 <div class="form-group">
-                    <div class="col-md-offset-2">
-                        <input type="submit" value="Log in" class="btn btn-primary" />
+                    <div class="col-md-offset-2 col-md-10">
+                        <div>
+                            <input type="submit" value="Log in" class="btn btn-primary" />
+                            &nbsp;
+                            @Html.ActionLink("Forgot your password?", "ForgotPassword", null, new { @class = "btn btn-danger" })
+
+                        </div>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <div class="col-md-offset-2">
-                        @*//Enable this once you have account confirmation enabled for password reset functionality*@
-                        <p>
-                            @Html.ActionLink("Forgot your password?", "ForgotPassword", null, new { @class = "btn btn-danger" })
-                        </p>
-                    </div>
+
+
+
+                @*<div class="form-group">
+                <div class="col-md-offset-2">
+                    //Enable this once you have account confirmation enabled for password reset functionality
+                    <p>
+                        @Html.ActionLink("Forgot your password?", "ForgotPassword", null, new { @class = "btn btn-danger" })
+                    </p>
                 </div>
+            </div>*@
             }
         </section>
     </div>

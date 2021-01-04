@@ -4,41 +4,50 @@
     ViewBag.Title = "Users With Roles";
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<br />
-<br />
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="box-title">
-            <b>Users with Roles</b>
-        </h3>
+<style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #b2beb5;
+    }
+</style>
+<body>
+    <br />
+    <br />
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="box-title">
+                <b>Users with Roles</b>
+            </h3>
+        </div>
+        <!-- /.box-header -->
+
+        <div class="panel-body">
+            <table class="table table-hover table-bordered table-condensed" id="UsersWithRoles">
+                <thead>
+                    <tr>
+                        <td><b>Username</b></td>
+                        <td><b>Email</b></td>
+                        <td><b>Roles</b></td>
+                    </tr>
+                </thead>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.Username</td>
+                        <td>@user.Email</td>
+                        <td>@user.Role</td>
+
+                    </tr>
+
+                }
+            </table>
+        </div>
+
+
     </div>
-    <!-- /.box-header -->
 
-    <div class="panel-body">
-        <table class="table table-hover table-bordered table-condensed" id="UsersWithRoles">
-            <thead>
-                <tr>
-                    <td><b>Username</b></td>
-                    <td><b>Email</b></td>
-                    <td><b>Roles</b></td>
-                </tr>
-            </thead>
-            @foreach (var user in Model)
-            {
-                <tr>
-                    <td>@user.Username</td>
-                    <td>@user.Email</td>
-                    <td>@user.Role</td>
-
-                </tr>
-
-            }
-        </table>
-    </div>
+    @Html.ActionLink("Back To List", "Index", "Admin", null, new { @class = "btn btn-warning" })
 
 
-</div>
-
-@Html.ActionLink("Back To List", "Index", "Admin", null, new { @class = "btn btn-warning" })
-
-
+    </body>

@@ -1,13 +1,15 @@
 ﻿@{
     ViewBag.Title = "CreateUser";
 }
-
+<br />
 <h2>Create User</h2>
-<br /><br />
+<hr />
+
 @using (Html.BeginForm("CreateUser", "Admin", FormMethod.Post))
 {
     <div class="row">
         <div>
+
             <label class="control-label">User Email</label>
             <input type="text" name="txtEmail" class="form-control" />
             <br />
@@ -22,8 +24,8 @@
     <div class="row">
         <div class="col-md-12">
             <button type="submit" value="Submit" class="btn btn-primary">Save</button>
-            @Html.ActionLink("All User", "Multidata2", "ShowData", null, new { @class = "btn btn-success" })
-            @Html.ActionLink("Back To List", "Index", null, new { @class = "btn btn-warning" })
+            @Html.ActionLink("Show All User", "Multidata2", "ShowData", null, new { @class = "btn btn-success" })
+            @Html.ActionLink("Go Back", "Index", null, new { @class = "btn btn-warning" })
         </div>
 
     </div>

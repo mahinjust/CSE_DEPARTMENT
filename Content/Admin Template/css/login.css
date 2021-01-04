@@ -1,0 +1,12 @@
+﻿#login {
+    background-image: url('../img/login.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#welcome h3 {
+    color: floralwhite;
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+}
+

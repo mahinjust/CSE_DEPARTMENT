@@ -1,30 +1,40 @@
 ﻿@{
     ViewBag.Title = "AssignRole";
 }
+<style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #b2beb5;
+    }
+</style>
+<body>
 
-<h2>Assign Role</h2>
-<br /> <br />
-@using (Html.BeginForm("AssignRole", "Admin", FormMethod.Post))
-{
-    <div class="row">
-        <div>
-            <label class="control-label">User Name</label>
-            @Html.DropDownList("dropUserName", (IEnumerable<SelectListItem>)ViewBag.Users, "--Select--")
-            @*<input type="text" name="txtUserName" class="form-control" />*@
-            <br /><br />
-            <label class="control-label">Select Role</label>
-            @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "--Select--")
-
-
-        </div>
-    </div>
     <br />
-    <div class="row">
-        <div class="col-md-12 col-lg-12">
-            <button class="btn btn-primary" typeof="submit">Save</button>
+    <h2>Assign Role</h2>
+    <hr />
+    <br />
+    @using (Html.BeginForm("AssignRole", "Admin", FormMethod.Post))
+    {
+        <div class="row">
+            <div>
+                <label class="control-label">User Name</label>
+                @Html.DropDownList("dropUserName", (IEnumerable<SelectListItem>)ViewBag.Users, "--Select--")
+                @*<input type="text" name="txtUserName" class="form-control" />*@
+                <br /><br />
+                <label class="control-label">Select Role</label>
+                @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "--Select--")
 
-            @Html.ActionLink("Back To List", "Index", null, new { @class = "btn btn-warning" })
+
+            </div>
         </div>
-    </div>
-}
+        <br />
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <button class="btn btn-primary" typeof="submit">Save</button>
+                @Html.ActionLink("Go Back", "Index", null, new { @class = "btn btn-warning" })
+            </div>
+        </div>
 
+
+    }</body>

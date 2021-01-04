@@ -13,40 +13,48 @@
     @Html.AntiForgeryToken()
     <h3>Create a new account</h3>
     <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
+    @Html.ValidationSummary("", new { @style = "color: white" })
 
 
     <div class="form-group">
         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-lg-offset-1">
+        <div class="col-md-6 input-group ">
             @*<div class="input-group">*@
             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
             @*</div>*@
         </div>
     </div>
+
     <div class="form-group">
         @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
         <div class="col-md-3 input-group">
             <div class="input-group">
+
                 @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                 <span class="input-group-addon"><img id="btnShow" src="~/Images/eye-icon.png" /></span>
+
             </div>
         </div>
     </div>
+
     <div class="form-group">
         @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
         <div class="col-md-3 input-group">
             <div class="input-group">
                 @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
                 <span class="input-group-addon"><img id="btnShow" src="~/Images/eye-icon.png" /></span>
+
+
             </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2">
+            <br />
             <input type="submit" class="btn btn-primary" value="Register" />
+            &nbsp;
+            @Html.ActionLink("Go Back", "Login", "Account", null, new { @class = "btn btn-warning" })
         </div>
     </div>
+
+
+
 }
 
 @section Scripts {

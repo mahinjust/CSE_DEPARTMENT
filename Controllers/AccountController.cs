@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using CSE_DEPARTMENT.Models;
+using System.Web.Security;
+using System.Collections.Generic;
 
 namespace CSE_DEPARTMENT.Controllers
 {
@@ -20,7 +22,10 @@ namespace CSE_DEPARTMENT.Controllers
 
         public AccountController()
         {
+
         }
+
+
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
@@ -75,10 +80,13 @@ namespace CSE_DEPARTMENT.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
+
+
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
@@ -86,7 +94,15 @@ namespace CSE_DEPARTMENT.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    ApplicationUser user = await UserManager.FindAsync(model.Email, model.Password);
+                    // Redirect to User landing page on SignIn, according to Role
+                    if ((UserManager.IsInRole(user.Id, "SuperAdmin")))
+                    {
+                        return RedirectToAction("Index", "Admin");
+                    }
+                    return RedirectToAction("Index", "Home");
+
+                //return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -472,6 +488,7 @@ namespace CSE_DEPARTMENT.Controllers
                 RedirectUri = redirectUri;
                 UserId = userId;
             }
+
 
             public string LoginProvider { get; set; }
             public string RedirectUri { get; set; }

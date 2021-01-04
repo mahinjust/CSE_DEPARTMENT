@@ -18,6 +18,11 @@
         body {
             font-family: Arial;
             font-size: 10pt;
+            color: #F0FFF0;
+            background-image: url('../Images/binary.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100%;
         }
 
         .Grid {
@@ -81,9 +86,10 @@
                  obj1.Column("UserName", "UserName")))
     <br />
     <div class=" buttonback">
-        @Html.ActionLink("Back To List", "Index", "Admin", null, new { @class = "btn btn-warning btn-lg" })
+        @Html.ActionLink("Go Back", "Index", "Admin", null, new { @class = "btn btn-warning btn-lg" })
     </div>
 </body>
 
 
 </html>
+
