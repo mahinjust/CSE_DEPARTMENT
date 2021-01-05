@@ -12,38 +12,34 @@
     <dl class="dl-horizontal">
         <dt>Password:</dt>
         <dd>
-            
+
             @if (Model.HasPassword)
             {
-                @Html.ActionLink("Change your password", "ChangePassword", null, new { @class = "btn btn-info" })
-            }
-            else
-            {
-                @Html.ActionLink("Create", "SetPassword", null, new { @class = "btn btn-success" })
-            }
-            
+    @Html.ActionLink("Change your password", "ChangePassword", null, new { @class = "btn btn-info" }) }
+                else
+                {
+    @Html.ActionLink("Create", "SetPassword", null, new { @class = "btn btn-success" })            }
+
         </dd>
         <br />
         <dt>External Logins:</dt>
         <dd>
-            @Model.Logins.Count 
-            @Html.ActionLink("Manage", "ManageLogins", null, new { @class = "btn btn-warning" }) 
+            @Model.Logins.Count
+            @Html.ActionLink("Manage", "ManageLogins", null, new { @class = "btn btn-warning" })
         </dd>
         <br />
         <dt>Phone Number:</dt>
         <dd>
-            @(Model.PhoneNumber ?? "None") 
+            @(Model.PhoneNumber ?? "None")
             @if (Model.PhoneNumber != null)
             {
-                @Html.ActionLink("Change", "AddPhoneNumber", null, new { @class = "btn btn-primary" })
-                @: &nbsp;|&nbsp;
-                @Html.ActionLink("Remove", "RemovePhoneNumber", null, new { @class = "btn btn-danger" })
-            }
-            else
-            {
-                @Html.ActionLink("Add", "AddPhoneNumber", null, new { @class = "btn btn-success" })
-            }
-            
+    @Html.ActionLink("Change", "AddPhoneNumber", null, new { @class = "btn btn-primary" })
+                    @: &nbsp;|&nbsp;
+                    @Html.ActionLink("Remove", "RemovePhoneNumber", null, new { @class = "btn btn-danger" }) }
+                                else
+                                {
+                    @Html.ActionLink("Add", "AddPhoneNumber", null, new { @class = "btn btn-success" })            }
+
         </dd>
         <br />
         <dt>Two-Factor Authentication:</dt>
@@ -52,22 +48,20 @@
             {
                 using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                 {
-                    @Html.AntiForgeryToken()
-                    <text>Enabled
-                        <input type="submit" value="Disable" class="btn btn-danger" />
-                    </text>
-                }
-            }
-            else
-            {
-                using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                {
-                    @Html.AntiForgeryToken()
-                    <text>Disabled
-                        <input type="submit" value="Enable" class="btn btn-primary" />
-                    </text>
-                }
-            }
+    @Html.AntiForgeryToken()
+                        <text>Enabled
+                            <input type="submit" value="Disable" class="btn btn-danger" />
+                        </text> }
+                                    }
+                                    else
+                                    {
+                                        using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                        {
+                        @Html.AntiForgeryToken()
+                                            <text>Disabled
+                                                <input type="submit" value="Enable" class="btn btn-primary" />
+                                            </text>                }
+                                                        }
 
 
 
@@ -76,10 +70,10 @@
 
             @*Phone Numbers can used as a second factor of verification in a two-factor authentication system.
 
-             See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                for details on setting up this ASP.NET application to support two-factor authentication using SMS.
+            See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+               for details on setting up this ASP.NET application to support two-factor authentication using SMS.
 
-             Uncomment the following block after you have set up two-factor authentication
+            Uncomment the following block after you have set up two-factor authentication
             *@
 
             @*<dt>Phone Number:</dt>
@@ -128,5 +122,11 @@
                 }
             }*@
         </dd>
+        <br />
+        <br />
+
+        <div class="text-center">
+            @Html.ActionLink("Go Back", "Index", "Home", null, new { @class = "btn btn-danger" })
+        </div>
     </dl>
 </div>
