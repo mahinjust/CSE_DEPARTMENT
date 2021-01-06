@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Microsoft.AspNet.Identity
+@{
     ViewBag.Title = "Home Page";
 }
 <head>
@@ -6,8 +7,9 @@
         #div1 {
             font-size: 48px;
         }
+
         #content {
-            background-image: url('../../Images/login.jpg');
+            background-image: url('../../Images/background.jpg');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: 100%;
@@ -30,7 +32,7 @@
 
 
 
-<body>
+<body id="page-top">
 
     <div id="wrapper">
 
@@ -184,12 +186,12 @@
 
 
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            @*<hr class="sidebar-divider d-none d-md-block">*@
 
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+            @*<div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>*@
 
 
 
@@ -206,7 +208,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" style="position: fixed; top: 0; width: 86%">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -313,35 +315,36 @@
     </div>
 
     <div class="text-center">
-        <br />
         <footer>
-            <p>&copy; @*@DateTime.Now.Year*@ DEVELOPERS TEAM, CSE</p>
+
+            <p><b>&copy; @*@DateTime.Now.Year*@ DEVELOPERS TEAM, CSE</b></p>
+
         </footer>
     </div>
-        <!-- Bootstrap core JavaScript-->
-        <script src="~/Content/Admin Template/vendor/jquery/jquery.min.js"></script>
-        <script src="~/Content/Admin Template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/Content/Admin Template/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/Admin Template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Core plugin JavaScript-->
-        <script src="~/Content/Admin Template/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="~/Content/Admin Template/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="~/Content/Admin Template/js/sb-admin-2.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="~/Content/Admin Template/js/sb-admin-2.min.js"></script>
 
-        <!-- Page level plugins -->
-        <script src="~/Content/Admin Template/vendor/chart.js/Chart.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="~/Content/Admin Template/vendor/chart.js/Chart.min.js"></script>
 
-        <!-- Page level custom scripts -->
-        <script src="~/Content/Admin Template/js/demo/chart-area-demo.js"></script>
-        <script src="~/Content/Admin Template/js/demo/chart-pie-demo.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="~/Content/Admin Template/js/demo/chart-area-demo.js"></script>
+    <script src="~/Content/Admin Template/js/demo/chart-pie-demo.js"></script>
 
 
-        <!-- Page level plugins -->
-        <script src="~/Content/Admin Template/vendor/datatables/jquery.dataTables.min.js"></script>
-        <script src="~/Content/Admin Template/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="~/Content/Admin Template/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Content/Admin Template/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-        <!-- Page level custom scripts -->
-        <script src="~/Content/Admin Template/js/demo/datatables-demo.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="~/Content/Admin Template/js/demo/datatables-demo.js"></script>
 
 
 </body>

@@ -1991,6 +1991,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Global.asax" />
+    <Content Include="Images\background.jpg" />
     <Content Include="Images\binary.jpg" />
     <Content Include="Images\eye-icon.png" />
     <Content Include="Images\login.jpg" />

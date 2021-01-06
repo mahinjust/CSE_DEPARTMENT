@@ -162,6 +162,8 @@ namespace CSE_DEPARTMENT.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ApplicationDbContext context = new ApplicationDbContext();
+            ViewBag.Roles = context.Roles.Select(r => new SelectListItem { Value = r.Name, Text = r.Name }).ToList();
             return View();
         }
 

@@ -15,7 +15,7 @@
 
             @if (Model.HasPassword)
             {
-    @Html.ActionLink("Change your password", "ChangePassword", null, new { @class = "btn btn-info" }) }
+    @Html.ActionLink("Change your password", "ChangePassword", null, new { @class = "btn btn-danger" }) }
                 else
                 {
     @Html.ActionLink("Create", "SetPassword", null, new { @class = "btn btn-success" })            }
@@ -126,7 +126,7 @@
         <br />
 
         <div class="text-center">
-            @Html.ActionLink("Go Back", "Index", "Home", null, new { @class = "btn btn-danger" })
+            @Html.ActionLink("Go Back", "Index", "Home", null, new { @class = "btn btn-info" })
         </div>
     </dl>
 </div>
