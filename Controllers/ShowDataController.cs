@@ -24,11 +24,19 @@ namespace CSE_DEPARTMENT.Controllers
 
         public ActionResult Multidata2()
         {
-            CSE_DEPARTMENT_DBEntities obj = new CSE_DEPARTMENT_DBEntities();
-            var mymodel = new Multipledata();
-            mymodel.AspNetUser = obj.AspNetUsers.ToList();
-
-            return View(mymodel);
+            var model = obj.AspNetUsers.ToList();
+            return View(model);
         }
+
+
+        public ActionResult Delete(string Id)
+        {
+            var model = obj.AspNetUsers.Find(Id);
+            obj.AspNetUsers.Remove(model);
+            obj.SaveChanges();
+            return RedirectToAction("Multidata2", "ShowData");
+        }
+
+
     }
 }

@@ -14,14 +14,14 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    
+
     <title>Roles</title>
-    
+
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <style type="text/css">
         body {
             font-family: Arial;
-            font-size: 15pt;
+            font-size: 18pt;
             color: #050100;
             background-image: url('../../Images/background.jpg');
             background-repeat: no-repeat;
@@ -39,7 +39,6 @@
             .Grid th {
                 background-color: #8ca191;
                 font-weight: bold;
-                text-align: center;
             }
 
             .Grid th, .Grid td {
@@ -66,27 +65,28 @@
 </head>
 <body>
     <br /><br />
-    <h2>Roles</h2>
+    <h2><b>Roles</b></h2>
     <br />
-    @obj.GetHtml(
-    htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
-    fillEmptyRows: true,
-    //show empty row when there is only one record on page to it will display all empty rows there.
-    headerStyle: "header", //applying style.
-    footerStyle: "grid-footer", //applying style.
-    mode: WebGridPagerModes.All, //paging to grid
-    firstText: "<< First",
-    previousText: "< Prev",
-    nextText: "Next >",
-    lastText: "Last >>",
-    columns: obj.Columns(
-                 obj.Column("ID", "ID"),
-                 obj.Column("Name", "Name")))
-    <br />
+    <div class="container">
+        @obj.GetHtml(tableStyle: "table table-bordered table-striped",
+        htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
+        columns: obj.Columns(
+                     obj.Column("ID", "ID"),
+                     obj.Column("Name", "Name")))
+        <br />
+    </div>
     <div class=" buttonback">
-        @Html.ActionLink("Go Back", "Index", "Admin", null, new { @class = "btn btn-info" })
+        @Html.ActionLink("Go Back", "Index", "Admin", null, new { @class = "btn btn-info btn-lg" })
     </div>
 </body>
 
 
 </html>
+<br />
+<div class="text-center">
+    <footer>
+
+        <p><b>&copy; @*@DateTime.Now.Year*@ DEVELOPERS TEAM, CSE</b></p>
+
+    </footer>
+</div>

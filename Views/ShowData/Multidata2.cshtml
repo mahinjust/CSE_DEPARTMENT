@@ -1,23 +1,17 @@
-﻿@model CSE_DEPARTMENT.ViewModel.Multipledata
-
+﻿@model List<CSE_DEPARTMENT.Models.AspNetUser>
 @{
     Layout = null;
-
-    WebGrid obj1 = new WebGrid(source: Model.AspNetUser, canPage: true, rowsPerPage: 5);
 }
-
-
-<!DOCTYPE html>
-
-<html>
+<title>All Users</title>
+<h2 class="container"></h2>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Users</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <style type="text/css">
         body {
             font-family: Arial;
-            font-size: 10pt;
+            font-size: 15pt;
             color: #050100;
             background-image: url('../../Images/background.jpg');
             background-repeat: no-repeat;
@@ -25,71 +19,47 @@
             background-size: 100%;
         }
 
-        .Grid {
-            border: 3px solid #5f6660;
-            border-collapse: collapse;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-            .Grid th {
-                background-color: #8ca191;
-                font-weight: bold;
-                text-align: center;
-            }
-
-            .Grid th, .Grid td {
-                padding: 5px;
-                border: 1px solid #ccc;
-            }
-
-            .Grid, .Grid table td {
-                border: 0px solid #ccc;
-            }
-
-                .Grid th a, .Grid th a:visited {
-                    color: #333;
-                }
-
-        h2 {
-            text-align: center;
-        }
-
         .buttonback {
             text-align: center;
         }
     </style>
 </head>
+
+
+
+
+@{
+    var wgrid = new WebGrid(source: Model, rowsPerPage: 5);
+
+}
 <body>
-    <br /><br />
-    <h2>Users</h2>
     <br />
-    @obj1.GetHtml(
-    htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
-    fillEmptyRows: true,
-    //show empty row when there is only one record on page to it will display all empty rows there.
-    headerStyle: "header", //applying style.
-    footerStyle: "grid-footer", //applying style.
-    mode: WebGridPagerModes.All, //paging to grid
-    firstText: "<< First",
-    previousText: "< Prev",
-    nextText: "Next >",
-    lastText: "Last >>",
-    columns: obj1.Columns(
-                 obj1.Column("Id", "ID"),
-                 obj1.Column("Email", "Email"),
-                 obj1.Column("EmailConfirmed", "Email-Confirmed"),
-                 obj1.Column("PhoneNumber", "Phone-Number"),
-                 obj1.Column("PhoneNumberConfirmed", "PhoneNumber-Confirmed"),
-                 obj1.Column("TwoFactorEnabled", "TwoFactor-Enabled"),
-                 obj1.Column("LockoutEnabled", "Lockout-Enabled"),
-                 obj1.Column("UserName", "UserName")))
+
+
+
+    <h2 class="text-center"><b>All Users</b></h2>
+
     <br />
+    <div class="container">
+        @wgrid.GetHtml(tableStyle: "table table-bordered table-striped", htmlAttributes: new { id = "wgrid" },
+        columns: wgrid.Columns(
+            wgrid.Column(columnName: "Id", header: "ID"),
+            wgrid.Column(columnName: "Email", header: "Email"),
+            wgrid.Column(columnName: "EmailConfirmed", header: "EmailConfirmed"),
+            wgrid.Column(columnName: "PhoneNumber", header: "PhoneNumber"),
+            wgrid.Column(columnName: "PhoneNumberConfirmed", header: "PhoneNumberConfirmed"),
+            wgrid.Column(columnName: "TwoFactorEnabled", header: "TwoFactorEnabled"),
+            wgrid.Column(header: "Action", format:@<a href="/ShowData/Delete/@item.ID" class="btn btn-danger">Delete</a>)))
+    </div>
     <div class=" buttonback">
-        @Html.ActionLink("Go Back", "Index", "Admin", null, new { @class = "btn btn-info " })
+        @Html.ActionLink("Go Back", "Index", "Admin", null, new { @class = "btn btn-info btn-lg" })
     </div>
 </body>
+<br />
+<div class="text-center">
+    <footer>
 
+        <p><b>&copy; @*@DateTime.Now.Year*@ DEVELOPERS TEAM, CSE</b></p>
 
-</html>
-
+    </footer>
+</div>
