@@ -16,9 +16,9 @@
             @if (Model.HasPassword)
             {
     @Html.ActionLink("Change your password", "ChangePassword", null, new { @class = "btn btn-danger" }) }
-                else
-                {
-    @Html.ActionLink("Create", "SetPassword", null, new { @class = "btn btn-success" })            }
+else
+{
+    @Html.ActionLink("Create", "SetPassword", null, new { @class = "btn btn-success" })}
 
         </dd>
         <br />
@@ -36,9 +36,9 @@
     @Html.ActionLink("Change", "AddPhoneNumber", null, new { @class = "btn btn-primary" })
                     @: &nbsp;|&nbsp;
                     @Html.ActionLink("Remove", "RemovePhoneNumber", null, new { @class = "btn btn-danger" }) }
-                                else
-                                {
-                    @Html.ActionLink("Add", "AddPhoneNumber", null, new { @class = "btn btn-success" })            }
+                else
+                {
+    @Html.ActionLink("Add", "AddPhoneNumber", null, new { @class = "btn btn-success" })}
 
         </dd>
         <br />
@@ -52,16 +52,16 @@
                         <text>Enabled
                             <input type="submit" value="Disable" class="btn btn-danger" />
                         </text> }
-                                    }
-                                    else
-                                    {
-                                        using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                                        {
-                        @Html.AntiForgeryToken()
-                                            <text>Disabled
-                                                <input type="submit" value="Enable" class="btn btn-primary" />
-                                            </text>                }
-                                                        }
+                }
+                else
+                {
+                    using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+    @Html.AntiForgeryToken()
+                        <text>Disabled
+                            <input type="submit" value="Enable" class="btn btn-primary" />
+                        </text>}
+                }
 
 
 
@@ -125,8 +125,20 @@
         <br />
         <br />
 
-        <div class="text-center">
-            @Html.ActionLink("Go Back", "Index", "Home", null, new { @class = "btn btn-info" })
-        </div>
+        @if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
+        {
+            <div class="text-center">
+                @Html.ActionLink("Go Back", "Index", "Admin", null, new { @class = "btn btn-info" })
+            </div>
+        }
+
+        @if (User.Identity.IsAuthenticated && !User.IsInRole("SuperAdmin"))
+        {
+            <div class="text-center">
+                @Html.ActionLink("Go Back", "Index", "Home", null, new { @class = "btn btn-info" })
+            </div>
+        }
+
+
     </dl>
 </div>
