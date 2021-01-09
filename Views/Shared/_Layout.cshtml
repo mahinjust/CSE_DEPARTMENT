@@ -25,18 +25,19 @@
 
             </div>
 
+
             @if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
             {
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         @*<li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                         <li>@Html.ActionLink("Admin Arena", "Index", "Admin")</li>
 
 
                     </ul>
-                    @*@Html.Partial("_LoginPartial")*@
+                    @Html.Partial("_LoginPartial")
                 </div>
             }
 

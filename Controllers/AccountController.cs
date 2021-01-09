@@ -70,7 +70,9 @@ namespace CSE_DEPARTMENT.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+
             return View();
+
         }
 
         //
@@ -99,8 +101,11 @@ namespace CSE_DEPARTMENT.Controllers
                     if ((UserManager.IsInRole(user.Id, "SuperAdmin")))
                     {
                         return RedirectToAction("Index", "Admin");
+
                     }
                     return RedirectToAction("Index", "Home");
+
+
 
                 //return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
@@ -111,6 +116,8 @@ namespace CSE_DEPARTMENT.Controllers
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
+
+
             }
         }
 
@@ -164,6 +171,7 @@ namespace CSE_DEPARTMENT.Controllers
         {
             ApplicationDbContext context = new ApplicationDbContext();
             ViewBag.Roles = context.Roles.Select(r => new SelectListItem { Value = r.Name, Text = r.Name }).ToList();
+
             return View();
         }
 
@@ -381,8 +389,9 @@ namespace CSE_DEPARTMENT.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Manage");
+                return RedirectToAction("Index", "Home");
             }
+
 
             if (ModelState.IsValid)
             {
@@ -417,7 +426,8 @@ namespace CSE_DEPARTMENT.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+
+            return RedirectToAction("Login", "Account");
         }
 
         //

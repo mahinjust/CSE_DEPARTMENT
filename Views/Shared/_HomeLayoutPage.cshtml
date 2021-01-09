@@ -7,7 +7,6 @@
         #div1 {
             font-size: 48px;
         }
-
         #content {
             background-image: url('../../Images/background.jpg');
             background-repeat: no-repeat;
@@ -24,9 +23,8 @@
 
     <!-- Custom styles for this template-->
     <link href="~/Content/Admin Template/css/sb-admin-2.min.css" rel="stylesheet" />
-    <link href="~/Content/Admin Template/css/about.css" rel="stylesheet" />
     <link href="~/Content/Admin Template/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
-
+    <link href="~/Content/Admin Template/css/about.css" rel="stylesheet" />
 </head>
 
 
@@ -40,6 +38,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                 <div class="d-flex justify-content-start">
+                   
                     <img src="~/Content/Admin Template/img/just.png" />
                 </div>
 
@@ -228,15 +227,24 @@
                             <div class="topbar-divider d-none d-sm-block"></div>
 
                             <!-- Nav Item - User Information -->
+
+
+
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><b>Welcome, @User.Identity.Name</b></span>
-                                <img class="img-profile rounded-circle" src="~/Content/Admin Template/img/welcome.gif">
+                            @if (User.Identity.IsAuthenticated && !User.IsInRole("SuperAdmin"))
+                            {
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><b>Welcome, @User.Identity.Name</b></span>
+                                    <img class="img-profile rounded-circle" src="~/Content/Admin Template/img/welcome.gif">
 
-                            </a>
+                                </a>
 
-
-
+                            }
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
+                            {
+                           
+                                @Html.ActionLink("Admin Arena", "Index", "Admin", null, new { @class = "btn btn-primary" })
+                            }
 
 
 
@@ -314,6 +322,10 @@
         </div>
     </div>
 
+
+
+
+
     <div class="text-center">
         <footer>
 
@@ -321,6 +333,7 @@
 
         </footer>
     </div>
+
     <!-- Bootstrap core JavaScript-->
     <script src="~/Content/Admin Template/vendor/jquery/jquery.min.js"></script>
     <script src="~/Content/Admin Template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

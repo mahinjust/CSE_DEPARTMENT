@@ -20,10 +20,13 @@
             <div>
                 <label class="control-label">User Name</label>
                 @Html.DropDownList("dropUserName", (IEnumerable<SelectListItem>)ViewBag.Users, "Select Here")
+
                 @*<input type="text" name="txtUserName" class="form-control" />*@
                 <br /><br />
                 <label class="control-label">Select Role</label>
                 @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select Here")
+                
+
 
 
             </div>
