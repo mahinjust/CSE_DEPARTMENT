@@ -4,6 +4,10 @@
 }
 <title>All Users</title>
 <h2 class="container"></h2>
+
+
+
+
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
@@ -22,6 +26,29 @@
         .buttonback {
             text-align: center;
         }
+
+        .Grid {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+
+            .Grid th {
+                background-color: #F7F7F7;
+                font-weight: bold;
+            }
+
+            .Grid th, .Grid td {
+                padding: 5px;
+                border: 1px solid #ccc;
+            }
+
+            .Grid, .Grid table td {
+                border: 0px solid #ccc;
+            }
+
+                .Grida, .Grid a:visited {
+                    color: blue;
+                }
     </style>
 </head>
 
@@ -32,12 +59,22 @@
     var wgrid = new WebGrid(source: Model, rowsPerPage: 5);
 
 }
+
+
+
 <body>
-    <br />
-
-
 
     <h2 class="text-center"><b>All Users</b></h2>
+
+    <br />
+
+    @using (Html.BeginForm("Multidata2", "ShowData", FormMethod.Post, new { @id = "WebGridForm" }))
+    {
+        <div class="text-center">
+            <span><b>Search By Email:</b></span> @Html.TextBox("Email")
+            <input type="submit" value="Search" class="btn btn-success" />
+        </div>
+    }
 
     <br />
     <div class="container">
@@ -54,13 +91,34 @@
     <div class=" buttonback">
         @Html.ActionLink("Go Back", "Index", "Admin", null, new { @class = "btn btn-info btn-lg" })
     </div>
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $("body").on("click", ".Grid tfoot a", function () {
+            $('#WebGridForm').attr('action', $(this).attr('href')).submit();
+            return false;
+        });
+    </script>
+
+    @if (Model.Count == 0)
+    {
+        <script type="text/javascript">
+            $(function () {
+                var row = $("#wgrid")[0].insertRow(-1);
+                var cell = $(row.insertCell(-1));
+                cell.html("No records found.");
+                cell.attr("colspan", "4").attr("align", "center");
+            });
+        </script>
+    }
+
 </body>
 <br />
 <div class="text-center">
     <footer>
 
         <p><b>&copy; @*@DateTime.Now.Year*@ DEVELOPERS TEAM, CSE</b></p>
-        <br />
 
     </footer>
 </div>

@@ -263,6 +263,9 @@
     <Compile Include="Models\AspNetUser.cs">
       <DependentUpon>UserRoleAssign.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AspNetUsers_SearchUsers_Result.cs">
+      <DependentUpon>UserRoleAssign.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\book.cs" />
     <Compile Include="Models\current_academic.cs" />
     <Compile Include="Models\IdentityModels.cs" />

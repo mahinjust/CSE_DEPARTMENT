@@ -24,9 +24,24 @@ namespace CSE_DEPARTMENT.Controllers
 
         public ActionResult Multidata2()
         {
-            var model = obj.AspNetUsers.ToList();
-            return View(model);
+            CSE_DEPARTMENT_DBEntities obj = new CSE_DEPARTMENT_DBEntities();
+            //var model = obj.AspNetUsers.ToList();
+            //return View(model);
+            return View(obj.SearchUsers("").ToList());
+
+
         }
+
+        [HttpPost]
+        public ActionResult Multidata2(string Email)
+        {
+
+            CSE_DEPARTMENT_DBEntities obj = new CSE_DEPARTMENT_DBEntities();
+            return View(obj.SearchUsers(Email).ToList());
+
+        }
+
+
 
 
         public ActionResult Delete(string Id)

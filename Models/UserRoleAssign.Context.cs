@@ -12,6 +12,8 @@ namespace CSE_DEPARTMENT.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class CSE_DEPARTMENT_DBEntities : DbContext
     {
@@ -27,5 +29,32 @@ namespace CSE_DEPARTMENT.Models
     
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+    
+        public virtual ObjectResult<AspNetUsers_SearchUsers_Result> AspNetUsers_SearchUsers(string email)
+        {
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AspNetUsers_SearchUsers_Result>("AspNetUsers_SearchUsers", emailParameter);
+        }
+    
+        public virtual ObjectResult<AspNetUser> SearchUsers(string email)
+        {
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AspNetUser>("SearchUsers", emailParameter);
+        }
+    
+        public virtual ObjectResult<AspNetUser> SearchUsers(string email, MergeOption mergeOption)
+        {
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AspNetUser>("SearchUsers", mergeOption, emailParameter);
+        }
     }
 }
