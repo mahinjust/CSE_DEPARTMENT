@@ -40,9 +40,9 @@ namespace CSE_DEPARTMENT
         {
             #region formatter
             string text = string.Format("Please click on this link to {0}: {1}", message.Subject, message.Body);
-            string html = "Please confirm your account by clicking this link: =" + message.Body + "<br/>";
+            string html = "Please confirm your account by clicking this link :<a href=\"" + message.Body + "\"</a><br/>";
 
-            html += HttpUtility.HtmlEncode(@"Or click on the copy the following link on the browser:" + message.Body);
+            html += HttpUtility.HtmlEncode(message.Body);
             #endregion
 
             MailMessage msg = new MailMessage();

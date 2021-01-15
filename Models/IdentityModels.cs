@@ -12,6 +12,7 @@ namespace CSE_DEPARTMENT.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        public string RoleSelected { get; set; }
         public virtual ICollection<teacher> Teachers { get; set; }
         public virtual ICollection<student> Students { get; set; }
         public virtual ICollection<Staff> Staffs { get; set; }

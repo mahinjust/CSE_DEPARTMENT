@@ -17,14 +17,11 @@
 
 
     <div class="form-group">
-        <label class="control-label col-md-2">Select Role</label>
-
+        @Html.LabelFor(m => m.RoleSelected, "Select Role", new { @class = "control-label col-md-2" })
         <div class="input-group">
-            @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select Here", new { id = "roles" })
+            @Html.DropDownListFor(m => m.RoleSelected, (IEnumerable<SelectListItem>)ViewBag.Roles, "Select Here", new { id = "roles" })
         </div>
-
     </div>
-
 
 
     <div class="form-group">

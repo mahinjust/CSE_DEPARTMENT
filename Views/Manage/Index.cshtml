@@ -33,7 +33,7 @@ else
             @(Model.PhoneNumber ?? "None")
             @if (Model.PhoneNumber != null)
             {
-    @Html.ActionLink("Change", "AddPhoneNumber", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Change", "AddPhoneNumber", null, new { @class = "btn btn-success" })
                     @: &nbsp;|&nbsp;
                     @Html.ActionLink("Remove", "RemovePhoneNumber", null, new { @class = "btn btn-danger" }) }
                 else

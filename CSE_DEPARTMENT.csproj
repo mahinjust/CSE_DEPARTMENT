@@ -254,6 +254,14 @@
     <Compile Include="Migrations\202012292014389_userforeignid.Designer.cs">
       <DependentUpon>202012292014389_userforeignid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101151618013_DeleteRoleSelct.cs" />
+    <Compile Include="Migrations\202101151618013_DeleteRoleSelct.Designer.cs">
+      <DependentUpon>202101151618013_DeleteRoleSelct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101151621000_RoleSelected.cs" />
+    <Compile Include="Migrations\202101151621000_RoleSelected.Designer.cs">
+      <DependentUpon>202101151621000_RoleSelected.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\activities.cs" />
@@ -2351,6 +2359,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012292014389_userforeignid.resx">
       <DependentUpon>202012292014389_userforeignid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101151618013_DeleteRoleSelct.resx">
+      <DependentUpon>202101151618013_DeleteRoleSelct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101151621000_RoleSelected.resx">
+      <DependentUpon>202101151621000_RoleSelected.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
