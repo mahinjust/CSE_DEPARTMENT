@@ -1,5 +1,5 @@
 # CSE_DEPARTMENT
-descriptionThe “CSE Department Management System” is an improved Student Service, increase information
+The “CSE Department Management System” is an improved Student Service, increase information
 sharing and providing Teacher facilities. It can handle all details about a student. Student
 management system is managed by the Department. It is the job of the Department to insert update
 and monitor the whole process.
