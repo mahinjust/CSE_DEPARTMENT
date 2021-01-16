@@ -105,6 +105,9 @@
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\System.IdentityModel.Tokens.Jwt.5.1.2\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
     </Reference>
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\System.Linq.Dynamic.1.0.8\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -310,6 +313,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\Multipledata.cs" />
     <Compile Include="ViewModel\Users-in-Role_ViewModel.cs" />
+    <Compile Include="WebGridExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Admin Template\css\about.css" />
@@ -2329,10 +2333,10 @@
     <Content Include="Views\Admin\CreateUser.cshtml" />
     <Content Include="Views\Admin\AssignRole.cshtml" />
     <Content Include="Views\Admin\CreateRole.cshtml" />
-    <Content Include="Views\ShowData\Multidata.cshtml" />
-    <Content Include="Views\ShowData\Multidata2.cshtml" />
     <Content Include="Views\ManageUsers\UsersWithRoles.cshtml" />
     <Content Include="Views\Shared\_HomeLayoutPage.cshtml" />
+    <Content Include="Views\ShowData\Multidata.cshtml" />
+    <Content Include="Views\ShowData\Multidata2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

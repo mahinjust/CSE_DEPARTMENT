@@ -1,124 +1,100 @@
 ﻿@model List<CSE_DEPARTMENT.Models.AspNetUser>
+
 @{
-    Layout = null;
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var grid = new WebGrid(canPage: true, rowsPerPage: 3);
+    grid.Bind(source: Model, rowCount: ViewBag.TotalRows, autoSortAndPage: false);
 }
-<title>All Users</title>
-<h2 class="container"></h2>
 
 
 
+<!DOCTYPE html>
 
+<html>
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <style type="text/css">
-        body {
-            font-family: Arial;
-            font-size: 15pt;
-            color: #050100;
-            background-image: url('../../Images/background.jpg');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: 100%;
-        }
 
+    <style>
         .buttonback {
             text-align: center;
         }
-
-        .Grid {
-            border: 1px solid #ccc;
-            border-collapse: collapse;
-        }
-
-            .Grid th {
-                background-color: #F7F7F7;
-                font-weight: bold;
-            }
-
-            .Grid th, .Grid td {
-                padding: 5px;
-                border: 1px solid #ccc;
-            }
-
-            .Grid, .Grid table td {
-                border: 0px solid #ccc;
-            }
-
-                .Grida, .Grid a:visited {
-                    color: blue;
-                }
     </style>
+
 </head>
-
-
-
-
-@{
-    var wgrid = new WebGrid(source: Model, rowsPerPage: 5);
-
-}
-
-
-
 <body>
-
-    <h2 class="text-center"><b>All Users</b></h2>
-
-    <br />
-
-    @using (Html.BeginForm("Multidata2", "ShowData", FormMethod.Post, new { @id = "WebGridForm" }))
-    {
-        <div class="text-center">
-            <span><b>Search By Email:</b></span> @Html.TextBox("Email")
-            <input type="submit" value="Search" class="btn btn-success" />
-        </div>
-    }
-
-    <br />
     <div class="container">
-        @wgrid.GetHtml(tableStyle: "table table-bordered table-striped", htmlAttributes: new { id = "wgrid" },
-        columns: wgrid.Columns(
-            wgrid.Column(columnName: "Id", header: "ID"),
-            wgrid.Column(columnName: "Email", header: "Email"),
-            wgrid.Column(columnName: "EmailConfirmed", header: "EmailConfirmed"),
-            wgrid.Column(columnName: "PhoneNumber", header: "PhoneNumber"),
-            wgrid.Column(columnName: "PhoneNumberConfirmed", header: "PhoneNumberConfirmed"),
-            wgrid.Column(columnName: "TwoFactorEnabled", header: "TwoFactorEnabled"),
-            wgrid.Column(header: "Action", format:@<a href="/ShowData/Delete/@item.ID" class="btn btn-danger">Delete</a>)))
-    </div>
-    <div class=" buttonback">
-        @Html.ActionLink("Go Back", "Index", "Admin", null, new { @class = "btn btn-info btn-lg" })
+        <br />
+        <h1>Users List</h1>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="#" class="navbar-brand">Search Here</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    @using (Html.BeginForm("Multidata2", "ShowData", FormMethod.Get, new { @class = "navbar-form navbar-left" }))
+                    {
+                        <div class="form-group">
+                            <input type="text" name="search" value="@ViewBag.search" class="form-control" placeholder="search" />
+                        </div>
+                        <button type="submit" value="Search" class="btn btn-success"><i class="glyphicon glyphicon-search"></i></button>
+                    }
+                </div>
+            </div>
+        </nav>
+        <div>
+            @grid.Table(
+                tableStyle: "table table-responsive table-bordered",
+                columns: grid.Columns(
+                grid.Column(columnName: "Id", header: "ID"),
+                grid.Column(columnName: "Email", header: "Email"),
+                grid.Column(columnName: "EmailConfirmed", header: "EmailConfirmed"),
+                grid.Column(columnName: "PhoneNumber", header: "PhoneNumber"),
+                grid.Column(columnName: "PhoneNumberConfirmed", header: "PhoneNumberConfirmed"),
+                grid.Column(columnName: "TwoFactorEnabled", header: "TwoFactorEnabled"),
+                grid.Column(header: "Action", format:@<a href="/ShowData/Delete/@item.ID" class="btn btn-danger">Delete</a>)))
+
+            <div class="row">
+                <div class="col-sm-6">
+                    @grid.PagerList(mode: WebGridPagerModes.All, paginationStyle: "pagination pagination-small pagination-right")
+
+                </div>
+            </div>
+
+            <div class=" buttonback">
+                @Html.ActionLink("Go Back", "Index", "Admin", null, new { @class = "btn btn-info" })
+            </div>
+
+            @*@Html.Hidden("dir", grid.SortDirection)
+                @Html.Hidden("col", grid.SortColumn)*@
+
+        </div>
     </div>
 
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript">
-        $("body").on("click", ".Grid tfoot a", function () {
-            $('#WebGridForm').attr('action', $(this).attr('href')).submit();
-            return false;
-        });
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            try {
+                var dir = $('#dir').val();
+                var col = $('#col').val();
+                var header = $("th a[href*=" + col + "]");
+                if (dir == "Ascending") {
+                    header.text(header.text() + "  ▲")
+                }
+                if (dir == "Descending") {
+                    header.text(header.text() + "  ▼");
+                }
+            } catch (e) {
+            }
+        })
     </script>
 
-    @if (Model.Count == 0)
-    {
-        <script type="text/javascript">
-            $(function () {
-                var row = $("#wgrid")[0].insertRow(-1);
-                var cell = $(row.insertCell(-1));
-                cell.html("No records found.");
-                cell.attr("colspan", "4").attr("align", "center");
-            });
-        </script>
-    }
+
 
 </body>
-<br />
-<div class="text-center">
-    <footer>
 
-        <p><b>&copy; @*@DateTime.Now.Year*@ DEVELOPERS TEAM, CSE</b></p>
-
-    </footer>
-</div>
+</html>

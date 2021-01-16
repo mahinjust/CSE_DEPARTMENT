@@ -1,12 +1,11 @@
-﻿@model CSE_DEPARTMENT.ViewModel.Multipledata
+﻿@model List<CSE_DEPARTMENT.Models.AspNetRole>
 
-@*@{WebGrid obj = new WebGrid(source: Model.AspNetRole, canPage: true, rowsPerPage: 5);}*@
 @{
-    Layout = null;
 
-    WebGrid obj = new WebGrid(source: Model.AspNetRole, canPage: true, rowsPerPage: 5);
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var grid = new WebGrid(canPage: true, rowsPerPage: 3);
+    grid.Bind(source: Model, rowCount: ViewBag.TotalRows, autoSortAndPage: false);
 }
-
 
 
 <!DOCTYPE html>
@@ -14,79 +13,83 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-
-    <title>Roles</title>
-
+    <title>Index</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <style type="text/css">
-        body {
-            font-family: Arial;
-            font-size: 18pt;
-            color: #050100;
-            background-image: url('../../Images/background.jpg');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: 100%;
-        }
 
-        .Grid {
-            border: 3px solid #5f6660;
-            border-collapse: collapse;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-            .Grid th {
-                background-color: #8ca191;
-                font-weight: bold;
-            }
-
-            .Grid th, .Grid td {
-                padding: 5px;
-                border: 1px solid #ccc;
-            }
-
-            .Grid, .Grid table td {
-                border: 0px solid #ccc;
-            }
-
-                .Grid th a, .Grid th a:visited {
-                    color: #333;
-                }
-
-        h2 {
-            text-align: center;
-        }
-
+    <style>
         .buttonback {
             text-align: center;
         }
     </style>
+
 </head>
 <body>
-    <br /><br />
-    <h2><b>Roles</b></h2>
-    <br />
+
     <div class="container">
-        @obj.GetHtml(tableStyle: "table table-bordered table-striped",
-        htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
-        columns: obj.Columns(
-                     obj.Column("ID", "ID"),
-                     obj.Column("Name", "Name")))
         <br />
+        <h1>Roles List</h1>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="#" class="navbar-brand">Search Here</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    @using (Html.BeginForm("Multidata", "ShowData", FormMethod.Get, new { @class = "navbar-form navbar-left" }))
+                    {
+                        <div class="form-group">
+                            <input type="text" name="search" value="@ViewBag.search" class="form-control" placeholder="search" />
+                        </div>
+                        <button type="submit" value="Search" class="btn btn-success"><i class="glyphicon glyphicon-search"></i></button>
+                    }
+                </div>
+            </div>
+        </nav>
+        <div>
+            @grid.Table(
+                tableStyle: "table table-responsive table-bordered",
+                columns: grid.Columns(
+                grid.Column(columnName: "Id", header: "ID"),
+                grid.Column(columnName: "Name", header: "Name")))
+
+            <div class="row">
+                <div class="col-sm-6">
+                    @grid.PagerList(mode: WebGridPagerModes.All, paginationStyle: "pagination pagination-small pagination-right")
+
+                </div>
+            </div>
+
+            <div class=" buttonback">
+                @Html.ActionLink("Go Back", "Index", "Admin", null, new { @class = "btn btn-info" })
+            </div>
+
+            @*@Html.Hidden("dir", grid.SortDirection)
+                @Html.Hidden("col", grid.SortColumn)*@
+
+        </div>
     </div>
-    <div class=" buttonback">
-        @Html.ActionLink("Go Back", "Index", "Admin", null, new { @class = "btn btn-info btn-lg" })
-    </div>
+
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script>
+            $(function () {
+                try {
+                    var dir = $('#dir').val();
+                    var col = $('#col').val();
+                    var header = $("th a[href*=" + col + "]");
+                    if (dir == "Ascending") {
+                        header.text(header.text() + "  ▲")
+                    }
+                    if (dir == "Descending") {
+                        header.text(header.text() + "  ▼");
+                    }
+                } catch (e) {
+                }
+            })
+    </script>
+
+
+
 </body>
 
-
 </html>
-<br />
-<div class="text-center">
-    <footer>
-
-        <p><b>&copy; @*@DateTime.Now.Year*@ DEVELOPERS TEAM, CSE</b></p>
-
-    </footer>
-</div>
