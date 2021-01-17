@@ -25,11 +25,11 @@
                 </button>
 
 
-                @Html.ActionLink("Computer Science & Engineering Department", "", "", new { area = "" }, new { @class = "navbar-brand" }) 
-               
+                @Html.ActionLink("Computer Science & Engineering Department", "", "", new { area = "" }, new { @class = "navbar-brand" , onclick = "javascript:return false;"  })
+                
 
             </div>
-
+            
 
             @if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
             {
@@ -37,8 +37,8 @@
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         @*<li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
-                        <li>@Html.ActionLink("Admin Arena", "Index", "Admin")</li> 
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                        <li>@Html.ActionLink("Admin Arena", "Index", "Admin")</li>
 
 
                     </ul>

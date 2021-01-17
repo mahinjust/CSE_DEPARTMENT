@@ -14,32 +14,41 @@
     <h2>Assign Role</h2>
     <hr />
     <br />
+
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
     @using (Html.BeginForm("AssignRole", "Admin", FormMethod.Post))
     {
-        <div class="row">
-            <div>
-                <label class="control-label">User Name</label>
-                @Html.DropDownList("dropUserName", (IEnumerable<SelectListItem>)ViewBag.Users, "Select Here", new { id = "users" })
-                @*<input type="text" name="txtUserName" class="form-control" />*@
-                <br /><br />
-                <label class="control-label">Select Role</label>
 
-                @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select Here", new { id = "roles" })
+        <div>
+
+            <label class="control-label">User Name</label>
+            @Html.DropDownList("dropUserName", (IEnumerable<SelectListItem>)ViewBag.Users, "Select Here", new { id = "users", @class = "form-control", required = "required" })
+
+            @*<input type="text" name="txtUserName" class="form-control" />*@
+            <br /><br />
+            <label class="control-label">Select Role</label>
+
+            @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select Here", new { id = "roles", @class = "form-control", required = "required" })
 
 
 
 
 
-            </div>
+
         </div>
+
+
         <br />
-     
-     
-            <div class="row">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
                 <button class="btn btn-primary" typeof="submit">Save</button>
                 @Html.ActionLink("Go Back", "Index", null, new { @class = "btn btn-warning" })
             </div>
-   
+        </div>
 
         @section Scripts{
 
@@ -47,25 +56,20 @@
                 $(function () {
                     $("#roles").chosen();
                     $("#users").chosen();
-
                 });
                 $("#users").each(function () {
                     $(this).children().first().hide();
                 });
-
                 $("#roles").each(function () {
                     $(this).children().first().hide();
                 });
                 $("#roles").each(function () {
                     $(this).children().last().hide();
                 });
-
             </script>
 
-
-
-
-
         }
+
+
     }
 </body>
