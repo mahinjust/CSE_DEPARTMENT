@@ -50,6 +50,13 @@ namespace CSE_DEPARTMENT.Controllers
             return RedirectToAction("Multidata2", "ShowData");
         }
 
+        public ActionResult DeleteRole(string Id)
+        {
+            var model = obj.AspNetRoles.Find(Id);
+            obj.AspNetRoles.Remove(model);
+            obj.SaveChanges();
+            return RedirectToAction("Multidata", "ShowData");
+        }
 
         public List<AspNetUser> GetUsers(string search, string sort, string sortdir, int skip, int pageSize, out int totalRecord)
         {
