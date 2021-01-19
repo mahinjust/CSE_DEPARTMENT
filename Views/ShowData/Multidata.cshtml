@@ -31,15 +31,15 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a href="#" class="navbar-brand">Search Here</a>
+                    <a href="#" class="navbar-brand">Search By Name</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     @using (Html.BeginForm("Multidata", "ShowData", FormMethod.Get, new { @class = "navbar-form navbar-left" }))
                     {
                         <div class="form-group">
-                            <input type="text" name="search" value="@ViewBag.search" class="form-control" placeholder="search" />
+                            <input type="text" name="search" id="txtsearch" value="@ViewBag.search" class="form-control" placeholder="search" />
                         </div>
-                        <button type="submit" value="Search" class="btn btn-success"><i class="glyphicon glyphicon-search"></i></button>
+                        <i class="glyphicon glyphicon-search"></i>
                     }
                 </div>
             </div>
@@ -64,29 +64,43 @@
             </div>
 
             @*@Html.Hidden("dir", grid.SortDirection)
-        @Html.Hidden("col", grid.SortColumn)*@
+                @Html.Hidden("col", grid.SortColumn)*@
 
         </div>
     </div>
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script>
-            $(function () {
-                try {
-                    var dir = $('#dir').val();
-                    var col = $('#col').val();
-                    var header = $("th a[href*=" + col + "]");
-                    if (dir == "Ascending") {
-                        header.text(header.text() + "  ▲")
+        //$(function () {
+        //    try {
+        //        var dir = $('#dir').val();
+        //        var col = $('#col').val();
+        //        var header = $("th a[href*=" + col + "]");
+        //        if (dir == "Ascending") {
+        //            header.text(header.text() + "  ▲")
+        //        }
+        //        if (dir == "Descending") {
+        //            header.text(header.text() + "  ▼");
+        //        }
+        //    } catch (e) {
+        //    }
+        //})
+        $("#txtsearch").on("keyup", function () {
+            var txtenter = $(this).val();
+            $("table tr").each(function (results) {
+                if (results !== 0) {
+                    var id = $(this).find("td:nth-child(2)").text();
+                    if (id.indexOf(txtenter) !== 0 && id.toLowerCase().indexOf(txtenter.toLowerCase()) < 0) {
+                        $(this).hide();
                     }
-                    if (dir == "Descending") {
-                        header.text(header.text() + "  ▼");
+                    else {
+                        $(this).show();
                     }
-                } catch (e) {
                 }
-            })
+            });
+        });
     </script>
 
 

@@ -3,7 +3,7 @@
 @{
 
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var grid = new WebGrid(canPage: true, rowsPerPage: 3);
+    var grid = new WebGrid(canPage: true, rowsPerPage: 2);
     grid.Bind(source: Model, rowCount: ViewBag.TotalRows, autoSortAndPage: false);
 }
 
@@ -31,15 +31,15 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a href="#" class="navbar-brand">Search Here</a>
+                    <a href="#" class="navbar-brand">Search By Email</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     @using (Html.BeginForm("Multidata2", "ShowData", FormMethod.Get, new { @class = "navbar-form navbar-left" }))
                     {
                         <div class="form-group">
-                            <input type="text" name="search" value="@ViewBag.search" class="form-control" placeholder="search" />
+                            <input type="text" name="search" id="txtsearch" value="@ViewBag.search" class="form-control" placeholder="search" />
                         </div>
-                        <button type="submit" value="Search" class="btn btn-success"><i class="glyphicon glyphicon-search"></i></button>
+                        <i class="glyphicon glyphicon-search"></i>
                     }
                 </div>
             </div>
@@ -54,7 +54,7 @@
                 grid.Column(columnName: "PhoneNumber", header: "PhoneNumber"),
                 grid.Column(columnName: "PhoneNumberConfirmed", header: "PhoneNumberConfirmed"),
                 grid.Column(columnName: "TwoFactorEnabled", header: "TwoFactorEnabled"),
-                grid.Column(header: "Action", format:@<a href="/ShowData/Delete/@item.ID" class="btn btn-danger">Delete</a>)))
+                grid.Column(header: "Action", format:@<a href="/ShowData/DeleteRole/@item.ID" class="btn btn-danger">Delete</a>)))
 
             <div class="row">
                 <div class="col-sm-6">
@@ -73,24 +73,41 @@
         </div>
     </div>
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    @*<script>
+            $(function () {
+                try {
+                    var dir = $('#dir').val();
+                    var col = $('#col').val();
+                    var header = $("th a[href*=" + col + "]");
+                    if (dir == "Ascending") {
+                        header.text(header.text() + "  ▲")
+                    }
+                    if (dir == "Descending") {
+                        header.text(header.text() + "  ▼");
+                    }
+                } catch (e) {
+                }
+            })
+        </script>*@
+
     <script>
-        $(function () {
-            try {
-                var dir = $('#dir').val();
-                var col = $('#col').val();
-                var header = $("th a[href*=" + col + "]");
-                if (dir == "Ascending") {
-                    header.text(header.text() + "  ▲")
+        $("#txtsearch").on("keyup", function () {
+            var txtenter = $(this).val();
+            $("table tr").each(function (results) {
+                if (results !== 0) {
+                    var id = $(this).find("td:nth-child(2)").text();
+                    if (id.indexOf(txtenter) !== 0 && id.toLowerCase().indexOf(txtenter.toLowerCase()) < 0) {
+                        $(this).hide();
+                    }
+                    else {
+                        $(this).show();
+                    }
                 }
-                if (dir == "Descending") {
-                    header.text(header.text() + "  ▼");
-                }
-            } catch (e) {
-            }
-        })
+            });
+        });
     </script>
 
 
