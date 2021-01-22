@@ -2331,13 +2331,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\CreateUser.cshtml" />
     <Content Include="Views\Admin\AssignRole.cshtml" />
     <Content Include="Views\Admin\CreateRole.cshtml" />
     <Content Include="Views\ManageUsers\UsersWithRoles.cshtml" />
     <Content Include="Views\Shared\_HomeLayoutPage.cshtml" />
     <Content Include="Views\ShowData\Multidata.cshtml" />
     <Content Include="Views\ShowData\Multidata2.cshtml" />
+    <Content Include="Views\Account\CreateUser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

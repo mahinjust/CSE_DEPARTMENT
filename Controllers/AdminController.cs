@@ -24,27 +24,7 @@ namespace CSE_DEPARTMENT.Controllers
         }
 
 
-        public ActionResult CreateUser()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult CreateUser(FormCollection form)
-        {
-            var usermanager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
-            string UserName = form["txtEmail"];
-            string Email = form["txtEmail"];
-            string pwd = form["txtPassword"];
-
-            //Create Default Users
-            var user = new ApplicationUser();
-            user.UserName = UserName;
-            user.Email = Email;
-
-            var newuser = usermanager.Create(user, pwd);
-
-            return RedirectToAction("Multidata2", "ShowData");
-        }
+     
 
         public ActionResult AssignRole()
         {
