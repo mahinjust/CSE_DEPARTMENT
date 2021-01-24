@@ -1,117 +1,181 @@
-﻿@model List<CSE_DEPARTMENT.Models.AspNetUser>
+﻿@model IEnumerable<CSE_DEPARTMENT.Models.AspNetUser>
+
 
 @{
-
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    var grid = new WebGrid(canPage: true, rowsPerPage: 2);
-    grid.Bind(source: Model, rowCount: ViewBag.TotalRows, autoSortAndPage: false);
+    ViewBag.Title = "Users";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #050100;
+    }
+
+    .buttonback {
+        text-align: center;
+    }
+
+    i {
+        color: black;
+    }
+</style>
 
 
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-
-    <style>
-        .buttonback {
-            text-align: center;
-        }
-    </style>
-
-</head>
 <body>
-    <div class="container">
-        <br />
-        <h1>Users List</h1>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a href="#" class="navbar-brand">Search By Email</a>
+    <br />
+    <br />
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+
+            <h2>Users List</h2>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a href="#" class="navbar-brand">Search Here</a>
+
+                    </div>
+                    <div class="collapse navbar-collapse">
+
+
+                        @using (Html.BeginForm("Multidata2", "ShowData", FormMethod.Get, new { @class = "navbar-form navbar-left" }))
+                        {
+                            <div class="form-group">
+                                <input type="text" name="search" id="txtsearch" class="form-control" placeholder="Enter Email Address" />
+                            </div>
+                            <i class="glyphicon glyphicon-search"></i>
+
+
+                            <select class="form-control" name="state" id="maxRows">
+                                <option value="5000">Show ALL Rows</option>
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                                <option value="70">70</option>
+                                <option value="100">100</option>
+                            </select>
+
+                        }
+                        @*<input type="text" id="txtsearch" placeholder="Enter Email Address" />*@
+
+
+
+                    </div>
                 </div>
-                <div class="collapse navbar-collapse">
-                    @using (Html.BeginForm("Multidata2", "ShowData", FormMethod.Get, new { @class = "navbar-form navbar-left" }))
-                    {
-                        <div class="form-group">
-                            <input type="text" name="search" id="txtsearch" value="@ViewBag.search" class="form-control" placeholder="search" />
-                        </div>
-                        <i class="glyphicon glyphicon-search"></i>
-                    }
-                </div>
-            </div>
-        </nav>
-        <div>
-            @grid.Table(
-                tableStyle: "table table-responsive table-bordered",
-                columns: grid.Columns(
-                grid.Column(columnName: "Id", header: "ID"),
-                grid.Column(columnName: "Email", header: "Email"),
-                grid.Column(columnName: "EmailConfirmed", header: "EmailConfirmed"),
-                grid.Column(columnName: "PhoneNumber", header: "PhoneNumber"),
-                grid.Column(columnName: "PhoneNumberConfirmed", header: "PhoneNumberConfirmed"),
-                grid.Column(columnName: "TwoFactorEnabled", header: "TwoFactorEnabled"),
-                grid.Column(header: "Action", format:@<a href="/ShowData/DeleteRole/@item.ID" class="btn btn-danger">Delete</a>)))
-
-            <div class="row">
-                <div class="col-sm-6">
-                    @grid.PagerList(mode: WebGridPagerModes.All, paginationStyle: "pagination pagination-small pagination-right")
-
-                </div>
-            </div>
-
-            <div class=" buttonback">
-                @Html.ActionLink("Go Back", "Index", "Admin", null, new { @class = "btn btn-info" })
-            </div>
-
-            @*@Html.Hidden("dir", grid.SortDirection)
-                @Html.Hidden("col", grid.SortColumn)*@
+            </nav>
 
         </div>
+        <!-- /.box-header -->
+
+        <div class="panel-body">
+
+            <table class="table table-hover table-bordered table-condensed" id="Users">
+                <thead>
+                    <tr>
+                        <td><b>Id</b></td>
+                        <td><b>Email</b></td>
+                        <td><b>EmailConfirmed</b></td>
+                        <td><b>PhoneNumber</b></td>
+                        <td><b>PhoneNumberConfirmed</b></td>
+                        <td><b>TwoFactorEnabled</b></td>
+                        <td><b>Action</b></td>
+                    </tr>
+                </thead>
+
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.Id</td>
+                        <td>@user.Email</td>
+                        <td>@user.EmailConfirmed</td>
+                        <td>@user.PhoneNumber</td>
+                        <td>@user.PhoneNumberConfirmed</td>
+                        <td>@user.TwoFactorEnabled</td>
+
+                        <td><a href="/ShowData/Delete/@user.Id" class="btn btn-danger">Delete</a></td>
+
+
+                    </tr>
+
+                }
+
+
+
+            </table>
+
+
+            <div class="pagination-container">
+
+                <nav>
+
+                    <ul class="pagination">
+
+                        <li data-page="prev">
+
+                            <span> Previous <span class="sr-only">(current)</span></span>
+
+                        </li>
+
+
+
+                        <li data-page="next" id="prev">
+
+                            <span> Next <span class="sr-only">(current)</span></span>
+
+                        </li>
+
+                    </ul>
+
+                </nav>
+
+            </div>
+
+
+
+            @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+                <script src="~/Scripts/jquery-3.4.1.min.js"></script>*@
+            <script src="~/Scripts/js.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+            <script type="text/javascript">
+                getPagination('#Users');
+            </script>
+
+            <script>
+                $("#txtsearch").on("keyup", function () {
+                    var txtenter = $(this).val();
+                    $("table tr").each(function (results) {
+                        if (results !== 0) {
+                            var id = $(this).find("td:nth-child(2)").text();
+                            if (id.indexOf(txtenter) !== 0 && id.toLowerCase().indexOf(txtenter.toLowerCase()) < 0) {
+                                $(this).hide();
+                            }
+                            else {
+                                $(this).show();
+                            }
+                        }
+                    });
+                });
+            </script>
+
+
+
+
+
+        </div>
+
+
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    @*<script>
-            $(function () {
-                try {
-                    var dir = $('#dir').val();
-                    var col = $('#col').val();
-                    var header = $("th a[href*=" + col + "]");
-                    if (dir == "Ascending") {
-                        header.text(header.text() + "  ▲")
-                    }
-                    if (dir == "Descending") {
-                        header.text(header.text() + "  ▼");
-                    }
-                } catch (e) {
-                }
-            })
-        </script>*@
+    <div class=" buttonback">
+        @Html.ActionLink("Back To List", "CreateUser", "Account", null, new { @class = "btn btn-info" })
+    </div>
 
-    <script>
-        $("#txtsearch").on("keyup", function () {
-            var txtenter = $(this).val();
-            $("table tr").each(function (results) {
-                if (results !== 0) {
-                    var id = $(this).find("td:nth-child(2)").text();
-                    if (id.indexOf(txtenter) !== 0 && id.toLowerCase().indexOf(txtenter.toLowerCase()) < 0) {
-                        $(this).hide();
-                    }
-                    else {
-                        $(this).show();
-                    }
-                }
-            });
-        });
-    </script>
-
-
-
+    @*<a class="scroll-to-top rounded" href="#page">
+            <i class="fas fa-angle-double-up"></i>
+        </a>*@
 </body>
-
-</html>

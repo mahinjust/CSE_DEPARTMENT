@@ -1,110 +1,173 @@
-﻿@model List<CSE_DEPARTMENT.Models.AspNetRole>
+﻿@model IEnumerable<CSE_DEPARTMENT.Models.AspNetRole>
+@using PagedList
+@using CSE_DEPARTMENT.Controllers
 
 @{
-
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    var grid = new WebGrid(canPage: true, rowsPerPage: 3);
-    grid.Bind(source: Model, rowCount: ViewBag.TotalRows, autoSortAndPage: false);
+    ViewBag.Title = "Roles";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #050100;
+    }
+
+    .buttonback {
+        text-align: center;
+    }
+
+    i {
+        color: black;
+    }
+</style>
 
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
-    <style>
-        .buttonback {
-            text-align: center;
-        }
-    </style>
-
-</head>
 <body>
+    <br />
+    <br />
+    <div class="panel panel-primary">
+        <div class="panel-heading">
 
-    <div class="container">
-        <br />
-        <h1>Roles List</h1>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a href="#" class="navbar-brand">Search By Name</a>
+            <h2>Roles List</h2>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a href="#" class="navbar-brand">Search Here</a>
+
+                    </div>
+                    <div class="collapse navbar-collapse">
+
+
+                        @using (Html.BeginForm("Multidata", "ShowData", FormMethod.Get, new { @class = "navbar-form navbar-left" }))
+                        {
+                            <div class="form-group">
+                                <input type="text" name="search" id="txtsearch" class="form-control" placeholder="Enter Role Name" />
+                            </div>
+                            <i class="glyphicon glyphicon-search"></i>
+
+
+                            <select class="form-control" name="state" id="maxRows">
+                                <option value="5000">Show ALL Rows</option>
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                                <option value="70">70</option>
+                                <option value="100">100</option>
+                            </select>
+
+                        }
+                        @*<input type="text" id="txtsearch" placeholder="Enter Email Address" />*@
+
+
+
+                    </div>
                 </div>
-                <div class="collapse navbar-collapse">
-                    @using (Html.BeginForm("Multidata", "ShowData", FormMethod.Get, new { @class = "navbar-form navbar-left" }))
-                    {
-                        <div class="form-group">
-                            <input type="text" name="search" id="txtsearch" value="@ViewBag.search" class="form-control" placeholder="search" />
-                        </div>
-                        <i class="glyphicon glyphicon-search"></i>
-                    }
-                </div>
-            </div>
-        </nav>
-        <div>
-            @grid.Table(
-                tableStyle: "table table-responsive table-bordered",
-                columns: grid.Columns(
-                grid.Column(columnName: "Id", header: "ID"),
-                grid.Column(columnName: "Name", header: "Name"),
-                grid.Column(header: "Action", format:@<a href="/ShowData/DeleteRole/@item.ID" class="btn btn-danger">Delete</a>)))
-
-            <div class="row">
-                <div class="col-sm-6">
-                    @grid.PagerList(mode: WebGridPagerModes.All, paginationStyle: "pagination pagination-small pagination-right")
-
-                </div>
-            </div>
-
-            <div class=" buttonback">
-                @Html.ActionLink("Go Back", "Index", "Admin", null, new { @class = "btn btn-info" })
-            </div>
-
-            @*@Html.Hidden("dir", grid.SortDirection)
-                @Html.Hidden("col", grid.SortColumn)*@
+            </nav>
 
         </div>
+        <!-- /.box-header -->
+
+        <div class="panel-body">
+
+            <table class="table table-hover table-bordered table-condensed" id="Roles">
+                <thead>
+                    <tr>
+                        <td><b>ID</b></td>
+                        <td><b>Name</b></td>
+                        <td><b>Action</b></td>
+                    </tr>
+                </thead>
+
+                @foreach (var role in Model)
+                {
+                    <tr>
+                        <td>@role.Id</td>
+                        <td>@role.Name</td>
+                        <td><a href="/ShowData/DeleteRole/@role.Id" class="btn btn-danger">Delete</a></td>
+
+                    </tr>
+
+                }
+
+            </table>
+
+
+            <div class="pagination-container">
+
+                <nav>
+
+                    <ul class="pagination">
+
+                        <li data-page="prev">
+
+                            <span> Previous <span class="sr-only">(current)</span></span>
+
+                        </li>
+
+
+
+                        <li data-page="next" id="prev">
+
+                            <span> Next <span class="sr-only">(current)</span></span>
+
+                        </li>
+
+                    </ul>
+
+                </nav>
+
+            </div>
+
+
+
+
+            @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+                <script src="~/Scripts/jquery-3.4.1.min.js"></script>*@
+            <script src="~/Scripts/js.js"></script>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+            <script type="text/javascript">
+                getPagination('#Roles');
+            </script>
+
+            <script>
+                $("#txtsearch").on("keyup", function () {
+                    var txtenter = $(this).val();
+                    $("table tr").each(function (results) {
+                        if (results !== 0) {
+                            var id = $(this).find("td:nth-child(2)").text();
+                            if (id.indexOf(txtenter) !== 0 && id.toLowerCase().indexOf(txtenter.toLowerCase()) < 0) {
+                                $(this).hide();
+                            }
+                            else {
+                                $(this).show();
+                            }
+                        }
+                    });
+                });
+
+            </script>
+
+
+
+
+
+        </div>
+
+
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script>
-        //$(function () {
-        //    try {
-        //        var dir = $('#dir').val();
-        //        var col = $('#col').val();
-        //        var header = $("th a[href*=" + col + "]");
-        //        if (dir == "Ascending") {
-        //            header.text(header.text() + "  ▲")
-        //        }
-        //        if (dir == "Descending") {
-        //            header.text(header.text() + "  ▼");
-        //        }
-        //    } catch (e) {
-        //    }
-        //})
-        $("#txtsearch").on("keyup", function () {
-            var txtenter = $(this).val();
-            $("table tr").each(function (results) {
-                if (results !== 0) {
-                    var id = $(this).find("td:nth-child(2)").text();
-                    if (id.indexOf(txtenter) !== 0 && id.toLowerCase().indexOf(txtenter.toLowerCase()) < 0) {
-                        $(this).hide();
-                    }
-                    else {
-                        $(this).show();
-                    }
-                }
-            });
-        });
-    </script>
+    <div class=" buttonback">
+        @Html.ActionLink("Back To List", "Index", "Admin", null, new { @class = "btn btn-info" })
+    </div>
 
-
-
+    @*<a class="scroll-to-top rounded" href="#page">
+            <i class="fas fa-angle-double-up"></i>
+        </a>*@
 </body>
-
-</html>
