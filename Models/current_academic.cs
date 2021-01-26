@@ -18,6 +18,7 @@ namespace CSE_DEPARTMENT.Models
         public string dept { get; set; }
         public int? year_id { get; set; }
         public int? result_id { get; set; }
+        public string co_curricular_activities { get; set; }
 
         [ForeignKey("result_id")]
         public virtual result result { get; set; }

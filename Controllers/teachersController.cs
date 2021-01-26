@@ -46,7 +46,7 @@ namespace CSE_DEPARTMENT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "teacher_id,teacher__name,designation,favorite_quote,work_area,achievement,publication,publication_links,website")] teacher teacher)
+        public ActionResult Create([Bind(Include = "teacher_id,teacher_name,designation,favorite_quote,work_area,achievement,publication,publication_links,website")] teacher teacher)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace CSE_DEPARTMENT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "teacher_id,teacher__name,designation,favorite_quote,work_area,achievement,publication,publication_links,website")] teacher teacher)
+        public ActionResult Edit([Bind(Include = "teacher_id,teacher_name,designation,favorite_quote,work_area,achievement,publication,publication_links,website")] teacher teacher)
         {
             if (ModelState.IsValid)
             {

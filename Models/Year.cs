@@ -20,7 +20,6 @@ namespace CSE_DEPARTMENT.Models
         [Key]
         public int year_id { get; set; }
         public string year_name { get; set; }
-        public string semester_name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<materials> materials { get; set; }

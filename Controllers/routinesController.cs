@@ -41,7 +41,7 @@ namespace CSE_DEPARTMENT.Controllers
         {
             ViewBag.session_id = new SelectList(db.Sessions, "session_id", "session_name");
             ViewBag.subject_id = new SelectList(db.Subjects, "subject_id", "Subject_Name");
-            ViewBag.teacher_id = new SelectList(db.teachers, "teacher_id", "teacher__name");
+            ViewBag.teacher_id = new SelectList(db.teachers, "teacher_id", "teacher_name");
             return View();
         }
 
@@ -61,7 +61,7 @@ namespace CSE_DEPARTMENT.Controllers
 
             ViewBag.session_id = new SelectList(db.Sessions, "session_id", "session_name", routine.session_id);
             ViewBag.subject_id = new SelectList(db.Subjects, "subject_id", "Subject_Name", routine.subject_id);
-            ViewBag.teacher_id = new SelectList(db.teachers, "teacher_id", "teacher__name", routine.teacher_id);
+            ViewBag.teacher_id = new SelectList(db.teachers, "teacher_id", "teacher_name", routine.teacher_id);
             return View(routine);
         }
 
@@ -79,7 +79,7 @@ namespace CSE_DEPARTMENT.Controllers
             }
             ViewBag.session_id = new SelectList(db.Sessions, "session_id", "session_name", routine.session_id);
             ViewBag.subject_id = new SelectList(db.Subjects, "subject_id", "Subject_Name", routine.subject_id);
-            ViewBag.teacher_id = new SelectList(db.teachers, "teacher_id", "teacher__name", routine.teacher_id);
+            ViewBag.teacher_id = new SelectList(db.teachers, "teacher_id", "teacher_name", routine.teacher_id);
             return View(routine);
         }
 
@@ -98,7 +98,7 @@ namespace CSE_DEPARTMENT.Controllers
             }
             ViewBag.session_id = new SelectList(db.Sessions, "session_id", "session_name", routine.session_id);
             ViewBag.subject_id = new SelectList(db.Subjects, "subject_id", "Subject_Name", routine.subject_id);
-            ViewBag.teacher_id = new SelectList(db.teachers, "teacher_id", "teacher__name", routine.teacher_id);
+            ViewBag.teacher_id = new SelectList(db.teachers, "teacher_id", "teacher_name", routine.teacher_id);
             return View(routine);
         }
 

@@ -51,7 +51,7 @@ namespace CSE_DEPARTMENT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "currentacademic_id,student_id,session_id,admission_date,dept,year_id,result_id")] current_academic current_academic)
+        public ActionResult Create([Bind(Include = "currentacademic_id,student_id,session_id,admission_date,dept,year_id,result_id,co_curricular_activities")] current_academic current_academic)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace CSE_DEPARTMENT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "currentacademic_id,student_id,session_id,admission_date,dept,year_id,result_id")] current_academic current_academic)
+        public ActionResult Edit([Bind(Include = "currentacademic_id,student_id,session_id,admission_date,dept,year_id,result_id,co_curricular_activities")] current_academic current_academic)
         {
             if (ModelState.IsValid)
             {

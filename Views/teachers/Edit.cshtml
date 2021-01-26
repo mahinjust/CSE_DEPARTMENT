@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Edit</h2>
@@ -17,10 +18,10 @@
         @Html.HiddenFor(model => model.teacher_id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.teacher__name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.teacher_name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.teacher__name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.teacher__name, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.teacher_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.teacher_name, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -77,6 +78,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.website, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.website, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Id, "Id", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
             </div>
         </div>
 

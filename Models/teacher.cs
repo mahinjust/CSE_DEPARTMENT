@@ -18,7 +18,7 @@ namespace CSE_DEPARTMENT.Models
 
         [Key]
         public int teacher_id { get; set; }
-        public string teacher__name { get; set; }
+        public string teacher_name { get; set; }
         public string designation { get; set; }
         public string favorite_quote { get; set; }
         public string work_area { get; set; }

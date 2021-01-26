@@ -39,7 +39,7 @@ namespace CSE_DEPARTMENT.Controllers
         // GET: teacher_career/Create
         public ActionResult Create()
         {
-            ViewBag.teacher_id = new SelectList(db.teachers, "teacher_id", "teacher__name");
+            ViewBag.teacher_id = new SelectList(db.teachers, "teacher_id", "teacher_name");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace CSE_DEPARTMENT.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.teacher_id = new SelectList(db.teachers, "teacher_id", "teacher__name", teacher_career.teacher_id);
+            ViewBag.teacher_id = new SelectList(db.teachers, "teacher_id", "teacher_name", teacher_career.teacher_id);
             return View(teacher_career);
         }
 
@@ -73,7 +73,7 @@ namespace CSE_DEPARTMENT.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.teacher_id = new SelectList(db.teachers, "teacher_id", "teacher__name", teacher_career.teacher_id);
+            ViewBag.teacher_id = new SelectList(db.teachers, "teacher_id", "teacher_name", teacher_career.teacher_id);
             return View(teacher_career);
         }
 
@@ -90,7 +90,7 @@ namespace CSE_DEPARTMENT.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.teacher_id = new SelectList(db.teachers, "teacher_id", "teacher__name", teacher_career.teacher_id);
+            ViewBag.teacher_id = new SelectList(db.teachers, "teacher_id", "teacher_name", teacher_career.teacher_id);
             return View(teacher_career);
         }
 

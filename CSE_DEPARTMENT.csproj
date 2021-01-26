@@ -271,6 +271,18 @@
     <Compile Include="Migrations\202101151621000_RoleSelected.Designer.cs">
       <DependentUpon>202101151621000_RoleSelected.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101261828397_current_previous_academic.cs" />
+    <Compile Include="Migrations\202101261828397_current_previous_academic.Designer.cs">
+      <DependentUpon>202101261828397_current_previous_academic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101261834585_teacher_name%28updated%29.cs" />
+    <Compile Include="Migrations\202101261834585_teacher_name%28updated%29.Designer.cs">
+      <DependentUpon>202101261834585_teacher_name%28updated%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101261837387_year%28updated%29.cs" />
+    <Compile Include="Migrations\202101261837387_year%28updated%29.Designer.cs">
+      <DependentUpon>202101261837387_year%28updated%29.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\activities.cs" />
@@ -2250,11 +2262,6 @@
     <Content Include="Views\books\Details.cshtml" />
     <Content Include="Views\books\Edit.cshtml" />
     <Content Include="Views\books\Index.cshtml" />
-    <Content Include="Views\current_academic\Create.cshtml" />
-    <Content Include="Views\current_academic\Delete.cshtml" />
-    <Content Include="Views\current_academic\Details.cshtml" />
-    <Content Include="Views\current_academic\Edit.cshtml" />
-    <Content Include="Views\current_academic\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -2274,11 +2281,6 @@
     <Content Include="Views\notices\Details.cshtml" />
     <Content Include="Views\notices\Edit.cshtml" />
     <Content Include="Views\notices\Index.cshtml" />
-    <Content Include="Views\previous_academic\Create.cshtml" />
-    <Content Include="Views\previous_academic\Delete.cshtml" />
-    <Content Include="Views\previous_academic\Details.cshtml" />
-    <Content Include="Views\previous_academic\Edit.cshtml" />
-    <Content Include="Views\previous_academic\Index.cshtml" />
     <Content Include="Views\results\Create.cshtml" />
     <Content Include="Views\results\Delete.cshtml" />
     <Content Include="Views\results\Details.cshtml" />
@@ -2318,21 +2320,11 @@
     <Content Include="Views\Subjects\Details.cshtml" />
     <Content Include="Views\Subjects\Edit.cshtml" />
     <Content Include="Views\Subjects\Index.cshtml" />
-    <Content Include="Views\teachers\Create.cshtml" />
-    <Content Include="Views\teachers\Delete.cshtml" />
-    <Content Include="Views\teachers\Details.cshtml" />
-    <Content Include="Views\teachers\Edit.cshtml" />
-    <Content Include="Views\teachers\Index.cshtml" />
     <Content Include="Views\teacher_career\Create.cshtml" />
     <Content Include="Views\teacher_career\Delete.cshtml" />
     <Content Include="Views\teacher_career\Details.cshtml" />
     <Content Include="Views\teacher_career\Edit.cshtml" />
     <Content Include="Views\teacher_career\Index.cshtml" />
-    <Content Include="Views\Years\Create.cshtml" />
-    <Content Include="Views\Years\Delete.cshtml" />
-    <Content Include="Views\Years\Details.cshtml" />
-    <Content Include="Views\Years\Edit.cshtml" />
-    <Content Include="Views\Years\Index.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Web.config" />
@@ -2344,6 +2336,26 @@
     <Content Include="Views\ShowData\Multidata.cshtml" />
     <Content Include="Views\ShowData\Multidata2.cshtml" />
     <Content Include="Views\Account\CreateUser.cshtml" />
+    <Content Include="Views\current_academic\Create.cshtml" />
+    <Content Include="Views\current_academic\Delete.cshtml" />
+    <Content Include="Views\current_academic\Details.cshtml" />
+    <Content Include="Views\current_academic\Edit.cshtml" />
+    <Content Include="Views\current_academic\Index.cshtml" />
+    <Content Include="Views\previous_academic\Create.cshtml" />
+    <Content Include="Views\previous_academic\Delete.cshtml" />
+    <Content Include="Views\previous_academic\Details.cshtml" />
+    <Content Include="Views\previous_academic\Edit.cshtml" />
+    <Content Include="Views\previous_academic\Index.cshtml" />
+    <Content Include="Views\teachers\Create.cshtml" />
+    <Content Include="Views\teachers\Delete.cshtml" />
+    <Content Include="Views\teachers\Details.cshtml" />
+    <Content Include="Views\teachers\Edit.cshtml" />
+    <Content Include="Views\teachers\Index.cshtml" />
+    <Content Include="Views\Years\Create.cshtml" />
+    <Content Include="Views\Years\Delete.cshtml" />
+    <Content Include="Views\Years\Details.cshtml" />
+    <Content Include="Views\Years\Edit.cshtml" />
+    <Content Include="Views\Years\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2376,6 +2388,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101151621000_RoleSelected.resx">
       <DependentUpon>202101151621000_RoleSelected.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101261828397_current_previous_academic.resx">
+      <DependentUpon>202101261828397_current_previous_academic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101261834585_teacher_name%28updated%29.resx">
+      <DependentUpon>202101261834585_teacher_name%28updated%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101261837387_year%28updated%29.resx">
+      <DependentUpon>202101261837387_year%28updated%29.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

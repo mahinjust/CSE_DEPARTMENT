@@ -48,7 +48,7 @@ namespace CSE_DEPARTMENT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "previousacademic_id,student_id,hsc_roll,hsc_reg,hsc_result,hsc_board,hsc_college,hsc_section,ssc_roll,ssc_reg,ssc_result,ssc_board,ssc_school,ssc_section")] previous_academic previous_academic)
+        public ActionResult Create([Bind(Include = "previousacademic_id,student_id,hsc_roll,hsc_reg,hsc_result,hsc_board,hsc_college,hsc_section,ssc_roll,ssc_reg,ssc_result,ssc_board,ssc_school,ssc_section,co_curricular_activities")] previous_academic previous_academic)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace CSE_DEPARTMENT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "previousacademic_id,student_id,hsc_roll,hsc_reg,hsc_result,hsc_board,hsc_college,hsc_section,ssc_roll,ssc_reg,ssc_result,ssc_board,ssc_school,ssc_section")] previous_academic previous_academic)
+        public ActionResult Edit([Bind(Include = "previousacademic_id,student_id,hsc_roll,hsc_reg,hsc_result,hsc_board,hsc_college,hsc_section,ssc_roll,ssc_reg,ssc_result,ssc_board,ssc_school,ssc_section,co_curricular_activities")] previous_academic previous_academic)
         {
             if (ModelState.IsValid)
             {

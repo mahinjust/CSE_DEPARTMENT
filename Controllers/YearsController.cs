@@ -46,7 +46,7 @@ namespace CSE_DEPARTMENT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "year_id,year_name,semester_name")] Year year)
+        public ActionResult Create([Bind(Include = "year_id,year_name")] Year year)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace CSE_DEPARTMENT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "year_id,year_name,semester_name")] Year year)
+        public ActionResult Edit([Bind(Include = "year_id,year_name")] Year year)
         {
             if (ModelState.IsValid)
             {

@@ -24,7 +24,8 @@ namespace CSE_DEPARTMENT.Models
         public string ssc_board { get; set; }
         public string ssc_school { get; set; }
         public string ssc_section { get; set; }
-        
+        public string co_curricular_activities { get; set; }
+
         [ForeignKey("student_id")]
         public virtual student student { get; set; }
     }
