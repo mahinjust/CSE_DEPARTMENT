@@ -2,122 +2,144 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
 }
 
-<h2>Index</h2>
+<br />
+<br />
+<br />
+<br />
 
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-0 font-weight-bold text-primary">Student Profile</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Session
+                        </th>
+                        <th>
+                            Year
+                        </th>
+                        <th>
+                            Roll No
+                        </th>
+                        <th>
+                           Quota
+                        </th>
+                        <th>
+                           Quota Description
+                        </th>
+                        <th>
+                           Skills
+                        </th>
+                        <th>
+                            Hobby
+                        </th>
+                        <th>
+                            Fathers Name
+                        </th>
+                        <th>
+                            Fathers Occupation
+                        </th>
+                        <th>
+                           Fathers Contact No
+                        </th>
+                        <th>
+                            Mothers Name
+                        </th>
+                        <th>
+                           Mothers Occupation
+                        </th>
+                        <th>
+                           Mothers Contact No
+                        </th>
+                        <th>
+                          Guardians Name
+                        </th>
+                        <th>
+                            Guardians Occupation
+                        </th>
+                        <th>
+                           Guardians Contact No
+                        </th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Session.session_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Year.year_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Roll_No)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.quota)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.quata_description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.skills)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.hobby)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.fathers_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.fathers_occupation)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.fathers_contact_no)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.mothers_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.mothers_occupation)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.mothers_contact_no)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.guardians_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.guardians_occupation)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.guardians_contact_no)
+                            </td>
+                            <td class="btn-group">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.student_id }, new { @class = "btn btn-primary" }) 
+                                @Html.ActionLink("Details", "Details", new { id = item.student_id }, new { @class = "btn btn-info" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.student_id }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Session.session_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Year.year_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Roll_No)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.quota)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.quata_description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.skills)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hobby)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fathers_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fathers_occupation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fathers_contact_no)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.mothers_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.mothers_occupation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.mothers_contact_no)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.guardians_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.guardians_occupation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.guardians_contact_no)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Session.session_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Year.year_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Roll_No)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.quota)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.quata_description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.skills)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hobby)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fathers_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fathers_occupation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fathers_contact_no)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.mothers_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.mothers_occupation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.mothers_contact_no)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.guardians_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.guardians_occupation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.guardians_contact_no)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.student_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.student_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.student_id })
-        </td>
-    </tr>
-}
-
-</table>

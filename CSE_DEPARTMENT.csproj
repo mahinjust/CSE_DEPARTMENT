@@ -2310,11 +2310,6 @@
     <Content Include="Views\staff_career\Details.cshtml" />
     <Content Include="Views\staff_career\Edit.cshtml" />
     <Content Include="Views\staff_career\Index.cshtml" />
-    <Content Include="Views\students\Create.cshtml" />
-    <Content Include="Views\students\Delete.cshtml" />
-    <Content Include="Views\students\Details.cshtml" />
-    <Content Include="Views\students\Edit.cshtml" />
-    <Content Include="Views\students\Index.cshtml" />
     <Content Include="Views\Subjects\Create.cshtml" />
     <Content Include="Views\Subjects\Delete.cshtml" />
     <Content Include="Views\Subjects\Details.cshtml" />
@@ -2336,16 +2331,6 @@
     <Content Include="Views\ShowData\Multidata.cshtml" />
     <Content Include="Views\ShowData\Multidata2.cshtml" />
     <Content Include="Views\Account\CreateUser.cshtml" />
-    <Content Include="Views\current_academic\Create.cshtml" />
-    <Content Include="Views\current_academic\Delete.cshtml" />
-    <Content Include="Views\current_academic\Details.cshtml" />
-    <Content Include="Views\current_academic\Edit.cshtml" />
-    <Content Include="Views\current_academic\Index.cshtml" />
-    <Content Include="Views\previous_academic\Create.cshtml" />
-    <Content Include="Views\previous_academic\Delete.cshtml" />
-    <Content Include="Views\previous_academic\Details.cshtml" />
-    <Content Include="Views\previous_academic\Edit.cshtml" />
-    <Content Include="Views\previous_academic\Index.cshtml" />
     <Content Include="Views\teachers\Create.cshtml" />
     <Content Include="Views\teachers\Delete.cshtml" />
     <Content Include="Views\teachers\Details.cshtml" />
@@ -2356,6 +2341,21 @@
     <Content Include="Views\Years\Details.cshtml" />
     <Content Include="Views\Years\Edit.cshtml" />
     <Content Include="Views\Years\Index.cshtml" />
+    <Content Include="Views\current_academic\Create.cshtml" />
+    <Content Include="Views\current_academic\Delete.cshtml" />
+    <Content Include="Views\current_academic\Details.cshtml" />
+    <Content Include="Views\current_academic\Edit.cshtml" />
+    <Content Include="Views\current_academic\Index.cshtml" />
+    <Content Include="Views\previous_academic\Create.cshtml" />
+    <Content Include="Views\previous_academic\Delete.cshtml" />
+    <Content Include="Views\previous_academic\Details.cshtml" />
+    <Content Include="Views\previous_academic\Edit.cshtml" />
+    <Content Include="Views\previous_academic\Index.cshtml" />
+    <Content Include="Views\students\Create.cshtml" />
+    <Content Include="Views\students\Delete.cshtml" />
+    <Content Include="Views\students\Details.cshtml" />
+    <Content Include="Views\students\Edit.cshtml" />
+    <Content Include="Views\students\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

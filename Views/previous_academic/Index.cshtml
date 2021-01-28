@@ -1,112 +1,134 @@
 ﻿@model IEnumerable<CSE_DEPARTMENT.Models.previous_academic>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Previous Academic Status";
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
 }
 
-<h2>Index</h2>
+<br />
+<br />
+<br />
+<br />
 
+
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-0 font-weight-bold text-primary">Current Academic Status</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Quota Description
+                        </th>
+                        <th>
+                            HSC Roll No
+                        </th>
+                        <th>
+                            HSC Registration No
+                        </th>
+                        <th>
+                           HSC Result
+                        </th>
+                        <th>
+                            HSC Board
+                        </th>
+                        <th>
+                            HSC College
+                        </th>
+                        <th>
+                           HSC Section
+                        </th>
+                        <th>
+                           SSC Roll No
+                        </th>
+                        <th>
+                            SSC Registration No
+                        </th>
+                        <th>
+                            SSC Result
+                        </th>
+                        <th>
+                            SSC Board
+                        </th>
+                        <th>
+                            SSC School
+                        </th>
+                        <th>
+                            SSC Section
+                        </th>
+                        <th>
+                            Co Curricular Activities
+                        </th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.student.quata_description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.hsc_roll)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.hsc_reg)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.hsc_result)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.hsc_board)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.hsc_college)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.hsc_section)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ssc_roll)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ssc_reg)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ssc_result)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ssc_board)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ssc_school)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ssc_section)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.co_curricular_activities)
+                            </td>
+                            <td class="btn-group">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.previousacademic_id }, new { @class = "btn btn-primary" }) 
+                                @Html.ActionLink("Details", "Details", new { id = item.previousacademic_id }, new { @class = "btn btn-info" }) 
+                                @Html.ActionLink("Delete", "Delete", new { id = item.previousacademic_id }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.student.quata_description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hsc_roll)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hsc_reg)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hsc_result)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hsc_board)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hsc_college)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hsc_section)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ssc_roll)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ssc_reg)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ssc_result)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ssc_board)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ssc_school)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ssc_section)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.co_curricular_activities)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.student.quata_description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hsc_roll)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hsc_reg)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hsc_result)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hsc_board)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hsc_college)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hsc_section)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ssc_roll)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ssc_reg)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ssc_result)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ssc_board)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ssc_school)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ssc_section)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.co_curricular_activities)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.previousacademic_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.previousacademic_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.previousacademic_id })
-        </td>
-    </tr>
-}
-
-</table>

@@ -1,70 +1,89 @@
 ﻿@model IEnumerable<CSE_DEPARTMENT.Models.current_academic>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Current Academic Status";
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
 }
 
-<h2>Index</h2>
+
+<br />
+<br />
+<br />
+<br />
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-0 font-weight-bold text-primary">Current Academic Status</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                     
+                        <th>
+                            Session
+                        </th>
+                        <th>
+                            Quota Description
+                        </th>
+                        <th>
+                           Year
+                        </th>
+                        <th>
+                           Admission Date
+                        </th>
+                        <th>
+                           Department
+                        </th>
+                        <th>
+                           Co Curricular Activities
+                        </th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                           
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Session.session_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.student.quata_description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Year.year_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.admission_date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.dept)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.co_curricular_activities)
+                            </td>
+                            <td class="btn-group">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.currentacademic_id }, new { @class = "btn btn-primary" })
+                                @Html.ActionLink("Details", "Details", new { id = item.currentacademic_id }, new { @class = "btn btn-info" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.currentacademic_id }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+    
+</div>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+    
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.result.result_id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Session.session_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.student.quata_description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Year.year_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.admission_date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dept)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.co_curricular_activities)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.result.result_id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Session.session_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.student.quata_description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Year.year_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.admission_date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dept)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.co_curricular_activities)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.currentacademic_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.currentacademic_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.currentacademic_id })
-        </td>
-    </tr>
-}
-
-</table>

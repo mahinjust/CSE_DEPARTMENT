@@ -2,74 +2,89 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
 }
 
-<h2>Details</h2>
+<br />
+<br />
+<br />
+<br />
+<br />
 
-<div>
-    <h4>current_academic</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.result.result_id)
-        </dt>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-0 font-weight-bold text-primary">Details</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <dl class="dl-horizontal">
+                    <dt>
+                        Result
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.result.result_id)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.result.result_id)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Session.session_name)
-        </dt>
+                    <dt>
+                      Session
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Session.session_name)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Session.session_name)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.student.quata_description)
-        </dt>
+                    <dt>
+                        Quota Description
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.student.quata_description)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.student.quata_description)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Year.year_name)
-        </dt>
+                    <dt>
+                       Year
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Year.year_name)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Year.year_name)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.admission_date)
-        </dt>
+                    <dt>
+                       Admission Date
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.admission_date)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.admission_date)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.dept)
-        </dt>
+                    <dt>
+                        Department
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.dept)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.dept)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.co_curricular_activities)
-        </dt>
+                    <dt>
+                      Co Curricular Activities
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.co_curricular_activities)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.co_curricular_activities)
+                    </dd>
 
-    </dl>
+                </dl>
+            </table>
+
+        </div>
+
+    </div>
+
 </div>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.currentacademic_id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit","null" ,new { id = Model.currentacademic_id },new { @class="btn btn-info"}) |
+    @Html.ActionLink("Back to List", "Index",null, new { @class = "btn btn-warning" })
 </p>
