@@ -2,74 +2,97 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
 }
 
-<h2>Index</h2>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-0 font-weight-bold text-primary">Staffs Career Info</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Staff Name
+                        </th>
+                        <th>
+                            Joining Date
+                        </th>
+                        <th>
+                            Diploma Result
+                        </th>
+                        <th>
+                            Diploma Institute
+                        </th>
+                        <th>
+                            HSC Result
+                        </th>
+                        <th>
+                            HSC Institute
+                        </th>
+                        <th>
+                            SSC Result
+                        </th>
+                        <th>
+                            SSC Institute
+                        </th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Staff.staff_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.joining_date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.diploma_result)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.diploma_institute)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.hsc_result)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.hsc_institute)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ssc_result)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ssc_institute)
+                            </td>
+                            <td class="btn-group">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.staffcareer_id }, new { @class = "btn btn-primary" }) 
+                                @Html.ActionLink("Details", "Details", new { id = item.staffcareer_id }, new { @class = "btn btn-info" }) 
+                                @Html.ActionLink("Delete", "Delete", new { id = item.staffcareer_id }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create A New Entry", "Create", null, new { @class = "btn btn-success" })
+
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Staff.staff_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.joining_date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.diploma_result)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.diploma_institute)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hsc_result)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hsc_institute)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ssc_result)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ssc_institute)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Staff.staff_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.joining_date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.diploma_result)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.diploma_institute)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hsc_result)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hsc_institute)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ssc_result)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ssc_institute)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.staffcareer_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.staffcareer_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.staffcareer_id })
-        </td>
-    </tr>
-}
-
-</table>

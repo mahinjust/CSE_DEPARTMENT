@@ -2,41 +2,55 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
 }
 
-<h2>Details</h2>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-0 font-weight-bold text-primary">Details</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <dl class="dl-horizontal">
+                    <dt>
+                        Staff Name
+                    </dt>
 
-<div>
-    <h4>Staff</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.staff_name)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.staff_name)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.staff_name)
-        </dd>
+                    <dt>
+                        Favorite Quote
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.favorite_quote)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.favorite_quote)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.favorite_quote)
-        </dd>
+                    <dt>
+                        Designation
 
-        <dt>
-            @Html.DisplayNameFor(model => model.designation)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.designation)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.designation)
-        </dd>
+                </dl>
+            </table>
+        </div>
 
-    </dl>
+    </div>
+
 </div>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.staff_id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.staff_id }, new { @class = "btn btn-info" }) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
 </p>

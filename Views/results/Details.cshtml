@@ -2,57 +2,66 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
 }
 
-<h2>Details</h2>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-0 font-weight-bold text-primary">Details</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <dl class="dl-horizontal">
+                    <dt>
+                       Session
+                    </dt>
 
-<div>
-    <h4>result</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Session.session_name)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Session.session_name)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Session.session_name)
-        </dd>
+                    
 
-        <dt>
-            @Html.DisplayNameFor(model => model.student.quata_description)
-        </dt>
+                    <dt>
+                        Year
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.student.quata_description)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Year.year_name)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Year.year_name)
-        </dt>
+                    <dt>
+                        Roll No
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Year.year_name)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Roll_No)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Roll_No)
-        </dt>
+                    <dt>
+                        CGPA
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Roll_No)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.cgpa)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cgpa)
-        </dt>
+                </dl>
+            </table>
 
-        <dd>
-            @Html.DisplayFor(model => model.cgpa)
-        </dd>
+        </div>
 
-    </dl>
+    </div>
+
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.result_id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.result_id }, new { @class = "btn btn-info" }) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
 </p>

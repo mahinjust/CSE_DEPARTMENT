@@ -12,6 +12,7 @@ namespace CSE_DEPARTMENT.Models
         [Key]
         public int staffcareer_id { get; set; }
         public int? staff_id { get; set; }
+        [DataType(DataType.Date)]
         public System.DateTime joining_date { get; set; }
         public double diploma_result { get; set; }
         public string diploma_institute { get; set; }

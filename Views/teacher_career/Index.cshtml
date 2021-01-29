@@ -2,104 +2,128 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
 }
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
-<h2>Index</h2>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-0 font-weight-bold text-primary">Teachers Career Info</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Teacher Name
+                        </th>
+                        <th>
+                            Joining Date
+                        </th>
+                        <th>
+                            Phd Status
+                        </th>
+                        <th>
+                            Phd Institute
+                        </th>
+                        <th>
+                            Msc Status
+                        </th>
+                        <th>
+                            Msc Institute
+                        </th>
+                        <th>
+                            Msc Session
+                        </th>
+                        <th>
+                            Msc Result
+                        </th>
+                        <th>
+                            Bsc Status
+                        </th>
+                        <th>
+                            Bsc Institute
+                        </th>
+                        <th>
+                            Bsc Session
+                        </th>
+                        <th>
+                            Bsc Result
+                        </th>
+                        <th>
+                            Previous Workplaces
+                        </th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.teacher.teacher_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.joining_date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.phd_status)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.phd_institute)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.msc_status)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.msc_institute)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.msc_session)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.msc_result)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.bsc_status)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.bsc_institute)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.bsc_session)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.bsc_result)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ex_workplaces)
+                            </td>
+                            <td class="btn-group">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.teachercareer_id }, new { @class = "btn btn-primary" })
+                                @Html.ActionLink("Details", "Details", new { id = item.teachercareer_id }, new { @class = "btn btn-info" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.teachercareer_id }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create A New Entry", "Create", null, new { @class = "btn btn-success" })
+
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.teacher.teacher_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.joining_date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.phd_status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.phd_institute)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.msc_status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.msc_institute)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.msc_session)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.msc_result)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.bsc_status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.bsc_institute)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.bsc_session)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.bsc_result)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ex_workplaces)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.teacher.teacher_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.joining_date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.phd_status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.phd_institute)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.msc_status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.msc_institute)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.msc_session)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.msc_result)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.bsc_status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.bsc_institute)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.bsc_session)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.bsc_result)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ex_workplaces)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.teachercareer_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.teachercareer_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.teachercareer_id })
-        </td>
-    </tr>
-}
-
-</table>

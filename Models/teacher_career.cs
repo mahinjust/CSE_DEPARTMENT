@@ -12,6 +12,7 @@ namespace CSE_DEPARTMENT.Models
         [Key]
         public int teachercareer_id { get; set; }
         public int? teacher_id { get; set; }
+        [DataType(DataType.Date)]
         public System.DateTime joining_date { get; set; }
         public string phd_status { get; set; }
         public string phd_institute { get; set; }
