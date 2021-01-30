@@ -2,103 +2,110 @@
 
 @{
     ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
 }
 
-<h2>Delete</h2>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-0 font-weight-bold text-primary">Are you sure you want to delete this?</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <dl class="dl-horizontal">
+                    <dt>
+                        Session
+                    </dt>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>routine</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Session.session_name)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Session.session_name)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Session.session_name)
-        </dd>
+                    <dt>
+                        Subject Name
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Subject.Subject_Name)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Subject.Subject_Name)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Subject.Subject_Name)
-        </dd>
+                    <dt>
+                        Teacher Name
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.teacher.teacher_name)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.teacher.teacher_name)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.teacher.teacher_name)
-        </dd>
+                    <dt>
+                        Date
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.routine_upload)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.class_date)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.routine_upload)
-        </dd>
+                    <dt>
+                        Day
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.class_date)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.day)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.class_date)
-        </dd>
+                    <dt>
+                        Start Time
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.day)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.start_time)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.day)
-        </dd>
+                    <dt>
+                        End Time
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.start_time)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.end_time)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.start_time)
-        </dd>
+                    <dt>
+                        Duration
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.end_time)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.duration)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.end_time)
-        </dd>
+                    <dt>
+                        Comment
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.duration)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.comment)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.duration)
-        </dd>
+                </dl>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.comment)
-        </dt>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
 
-        <dd>
-            @Html.DisplayFor(model => model.comment)
-        </dd>
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Delete" class="btn btn-danger" /> |
+                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
+                    </div>
+                }
+            </table>
 
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
         </div>
-    }
+
+    </div>
+
 </div>

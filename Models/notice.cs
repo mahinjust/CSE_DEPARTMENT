@@ -13,11 +13,16 @@ namespace CSE_DEPARTMENT.Models
         public string notice_upload { get; set; }
         public string notice_topic { get; set; }
         public string published_by { get; set; }
+        [DataType(DataType.Date)]
         public System.DateTime publish_date { get; set; }
         public string created_by { get; set; }
+        [DataType(DataType.Date)]
         public System.DateTime created_date { get; set; }
+
         public string updated_by { get; set; }
+        [DataType(DataType.Date)]
         public System.DateTime updated_date { get; set; }
+        [DataType(DataType.Date)]
         public string deadline { get; set; }
         public string priority { get; set; }
         public string specification { get; set; }

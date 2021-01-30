@@ -2,73 +2,86 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
 }
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-0 font-weight-bold text-primary">Details</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
-<h2>Details</h2>
+                <dl class="dl-horizontal">
+                    <dt>
+                        Subject Name
+                    </dt>
 
-<div>
-    <h4>materials</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Subject.Subject_Name)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Subject.Subject_Name)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Subject.Subject_Name)
-        </dd>
+                    <dt>
+                        Year
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Year.year_name)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Year.year_name)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Year.year_name)
-        </dd>
+                    <dt>
+                        Materials Topic
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.materials_topic)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.materials_topic)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.materials_topic)
-        </dd>
+                    <dt>
+                        Arranged By
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.arranged_by)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.arranged_by)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.arranged_by)
-        </dd>
+                    <dt>
+                        Reference
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.reference)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.reference)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.reference)
-        </dd>
+                    <dt>
+                        Publish Date
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.publish_date)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.publish_date)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.publish_date)
-        </dd>
+                    <dt>
+                        Specification
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.specification)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.specification)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.specification)
-        </dd>
+                </dl>
+            </table>
+        </div>
 
-    </dl>
+    </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.materials_id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.materials_id }, new { @class = "btn btn-info" }) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
 </p>

@@ -12,12 +12,15 @@ namespace CSE_DEPARTMENT.Models
         [Key]
         public int routine_id { get; set; }
         public string routine_upload { get; set; }
+        [DataType(DataType.Date)]
         public System.DateTime class_date { get; set; }
         public string day { get; set; }
         public int? teacher_id { get; set; }
         public int? subject_id { get; set; }
         public int? session_id { get; set; }
+        [DataType(DataType.Time)]
         public System.TimeSpan start_time { get; set; }
+        [DataType(DataType.Time)]
         public System.TimeSpan end_time { get; set; }
         public string duration { get; set; }
         public string comment { get; set; }

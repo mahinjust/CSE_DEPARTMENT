@@ -2,68 +2,97 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
 }
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
-<h2>Index</h2>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-0 font-weight-bold text-primary">Class Materials</h3>
+
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+
+                    <tr>
+                        <th>
+                            Subject Name
+                        </th>
+                        <th>
+                            Year Name
+                        </th>
+                        <th>
+                            Materials Topic
+                        </th>
+                        <th>
+                            Arranged By
+                        </th>
+                        <th>
+                            Reference
+                        </th>
+                        <th>
+                            Publish Date
+                        </th>
+                        <th>
+                            Specification
+                        </th>
+                        <th>
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Subject.Subject_Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Year.year_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.materials_topic)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.arranged_by)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.reference)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.publish_date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.specification)
+                            </td>
+                            <td class="btn-group">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.materials_id }, new { @class = "btn btn-primary" }) 
+                                @Html.ActionLink("Details", "Details", new { id = item.materials_id }, new { @class = "btn btn-info" }) 
+                                @Html.ActionLink("Delete", "Delete", new { id = item.materials_id }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create A New Entry", "Create", null, new { @class = "btn btn-success" })
+
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Subject.Subject_Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Year.year_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.materials_topic)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.arranged_by)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.reference)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.publish_date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.specification)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Subject.Subject_Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Year.year_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.materials_topic)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.arranged_by)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.reference)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.publish_date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.specification)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.materials_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.materials_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.materials_id })
-        </td>
-    </tr>
-}
-
-</table>

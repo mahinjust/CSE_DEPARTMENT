@@ -16,6 +16,7 @@ namespace CSE_DEPARTMENT.Models
         public string materials_topic { get; set; }
         public string arranged_by { get; set; }
         public string reference { get; set; }
+        [DataType(DataType.Date)]
         public System.DateTime publish_date { get; set; }
         public string specification { get; set; }
 

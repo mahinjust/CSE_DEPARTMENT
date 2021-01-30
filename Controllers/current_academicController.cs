@@ -39,7 +39,7 @@ namespace CSE_DEPARTMENT.Controllers
         // GET: current_academic/Create
         public ActionResult Create()
         {
-            ViewBag.result_id = new SelectList(db.results, "result_id", "result_id");
+            ViewBag.result_id = new SelectList(db.results, "result_id", "cgpa");
             ViewBag.session_id = new SelectList(db.Sessions, "session_id", "session_name");
             ViewBag.student_id = new SelectList(db.students, "student_id", "quata_description");
             ViewBag.year_id = new SelectList(db.Years, "year_id", "year_name");
@@ -60,7 +60,7 @@ namespace CSE_DEPARTMENT.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.result_id = new SelectList(db.results, "result_id", "result_id", current_academic.result_id);
+            ViewBag.result_id = new SelectList(db.results, "result_id", "cgpa", current_academic.result_id);
             ViewBag.session_id = new SelectList(db.Sessions, "session_id", "session_name", current_academic.session_id);
             ViewBag.student_id = new SelectList(db.students, "student_id", "quata_description", current_academic.student_id);
             ViewBag.year_id = new SelectList(db.Years, "year_id", "year_name", current_academic.year_id);
@@ -79,7 +79,7 @@ namespace CSE_DEPARTMENT.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.result_id = new SelectList(db.results, "result_id", "result_id", current_academic.result_id);
+            ViewBag.result_id = new SelectList(db.results, "result_id", "cgpa", current_academic.result_id);
             ViewBag.session_id = new SelectList(db.Sessions, "session_id", "session_name", current_academic.session_id);
             ViewBag.student_id = new SelectList(db.students, "student_id", "quata_description", current_academic.student_id);
             ViewBag.year_id = new SelectList(db.Years, "year_id", "year_name", current_academic.year_id);
@@ -99,7 +99,7 @@ namespace CSE_DEPARTMENT.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.result_id = new SelectList(db.results, "result_id", "result_id", current_academic.result_id);
+            ViewBag.result_id = new SelectList(db.results, "result_id", "cgpa", current_academic.result_id);
             ViewBag.session_id = new SelectList(db.Sessions, "session_id", "session_name", current_academic.session_id);
             ViewBag.student_id = new SelectList(db.students, "student_id", "quata_description", current_academic.student_id);
             ViewBag.year_id = new SelectList(db.Years, "year_id", "year_name", current_academic.year_id);

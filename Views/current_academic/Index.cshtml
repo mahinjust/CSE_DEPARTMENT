@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<CSE_DEPARTMENT.Models.current_academic>
 
 @{ ViewBag.Title = "Current Academic Status";
-    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml"; }
+   Layout = "~/Views/Shared/_HomeLayoutPage.cshtml"; 
+ }
 
 
 <br />
@@ -32,9 +33,6 @@
                             Session
                         </th>
                         <th>
-                            Quota Description
-                        </th>
-                        <th>
                             Year
                         </th>
                         <th>
@@ -42,6 +40,9 @@
                         </th>
                         <th>
                             Department
+                        </th>
+                        <th>
+                            Current Semester Result
                         </th>
                         <th>
                             Co Curricular Activities
@@ -53,32 +54,32 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-        <tr>
+                    <tr>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Session.session_name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.student.quata_description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Year.year_name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.admission_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.dept)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.co_curricular_activities)
-            </td>
-            <td class="btn-group">
-                @Html.ActionLink("Edit", "Edit", new { id = item.currentacademic_id }, new { @class = "btn btn-primary" })
-                @Html.ActionLink("Details", "Details", new { id = item.currentacademic_id }, new { @class = "btn btn-info" })
-                @Html.ActionLink("Delete", "Delete", new { id = item.currentacademic_id }, new { @class = "btn btn-danger" })
-            </td>
-        </tr>}
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Session.session_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Year.year_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.admission_date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.dept)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.result.cgpa)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.co_curricular_activities)
+                        </td>
+                        <td class="btn-group">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.currentacademic_id }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Details", "Details", new { id = item.currentacademic_id }, new { @class = "btn btn-info" })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.currentacademic_id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>}
 
                 </tbody>
 

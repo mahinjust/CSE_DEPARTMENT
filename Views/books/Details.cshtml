@@ -2,65 +2,78 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
 }
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-0 font-weight-bold text-primary">Details</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <dl class="dl-horizontal">
+                    <dt>
+                    Subject Name
+                    </dt>
 
-<h2>Details</h2>
+                    <dd>
+                        @Html.DisplayFor(model => model.Subject.Subject_Name)
+                    </dd>
 
-<div>
-    <h4>book</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Subject.Subject_Name)
-        </dt>
+                    <dt>
+                        Year Name
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Subject.Subject_Name)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Year.year_name)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Year.year_name)
-        </dt>
+                    <dt>
+                      Book Name
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Year.year_name)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.book_name)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.book_name)
-        </dt>
+                    <dt>
+                       Book Author
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.book_name)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.book_author)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.book_author)
-        </dt>
+                    <dt>
+                        Specification
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.book_author)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.specification)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.specification)
-        </dt>
+                    <dt>
+                        Edition
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.specification)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.edition)
+                    </dd>
+                </dl>
+            </table>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.edition)
-        </dt>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.edition)
-        </dd>
-
-    </dl>
 </div>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.book_id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.book_id}, new { @class = "btn btn-info" }) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
 </p>

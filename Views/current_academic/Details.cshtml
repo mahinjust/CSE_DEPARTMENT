@@ -20,11 +20,11 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <dl class="dl-horizontal">
                     <dt>
-                        Result
+                         Semester Result
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.result.result_id)
+                        @Html.DisplayFor(model => model.result.cgpa)
                     </dd>
 
                     <dt>
@@ -35,13 +35,6 @@
                         @Html.DisplayFor(model => model.Session.session_name)
                     </dd>
 
-                    <dt>
-                        Quota Description
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.student.quata_description)
-                    </dd>
 
                     <dt>
                        Year

@@ -2,86 +2,117 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
 }
 
-<h2>Index</h2>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Session.session_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Subject.Subject_Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.teacher.teacher_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.routine_upload)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.class_date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.day)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.start_time)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.end_time)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.duration)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.comment)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Session.session_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Subject.Subject_Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.teacher.teacher_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.routine_upload)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.class_date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.day)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.start_time)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.end_time)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.duration)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.comment)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.routine_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.routine_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.routine_id })
-        </td>
-    </tr>
-}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-0 font-weight-bold text-primary">Class Routine</h3>
 
-</table>
+
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Session
+                        </th>
+                        <th>
+                            Subject Name
+                        </th>
+                        <th>
+                            Teacher Name
+                        </th>
+
+                        <th>
+                            Date
+                        </th>
+                        <th>
+                            Day
+                        </th>
+                        <th>
+                            Start Time
+                        </th>
+                        <th>
+                            End Time
+                        </th>
+                        <th>
+                            Duration
+                        </th>
+                        <th>
+                            Comment
+                        </th>
+                        <th>
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Session.session_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Subject.Subject_Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.teacher.teacher_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.class_date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.day)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.start_time)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.end_time)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.duration)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.comment)
+                            </td>
+                            <td class="btn-group">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.routine_id }, new { @class = "btn btn-primary" })
+                                @Html.ActionLink("Details", "Details", new { id = item.routine_id }, new { @class = "btn btn-info" }) 
+                                @Html.ActionLink("Delete", "Delete", new { id = item.routine_id }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+@Html.ActionLink("Create A New Entry", "Create", null, new { @class = "btn btn-success" })
+
