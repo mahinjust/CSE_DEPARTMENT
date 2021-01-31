@@ -2,68 +2,96 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
 }
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
-<h2>Index</h2>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-0 font-weight-bold text-primary">Campus Activities</h3>
+
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Roll No
+                        </th>
+                        <th>
+                            Club Membership
+                        </th>
+                        <th>
+                            Club Name
+                        </th>
+                        <th>
+                            Designation
+                        </th>
+                        <th>
+                            Achievement
+                        </th>
+                        <th>
+                            Others Co Curricular Activities
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.student.Roll_No)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.club_membership)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.club_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.designation)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.achievement)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.others_co_curricular_activities)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.description)
+                        </td>
+                        <td class="btn-group">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.activities_id }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Details", "Details", new { id = item.activities_id }, new { @class = "btn btn-info" })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.activities_id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create A New Entry", "Create", null, new { @class = "btn btn-success" })
+
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.student.quata_description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.club_membership)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.club_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.designation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.achievement)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.others_co_curricular_activities)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.description)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.student.quata_description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.club_membership)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.club_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.designation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.achievement)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.others_co_curricular_activities)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.activities_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.activities_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.activities_id })
-        </td>
-    </tr>
-}
-
-</table>

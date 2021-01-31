@@ -33,7 +33,7 @@
                             Session
                         </th>
                         <th>
-                            Year
+                            Year-Semester
                         </th>
                         <th>
                             Admission Date
@@ -45,9 +45,8 @@
                             Current Semester Result
                         </th>
                         <th>
-                            Co Curricular Activities
+                            Actions
                         </th>
-                        <th>Actions</th>
 
                     </tr>
                 </thead>
@@ -70,9 +69,6 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.result.cgpa)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.co_curricular_activities)
                         </td>
                         <td class="btn-group">
                             @Html.ActionLink("Edit", "Edit", new { id = item.currentacademic_id }, new { @class = "btn btn-primary" })

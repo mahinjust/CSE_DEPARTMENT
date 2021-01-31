@@ -297,6 +297,7 @@
     </Compile>
     <Compile Include="Models\book.cs" />
     <Compile Include="Models\current_academic.cs" />
+    <Compile Include="Models\Department.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\materials.cs" />

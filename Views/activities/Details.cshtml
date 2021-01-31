@@ -2,73 +2,86 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
 }
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-0 font-weight-bold text-primary">Details</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <dl class="dl-horizontal">
+                    <dt>
+                        Student Name
+                    </dt>
 
-<h2>Details</h2>
+                    <dd>
+                        @Html.DisplayFor(model => model.student.Roll_No)
+                    </dd>
+                    <dt>
+                        Club Membership
+                    </dt>
 
-<div>
-    <h4>activities</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.student.quata_description)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.club_membership)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.student.quata_description)
-        </dd>
+                    <dt>
+                        Club Name
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.club_membership)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.club_name)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.club_membership)
-        </dd>
+                    <dt>
+                        Designation
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.club_name)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.designation)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.club_name)
-        </dd>
+                    <dt>
+                        Achievement
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.designation)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.achievement)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.designation)
-        </dd>
+                    <dt>
+                        Others Co Curricular Activities
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.achievement)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.others_co_curricular_activities)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.achievement)
-        </dd>
+                    <dt>
+                        Description
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.others_co_curricular_activities)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.description)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.others_co_curricular_activities)
-        </dd>
+                </dl>
+            </table>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.description)
-        </dt>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.description)
-        </dd>
-
-    </dl>
 </div>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.activities_id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.activities_id }, new { @class = "btn btn-info" }) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
 </p>

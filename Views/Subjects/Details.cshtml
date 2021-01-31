@@ -1,34 +1,47 @@
 ﻿@model CSE_DEPARTMENT.Models.Subject
-
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
 }
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-0 font-weight-bold text-primary">Details</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <dl class="dl-horizontal">
+                    <dt>
+                        Course Title
+                    </dt>
 
-<h2>Details</h2>
+                    <dd>
+                        @Html.DisplayFor(model => model.Subject_Name)
+                    </dd>
 
-<div>
-    <h4>Subject</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Subject_Name)
-        </dt>
+                    <dt>
+                        Course Code
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Subject_Name)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.subject_code)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.subject_code)
-        </dt>
+                </dl>
+            </table>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.subject_code)
-        </dd>
+    </div>
 
-    </dl>
 </div>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.subject_id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.subject_id }, new { @class = "btn btn-info" }) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
 </p>

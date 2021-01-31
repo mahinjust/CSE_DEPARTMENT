@@ -39,7 +39,7 @@ namespace CSE_DEPARTMENT.Controllers
         // GET: activities/Create
         public ActionResult Create()
         {
-            ViewBag.student_id = new SelectList(db.students, "student_id", "quata_description");
+            ViewBag.student_id = new SelectList(db.students, "student_id", "Roll_No");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace CSE_DEPARTMENT.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.student_id = new SelectList(db.students, "student_id", "quata_description", activities.student_id);
+            ViewBag.student_id = new SelectList(db.students, "student_id", "Roll_No", activities.student_id);
             return View(activities);
         }
 
@@ -73,7 +73,7 @@ namespace CSE_DEPARTMENT.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.student_id = new SelectList(db.students, "student_id", "quata_description", activities.student_id);
+            ViewBag.student_id = new SelectList(db.students, "student_id", "Roll_No", activities.student_id);
             return View(activities);
         }
 
@@ -90,7 +90,7 @@ namespace CSE_DEPARTMENT.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.student_id = new SelectList(db.students, "student_id", "quata_description", activities.student_id);
+            ViewBag.student_id = new SelectList(db.students, "student_id", "Roll_No", activities.student_id);
             return View(activities);
         }
 

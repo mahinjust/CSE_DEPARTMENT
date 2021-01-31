@@ -20,13 +20,6 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
                 <dl class="dl-horizontal">
-                    <dt>
-                         Semester Result
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.result.cgpa)
-                    </dd>
 
                     <dt>
                         Session
@@ -36,8 +29,9 @@
                         @Html.DisplayFor(model => model.Session.session_name)
                     </dd>
 
+
                     <dt>
-                        Year
+                        Year-Semester
                     </dt>
 
                     <dd>
@@ -53,7 +47,7 @@
                     </dd>
 
                     <dt>
-                       Department
+                        Department
                     </dt>
 
                     <dd>
@@ -61,24 +55,24 @@
                     </dd>
 
                     <dt>
-                        Co Curricular Activities
+                        Semester Result
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.co_curricular_activities)
+                        @Html.DisplayFor(model => model.result.cgpa)
                     </dd>
+
 
                 </dl>
 
                 @using (Html.BeginForm())
                 {
-                    @Html.AntiForgeryToken()
+            @Html.AntiForgeryToken()
 
-                    <div class="form-actions no-color">
-                        <input type="submit" value="Delete" class="btn btn-danger" /> |
-                        @Html.ActionLink("Back to List", "Index",null,new { @class="btn btn-warning"})
-                    </div>
-                }
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Delete" class="btn btn-danger" /> |
+                                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
+                            </div>}
             </table>
 
         </div>

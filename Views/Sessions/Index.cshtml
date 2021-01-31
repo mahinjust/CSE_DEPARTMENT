@@ -1,33 +1,60 @@
 ﻿@model IEnumerable<CSE_DEPARTMENT.Models.Session>
-
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
 }
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
-<h2>Index</h2>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-0 font-weight-bold text-primary">Session</h3>
+
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Session
+                        </th>
+                        <th>
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.session_name)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.session_id }, new { @class = "btn btn-primary" }) 
+                                @Html.ActionLink("Details", "Details", new { id = item.session_id }, new { @class = "btn btn-info" }) 
+                                @Html.ActionLink("Delete", "Delete", new { id = item.session_id }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create A New Entry", "Create", null, new { @class = "btn btn-success" })
+
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.session_name)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.session_name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.session_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.session_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.session_id })
-        </td>
-    </tr>
-}
-
-</table>

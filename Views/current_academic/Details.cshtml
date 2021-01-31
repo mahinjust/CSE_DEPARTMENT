@@ -19,16 +19,9 @@
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <dl class="dl-horizontal">
-                    <dt>
-                         Semester Result
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.result.cgpa)
-                    </dd>
 
                     <dt>
-                      Session
+                        Session
                     </dt>
 
                     <dd>
@@ -37,7 +30,7 @@
 
 
                     <dt>
-                       Year
+                        Year-Semester
                     </dt>
 
                     <dd>
@@ -45,7 +38,7 @@
                     </dd>
 
                     <dt>
-                       Admission Date
+                        Admission Date
                     </dt>
 
                     <dd>
@@ -61,12 +54,13 @@
                     </dd>
 
                     <dt>
-                      Co Curricular Activities
+                        Semester Result
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.co_curricular_activities)
+                        @Html.DisplayFor(model => model.result.cgpa)
                     </dd>
+
 
                 </dl>
             </table>
