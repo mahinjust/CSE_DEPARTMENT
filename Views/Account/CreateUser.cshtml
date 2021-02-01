@@ -11,7 +11,7 @@
 @using (Html.BeginForm("CreateUser", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h3>Create a new user's account</h3>
+<h3>Create A New User Account</h3>
     <hr />
     @Html.ValidationSummary("", new { @style = "color: black" })
 
