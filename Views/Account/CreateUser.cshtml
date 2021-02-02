@@ -1,19 +1,20 @@
 ﻿@model CSE_DEPARTMENT.Models.RegisterViewModel
 @using CSE_DEPARTMENT.Controllers
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Create User";
 }
 
 
 <br />
 <br />
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("CreateUser", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h3>Create A New User Account</h3>
+    <h3>Create A New User's Account</h3>
     <hr />
     @Html.ValidationSummary("", new { @style = "color: black" })
+
 
 
     <div class="form-group">
@@ -52,7 +53,10 @@
 
             </div>
             <br />
-            <input type="submit" class="btn btn-primary" value="Register" />
+            <input type="submit" class="btn btn-primary" value="Create" />
+            &nbsp;
+            @Html.ActionLink("Show All User", "Multidata2", "ShowData", null, new { @class = "btn btn-success" })
+
             &nbsp;
             @Html.ActionLink("Go Back", "Index", "Admin", null, new { @class = "btn btn-warning" })
         </div>
