@@ -8,13 +8,12 @@
 <br />
 <br />
 
-@using (Html.BeginForm("CreateUser", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-<h3>Create A New User Account</h3>
+    <h3>Create A New User Account</h3>
     <hr />
     @Html.ValidationSummary("", new { @style = "color: black" })
-
 
 
     <div class="form-group">
@@ -53,10 +52,7 @@
 
             </div>
             <br />
-            <input type="submit" class="btn btn-primary" value="Create" />
-            &nbsp;
-            @Html.ActionLink("Show All User", "Multidata2", "ShowData", null, new { @class = "btn btn-success" })
-
+            <input type="submit" class="btn btn-primary" value="Register" />
             &nbsp;
             @Html.ActionLink("Go Back", "Index", "Admin", null, new { @class = "btn btn-warning" })
         </div>
@@ -64,4 +60,11 @@
 
 
 
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <script src="~/Scripts/Site.js"></script>
 }
