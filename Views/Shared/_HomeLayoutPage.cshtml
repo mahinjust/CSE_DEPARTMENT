@@ -7,6 +7,7 @@
         #div1 {
             font-size: 48px;
         }
+
         #content {
             background-image: url('../../Images/background.jpg');
             background-repeat: no-repeat;
@@ -35,16 +36,8 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-                <div class="d-flex justify-content-start">
+        <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
-                    <img src="~/Content/Admin Template/img/just.png" />
-                </div>
-
-
-
-            </a>
 
             <!-- Divider -->
             <!-- Nav Item - Dashboard -->
@@ -198,8 +191,8 @@
 
             <!-- Sidebar Toggler (Sidebar) -->
             @*<div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-        </div>*@
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>*@
 
 
 
@@ -216,8 +209,17 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" style="position: fixed; top: 0; width: 86%">
 
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" style="position: fixed; top: 0; width: 86%">
+                    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+                        <div class="d-flex justify-content-start">
+
+                            <img src="~/Content/Admin Template/img/just.png" />
+                        </div>
+
+
+
+                    </a>
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
@@ -251,7 +253,7 @@
                             }
                             @if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
                             {
-                           
+
                                 @Html.ActionLink("Go Back To Admin Arena", "Index", "Admin", null, new { @class = "btn btn-primary" })
                             }
 
@@ -337,7 +339,7 @@
 
     <div class="text-center">
         <footer>
-            
+
             <p><b> &copy; @*@DateTime.Now.Year*@ DEVELOPERS TEAM, CSE </b></p>
 
         </footer>
