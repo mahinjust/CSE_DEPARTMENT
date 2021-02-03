@@ -11,7 +11,7 @@
 <body>
 
     <br />
-    <h2>Assign Role</h2>
+    <h3>Assign Role</h3>
     <hr />
     <br />
 
@@ -45,8 +45,10 @@
         <br />
         <div class="row">
             <div class="col-md-12 col-lg-12">
-                <button class="btn btn-primary" typeof="submit">Save</button>
-                @Html.ActionLink("Go Back", "Index", null, new { @class = "btn btn-warning" })
+                <button class="btn btn-primary" typeof="submit">Save</button> |
+                @Html.ActionLink("Go Back", "Index", null, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Users With Roles", "UsersWithRoles", "ManageUsers", null, new { @class = "btn btn-info" })
+
             </div>
         </div>
 

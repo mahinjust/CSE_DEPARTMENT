@@ -1,6 +1,6 @@
 ﻿@model CSE_DEPARTMENT.Models.AddPhoneNumberViewModel
 @{
-    ViewBag.Title = "Phone Number";
+  
 }
 
 <h2>@ViewBag.Title</h2>
@@ -8,7 +8,8 @@
 @using (Html.BeginForm("AddPhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Add a phone number</h4>
+    <br/>
+    <h3>Add a phone number</h3>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
@@ -19,7 +20,7 @@
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-primary" value="Submit" />
+            <input type="submit" class="btn btn-primary" value="Submit" /> |
             @Html.ActionLink("Go Back", "Index", "Manage", null, new { @class = "btn btn-warning" })
         </div>
     </div>

@@ -30,7 +30,7 @@
     <div class="panel panel-primary">
         <div class="panel-heading">
 
-            <h2>Users List</h2>
+            <h3>Users With Roles List</h3>
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -160,7 +160,12 @@
     </div>
 
     <div class=" buttonback">
-        @Html.ActionLink("Back To List", "Index", "Admin", null, new { @class = "btn btn-info" })
+        @Html.ActionLink("Go Back", "Index", "Admin", null, new { @class = "btn btn-info" }) |
+        @Html.ActionLink("Create A New User", "CreateUser", "Account", null, new { @class = "btn btn-success" }) |
+
+        @Html.ActionLink("Create A New Role", "CreateRole", "Admin", null, new { @class = "btn btn-primary" })
+
+
     </div>
 
     @*<a class="scroll-to-top rounded" href="#page">

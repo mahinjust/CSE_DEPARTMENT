@@ -2,7 +2,7 @@
     ViewBag.Title = "CreateRole";
 }
 <br />
-<h2>Create Role</h2>
+<h3>Create Role</h3>
 <hr />
 
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
@@ -12,7 +12,7 @@
 
 @using (Html.BeginForm("NewRole", "Admin", FormMethod.Post))
 {
-    <div class="row">
+
         <div>
             @Html.ValidationSummary()
             <label class="control-label">Role Name</label>
@@ -21,10 +21,10 @@
             @*<input type="text" name="RoleName" class="form-control" />*@
 
             <br />
-            <button type="submit" class="btn btn-primary">Save</button>
-            @Html.ActionLink("All Roles", "multidata", "ShowData", null, new { @class = "btn btn-success" })
+            <button type="submit" class="btn btn-primary">Save</button> |
+            @Html.ActionLink("All Roles", "multidata", "ShowData", null, new { @class = "btn btn-success" }) |
             @Html.ActionLink("Go Back", "Index", null, new { @class = "btn btn-warning" })
 
         </div>
-    </div>
+ 
 }

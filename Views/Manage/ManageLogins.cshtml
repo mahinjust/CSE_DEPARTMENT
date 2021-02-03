@@ -1,7 +1,8 @@
 ﻿@model CSE_DEPARTMENT.Models.ManageLoginsViewModel
 @using Microsoft.Owin.Security
-@{
-    ViewBag.Title = "Manage your external logins";
+<br/>
+@{ 
+    ViewBag.Title = "Manage Your External Logins";
 }
 
 <h2>@ViewBag.Title</h2>
@@ -61,7 +62,7 @@
                     <p>
                         @foreach (AuthenticationDescription p in Model.OtherLogins)
                         {
-                            <button type="submit" class="btn btn-success" id=" @p.AuthenticationType " name=" provider " value=" @p.AuthenticationType " title="Log in using your @p.Caption account">  @p.AuthenticationType  </button>
+                            <button type="submit" class="btn btn-success" id=" @p.AuthenticationType " name=" provider " value=" @p.AuthenticationType " title="Log in using your @p.Caption account">  @p.AuthenticationType  </button> 
                         }
                     </p>
                     @Html.ActionLink("Go Back", "Index", "Manage", null, new { @class = "btn btn-warning" })

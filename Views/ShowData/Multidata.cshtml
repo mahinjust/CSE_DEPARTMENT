@@ -164,7 +164,9 @@
     </div>
 
     <div class=" buttonback">
-        @Html.ActionLink("Back To List", "Index", "Admin", null, new { @class = "btn btn-info" })
+        @Html.ActionLink("Back To List", "Index", "Admin", null, new { @class = "btn btn-info" }) |
+        @Html.ActionLink("Create A New Role", "CreateRole", "Admin", null, new { @class = "btn btn-success" })
+
     </div>
 
     @*<a class="scroll-to-top rounded" href="#page">
