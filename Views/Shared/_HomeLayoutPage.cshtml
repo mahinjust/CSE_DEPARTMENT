@@ -36,7 +36,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #0066CC">
 
 
             <!-- Divider -->
@@ -62,7 +62,7 @@
                     <span>Student Information</span>
                 </a>
                 <div id="collapseStudent" class="collapse" aria-labelledby="headingStudent" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
+                    <div class="py-2 collapse-inner rounded" style="background-color: #efe9e2">
 
                         @Html.ActionLink("Current Academic Status", "Index", "current_academic", null, new { @class = "collapse-item" })
 
@@ -84,19 +84,19 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Teacher Section
+                Faculty Section
             </div>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEmployee" aria-expanded="true" aria-controls="collapseEmployee">
                     <i class='fas fa-user-tie' style='font-size:24px'></i>
-                    <span>Teacher Information</span>
+                    <span>Faculty Information</span>
                 </a>
                 <div id="collapseEmployee" class="collapse" aria-labelledby="headingEmployee" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
+                    <div class="py-2 collapse-inner rounded" style="background-color: #efe9e2">
 
 
-                        @Html.ActionLink("Profile", "Index", "teachers", null, new { @class = "collapse-item" })
-                        @Html.ActionLink("Career", "Index", "teacher_career", null, new { @class = "collapse-item" })
+                        @Html.ActionLink("Faculty Profile", "Index", "teachers", null, new { @class = "collapse-item" })
+                        @Html.ActionLink("Faculty Career", "Index", "teacher_career", null, new { @class = "collapse-item" })
 
                     </div>
                 </div>
@@ -112,11 +112,11 @@
                     <span>Staff Information</span>
                 </a>
                 <div id="collapseUser" class="collapse" aria-labelledby="headingUser" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
+                    <div class="py-2 collapse-inner rounded"  style="background-color: #efe9e2">
 
-                        @Html.ActionLink("Profile", "Index", "Staffs", null, new { @class = "collapse-item" })
+                        @Html.ActionLink("Staff Profile", "Index", "Staffs", null, new { @class = "collapse-item" })
 
-                        @Html.ActionLink("Career", "Index", "staff_career", null, new { @class = "collapse-item" })
+                        @Html.ActionLink("Staff Career", "Index", "staff_career", null, new { @class = "collapse-item" })
 
                     </div>
 
@@ -254,7 +254,7 @@
                             @if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
                             {
 
-                                @Html.ActionLink("Go Back To Admin Arena", "Index", "Admin", null, new { @class = "btn btn-primary" })
+                                @Html.ActionLink("Go Back To Admin Arena", "Index", "Admin", null, new { @class = "btn btn-dark" })
                             }
 
 
