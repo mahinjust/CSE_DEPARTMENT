@@ -325,8 +325,14 @@
                 </div>
                 <div class="modal-body">Select <b>"Logout"</b> below if you are ready to end your current session</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    @Html.ActionLink("Logout", "Login", "Account", null, new { @class = "btn btn-info" })
+                    <button class="btn btn-outline-secondary btn-lg" data-dismiss="modal" type="button">Cancel</button>
+                    <button class="btn btn-outline-warning" type="button"> @Html.Partial("_LoginPartial")</button>
+
+
+                    @*@Html.ActionLink("LogOff", "Index", "UserLogin",new { @class= "btn btn-outline-warning" })*@
+
+
+
 
                 </div>
             </div>
