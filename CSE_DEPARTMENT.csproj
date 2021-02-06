@@ -2357,7 +2357,7 @@
     <Content Include="Views\results\Details.cshtml" />
     <Content Include="Views\results\Edit.cshtml" />
     <Content Include="Views\results\Index.cshtml" />
-    <Content Include="Views\Shared\_UserLoginPartial.cshtml" />
+    <Content Include="Views\Shared\UserLogin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
