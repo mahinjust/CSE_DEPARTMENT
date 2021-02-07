@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace CSE_DEPARTMENT.Controllers
 {
+    [Authorize(Roles = "SuperAdmin")]
     public class ManageUsersController : Controller
     {
         // GET: ManageUsers

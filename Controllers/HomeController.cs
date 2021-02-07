@@ -8,9 +8,10 @@ using System.Web.Mvc;
 namespace CSE_DEPARTMENT.Controllers
 {
     [RequireHttps]
+    [Authorize]
     public class HomeController : Controller
     {
-        [Authorize]
+      
         public ActionResult Index()
         {
             return View();

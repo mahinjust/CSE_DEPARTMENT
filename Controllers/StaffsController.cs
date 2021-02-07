@@ -10,6 +10,7 @@ using CSE_DEPARTMENT.Models;
 
 namespace CSE_DEPARTMENT.Controllers
 {
+    [Authorize]
     public class StaffsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

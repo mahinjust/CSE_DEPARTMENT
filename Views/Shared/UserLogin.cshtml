@@ -6,22 +6,25 @@
         @Html.AntiForgeryToken()
 
 
-        <ul class="nav navbar-nav navbar-right">
+<ul class="nav navbar-nav navbar-right">
 
-            <li class="list-group-item list-group-item-success">
-                @Html.ActionLink("Hello, " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+    <button type="button" class="btn btn-outline-info">
+        <li>
+            @Html.ActionLink("Hello, " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", style = "text-decoration:none" })
 
-            </li>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-
-            <li class="list-group-item list-group-item-warning"><a href="javascript:document.getElementById('logoutForm').submit()">Log Out</a></li>
-        </ul>
+        </li>
+    </button>
+    &nbsp;&nbsp;&nbsp;&nbsp; 
+    <button type="button" class="btn btn-outline-warning">
+        <li><a href="javascript:document.getElementById('logoutForm').submit()"style = "text-decoration:none" >Log Out</a></li>
+    </button>
+</ul>
     }
 }
-else
+@*else
 {
     <ul class="nav navbar-nav navbar-right">
         <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
-}
+}*@

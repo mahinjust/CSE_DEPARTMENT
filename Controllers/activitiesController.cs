@@ -10,6 +10,7 @@ using CSE_DEPARTMENT.Models;
 
 namespace CSE_DEPARTMENT.Controllers
 {
+    [Authorize]
     public class activitiesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
