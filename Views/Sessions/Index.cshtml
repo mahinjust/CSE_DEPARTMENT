@@ -39,10 +39,16 @@
                                 @Html.DisplayFor(modelItem => item.session_name)
                             </td>
                             <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.session_id }, new { @class = "btn btn-primary" }) 
-                                @Html.ActionLink("Details", "Details", new { id = item.session_id }, new { @class = "btn btn-info" }) 
-                                @Html.ActionLink("Delete", "Delete", new { id = item.session_id }, new { @class = "btn btn-danger" })
-                            </td>
+                                @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+                                {
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.session_id }, new { @class = "btn btn-primary" })
+                                }
+                                @Html.ActionLink("Details", "Details", new { id = item.session_id }, new { @class = "btn btn-info" })
+                                @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+                                {
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.session_id }, new { @class = "btn btn-danger" })
+                                }
+                                </td>
                         </tr>
                     }
                 </tbody>
@@ -55,6 +61,8 @@
 </div>
 
 <p>
-    @Html.ActionLink("Create A New Entry", "Create", null, new { @class = "btn btn-success" })
-
+    @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+    {
+        @Html.ActionLink("Create A New Entry", "Create", null, new { @class = "btn btn-success" })
+    }
 </p>

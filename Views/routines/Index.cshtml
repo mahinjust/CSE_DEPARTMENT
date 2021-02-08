@@ -94,9 +94,15 @@
                                 @Html.DisplayFor(modelItem => item.comment)
                             </td>
                             <td class="btn-group">
-                                @Html.ActionLink("Edit", "Edit", new { id = item.routine_id }, new { @class = "btn btn-primary" })
-                                @Html.ActionLink("Details", "Details", new { id = item.routine_id }, new { @class = "btn btn-info" }) 
-                                @Html.ActionLink("Delete", "Delete", new { id = item.routine_id }, new { @class = "btn btn-danger" })
+                                @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+                                {
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.routine_id }, new { @class = "btn btn-primary" })
+                                }
+                                @Html.ActionLink("Details", "Details", new { id = item.routine_id }, new { @class = "btn btn-info" })
+                                @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+                                {
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.routine_id }, new { @class = "btn btn-danger" })
+                                }
                             </td>
                         </tr>
                     }
@@ -113,6 +119,9 @@
 
 
 
-
-@Html.ActionLink("Create A New Entry", "Create", null, new { @class = "btn btn-success" })
-
+<p>
+    @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+    {
+        @Html.ActionLink("Create A New Entry", "Create", null, new { @class = "btn btn-success" })
+    }
+</p>

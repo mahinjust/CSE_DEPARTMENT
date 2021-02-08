@@ -107,10 +107,15 @@
                                 @Html.DisplayFor(modelItem => item.ex_workplaces)
                             </td>
                             <td class="btn-group">
-                                @Html.ActionLink("Edit", "Edit", new { id = item.teachercareer_id }, new { @class = "btn btn-primary" })
+                                @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+                                {
+                            @Html.ActionLink("Edit", "Edit", new { id = item.teachercareer_id }, new { @class = "btn btn-primary" })}
                                 @Html.ActionLink("Details", "Details", new { id = item.teachercareer_id }, new { @class = "btn btn-info" })
-                                @Html.ActionLink("Delete", "Delete", new { id = item.teachercareer_id }, new { @class = "btn btn-danger" })
-                            </td>
+                                @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+                                {
+                            @Html.ActionLink("Delete", "Delete", new { id = item.teachercareer_id }, new { @class = "btn btn-danger" })
+                                }
+                           </td>
                         </tr>
                     }
 
@@ -124,6 +129,9 @@
 </div>
 
 <p>
-    @Html.ActionLink("Create A New Entry", "Create", null, new { @class = "btn btn-success" })
+    @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+    {
+@Html.ActionLink("Create A New Entry", "Create", null, new { @class = "btn btn-success" })
+    }
 
 </p>

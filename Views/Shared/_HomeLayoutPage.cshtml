@@ -48,80 +48,98 @@
                 </a>
             </li>
 
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Student") || User.IsInRole("Faculty")))
+            {
+                <hr class="sidebar-divider">
 
-            <hr class="sidebar-divider">
+                <!-- Heading -->
 
-            <!-- Heading -->
-
-            <div class="sidebar-heading">
-                <b>Student Section</b>
-            </div>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStudent" aria-expanded="true" aria-controls="collapseStudent">
-                    <i class='fas fa-user-graduate' style='font-size:24px'></i>
-                    <span>Student Information</span>
-                </a>
-                <div id="collapseStudent" class="collapse" aria-labelledby="headingStudent" data-parent="#accordionSidebar">
-                    <div class="py-2 collapse-inner rounded" style="background-color: #bcd4c0">
-
-                        @Html.ActionLink("Current Academic Status", "Index", "current_academic", null, new { @class = "collapse-item" })
-
-                        @Html.ActionLink("Previous Academic Status", "Index", "previous_academic", null, new { @class = "collapse-item" })
-
-                        @Html.ActionLink("Profile", "Index", "students", null, new { @class = "collapse-item" })
-
-                        @Html.ActionLink("Semester Results", "Index", "results", null, new { @class = "collapse-item" })
-                        @Html.ActionLink("Campus Activities", "Index", "activities", null, new { @class = "collapse-item" })
-                        @Html.ActionLink("Year-Semester", "Index", "Years", null, new { @class = "collapse-item" })
-                        @Html.ActionLink("Session", "Index", "Sessions", null, new { @class = "collapse-item" })
-                        @Html.ActionLink("Courses", "Index", "Subjects", null, new { @class = "collapse-item" })
-                    </div>
-
+                <div class="sidebar-heading">
+                    <b>Student Section</b>
                 </div>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStudent" aria-expanded="true" aria-controls="collapseStudent">
+                        <i class='fas fa-user-graduate' style='font-size:24px'></i>
+                        <span>Student Information</span>
+                    </a>
+                    <div id="collapseStudent" class="collapse" aria-labelledby="headingStudent" data-parent="#accordionSidebar">
+                        <div class="py-2 collapse-inner rounded" style="background-color: #bcd4c0">
 
-            <hr class="sidebar-divider">
+                            @Html.ActionLink("Current Academic Status", "Index", "current_academic", null, new { @class = "collapse-item" })
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Faculty Section
-            </div>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEmployee" aria-expanded="true" aria-controls="collapseEmployee">
-                    <i class='fas fa-user-tie' style='font-size:24px'></i>
-                    <span>Faculty Information</span>
-                </a>
-                <div id="collapseEmployee" class="collapse" aria-labelledby="headingEmployee" data-parent="#accordionSidebar">
-                    <div class="py-2 collapse-inner rounded" style="background-color: #bcd4c0">
+                            @Html.ActionLink("Previous Academic Status", "Index", "previous_academic", null, new { @class = "collapse-item" })
 
+                            @Html.ActionLink("Profile", "Index", "students", null, new { @class = "collapse-item" })
 
-                        @Html.ActionLink("Faculty Profile", "Index", "teachers", null, new { @class = "collapse-item" })
-                        @Html.ActionLink("Faculty Career", "Index", "teacher_career", null, new { @class = "collapse-item" })
+                            @Html.ActionLink("Semester Results", "Index", "results", null, new { @class = "collapse-item" })
+                            @Html.ActionLink("Campus Activities", "Index", "activities", null, new { @class = "collapse-item" })
+                            @Html.ActionLink("Year-Semester", "Index", "Years", null, new { @class = "collapse-item" })
+                            @Html.ActionLink("Session", "Index", "Sessions", null, new { @class = "collapse-item" })
+                            @Html.ActionLink("Courses", "Index", "Subjects", null, new { @class = "collapse-item" })
+                        </div>
 
                     </div>
+                </li>
+            }
+
+
+
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Faculty")))
+            {
+
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Faculty Section
                 </div>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEmployee" aria-expanded="true" aria-controls="collapseEmployee">
+                        <i class='fas fa-user-tie' style='font-size:24px'></i>
+                        <span>Faculty Information</span>
+                    </a>
+                    <div id="collapseEmployee" class="collapse" aria-labelledby="headingEmployee" data-parent="#accordionSidebar">
+                        <div class="py-2 collapse-inner rounded" style="background-color: #bcd4c0">
 
 
-            <div class="sidebar-heading">
-                <b>Staff Section</b>
-            </div>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
-                    <i class='fas fa-user-alt' style='font-size:24px'></i>
-                    <span>Staff Information</span>
-                </a>
-                <div id="collapseUser" class="collapse" aria-labelledby="headingUser" data-parent="#accordionSidebar">
-                    <div class="py-2 collapse-inner rounded"  style="background-color: #bcd4c0">
+                            @Html.ActionLink("Faculty Profile", "Index", "teachers", null, new { @class = "collapse-item" })
+                            @Html.ActionLink("Faculty Career", "Index", "teacher_career", null, new { @class = "collapse-item" })
 
-                        @Html.ActionLink("Staff Profile", "Index", "Staffs", null, new { @class = "collapse-item" })
+                        </div>
+                    </div>
+                </li>
+            }
 
-                        @Html.ActionLink("Staff Career", "Index", "staff_career", null, new { @class = "collapse-item" })
+
+
+
+
+
+
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Staff") || User.IsInRole("Faculty")))
+            {
+                <hr class="sidebar-divider">
+
+                <div class="sidebar-heading">
+                    <b>Staff Section</b>
+                </div>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
+                        <i class='fas fa-user-alt' style='font-size:24px'></i>
+                        <span>Staff Information</span>
+                    </a>
+                    <div id="collapseUser" class="collapse" aria-labelledby="headingUser" data-parent="#accordionSidebar">
+                        <div class="py-2 collapse-inner rounded" style="background-color: #bcd4c0">
+
+                            @Html.ActionLink("Staff Profile", "Index", "Staffs", null, new { @class = "collapse-item" })
+
+                            @Html.ActionLink("Staff Career", "Index", "staff_career", null, new { @class = "collapse-item" })
+
+                        </div>
 
                     </div>
-
-                </div>
-            </li>
+                </li>
+            }
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -132,58 +150,79 @@
 
             </div>
 
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Staff") || User.IsInRole("Faculty") || User.IsInRole("Student")))
+            {
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="/Books/Index">
+                        <i class='fas fa-book-open' style='font-size:24px'></i>
+                        <span>E-Library </span>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/Books/Index">
-                    <i class='fas fa-book-open' style='font-size:24px'></i>
-                    <span>E-Library </span>
-
-                </a>
+                    </a>
 
 
 
-            </li>
+                </li>
+            }
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Student") || User.IsInRole("Faculty")))
+            {
 
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/materials/Index">
-                    <i class='fas fa-laptop-code' style='font-size:24px'></i>
-                    <span>Class Materials</span>
-                </a>
+                <!-- Nav Item - Utilities Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="/materials/Index">
+                        <i class='fas fa-laptop-code' style='font-size:24px'></i>
+                        <span>Class Materials</span>
+                    </a>
 
-            </li>
+                </li>
+            }
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Staff") || User.IsInRole("Faculty") || User.IsInRole("Student")))
+            {
 
-            <!-- Nav Item - Sessions Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/notices/Index">
-                    <i class='fas fa-chalkboard' style='font-size:24px'></i>
-                    <span>E-Notice</span>
-                </a>
+                <!-- Nav Item - Sessions Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="/notices/Index">
+                        <i class='fas fa-chalkboard' style='font-size:24px'></i>
+                        <span>E-Notice</span>
+                    </a>
 
-            </li>
+                </li>
+            }
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Staff") || User.IsInRole("Faculty") || User.IsInRole("Student")))
+            {
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/routines/Index">
-                    <i class='far fa-calendar-alt' style='font-size:24px'></i>
-                    <span>Class Routine</span>
-                </a>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="/routines/Index">
+                        <i class='far fa-calendar-alt' style='font-size:24px'></i>
+                        <span>Class Routine</span>
+                    </a>
 
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="https://classroom.google.com/">
-                    <i class='fas fa-chalkboard-teacher' style='font-size:24px'></i>
-                    <span>Google Class Room</span>
-                </a>
+                </li>
+            }
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Student") || User.IsInRole("Faculty")))
+            {
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="https://classroom.google.com/">
+                        <i class='fas fa-chalkboard-teacher' style='font-size:24px'></i>
+                        <span>Google Class Room</span>
+                    </a>
 
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="https://www.facebook.com/">
-                    <i class='fab fa-facebook-messenger' style='font-size:24px'></i>
-                    <span>Messaging</span>
-                </a>
+                </li>
+            }
+            <hr class="sidebar-divider">
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Staff") || User.IsInRole("Faculty") || User.IsInRole("Student")))
+            {
+                <div class="sidebar-heading">
+                    <b>Discussion Section</b>
+                </div>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="https://www.facebook.com/">
+                        <i class='fab fa-facebook-messenger' style='font-size:24px'></i>
+                        <span>Messaging</span>
+                    </a>
 
-            </li>
+                </li>
+            }
 
 
             <!-- Divider -->
@@ -191,8 +230,8 @@
 
             <!-- Sidebar Toggler (Sidebar) -->
             @*<div class="text-center d-none d-md-inline">
-                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
-                </div>*@
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>*@
 
 
 

@@ -114,6 +114,9 @@
     </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.notice_id }, new { @class = "btn btn-info" }) |
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
+    @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.notice_id }, new { @class = "btn btn-info" }) 
+    }
+@Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
 </p>

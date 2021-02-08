@@ -161,10 +161,11 @@
     </div>
 
     <div class=" buttonback">
-        @Html.ActionLink("Go Back", "Index", "Admin", null, new { @class = "btn btn-info" }) |
+        @Html.ActionLink("Go Back", "Index", "Admin", null, new { @class = "btn btn-warning" }) |
         @Html.ActionLink("Create A New User", "CreateUser", "Account", null, new { @class = "btn btn-success" }) |
 
-        @Html.ActionLink("Create A New Role", "CreateRole", "Admin", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Create A New Role", "CreateRole", "Admin", null, new { @class = "btn btn-primary" }) |
+        @Html.ActionLink("Assign Role To A User", "AssignRole", "Admin", null, new { @class = "btn btn-info" })
 
 
     </div>
