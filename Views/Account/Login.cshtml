@@ -5,7 +5,7 @@
     ViewBag.Title = "Log in";
 }
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <br />
 <div class="row">
     <div class="col-md-8">
@@ -13,17 +13,19 @@
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <br/>
+                <br />
                 <h3>Use Your Authorized Account To Log In</h3>
                 <hr />
                 <br />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-6 input-group ">
+                    <div class="col-md-5 input-group ">
+                        <div class="input-group">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            <span class="input-group-addon"><i class="fa fa-envelope" style="color:cornflowerblue"></i></span>
+                        </div>
 
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        <br /><br />
                         @Html.ValidationMessageFor(m => m.Email, ""@*, new { @class = "text-danger" }*@, new { @style = "color: black" })
 
                     </div>
@@ -55,7 +57,7 @@
                         <div>
                             <input type="submit" value="Log in" class="btn btn-primary" /> |
                             &nbsp;
-                            @Html.ActionLink("Forgot your password?", "ForgotPassword", null, new { @class = "btn btn-danger" })
+                            @Html.ActionLink("Forgot Your Password?", "ForgotPassword", null, new { @class = "btn btn-danger" })
 
                         </div>
                     </div>
@@ -65,13 +67,13 @@
 
 
                 @*<div class="form-group">
-                <div class="col-md-offset-2">
-                    //Enable this once you have account confirmation enabled for password reset functionality
-                    <p>
-                        @Html.ActionLink("Forgot your password?", "ForgotPassword", null, new { @class = "btn btn-danger" })
-                    </p>
-                </div>
-            </div>*@
+                        <div class="col-md-offset-2">
+                            //Enable this once you have account confirmation enabled for password reset functionality
+                            <p>
+                                @Html.ActionLink("Forgot your password?", "ForgotPassword", null, new { @class = "btn btn-danger" })
+                            </p>
+                        </div>
+                    </div>*@
             }
         </section>
     </div>
@@ -81,7 +83,7 @@
         </section>
 
         <p>
-            @Html.ActionLink("Register as a new user", "Register", null, new { @class = "btn btn-success" })
+            @Html.ActionLink("Register As A New User", "Register", null, new { @class = "btn btn-success" })
         </p>
 
     </div>

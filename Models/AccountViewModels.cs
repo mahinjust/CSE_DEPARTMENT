@@ -69,7 +69,7 @@ namespace CSE_DEPARTMENT.Models
             ErrorMessage = "Password must be at least 8 characters and contain one uppercase letter, one lowercase letter, one digit and one special character.")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Remember Me?")]
         public bool RememberMe { get; set; }
     }
 

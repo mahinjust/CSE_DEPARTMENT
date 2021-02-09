@@ -4,7 +4,7 @@
     ViewBag.Title = "Register";
 }
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <br />
 <br />
 
@@ -17,19 +17,24 @@
 
 
     <div class="form-group">
+
         @Html.LabelFor(m => m.RoleSelected, "Select Role", new { @class = "control-label col-md-2" })
-        <div class="input-group">
-            @Html.DropDownListFor(m => m.RoleSelected, (IEnumerable<SelectListItem>)ViewBag.Roles, "Select Here", new { id = "roles" })
+        <div class="col-md-3 input-group ">
+            <div class="input-group">
+                @Html.DropDownListFor(m => m.RoleSelected, (IEnumerable<SelectListItem>)ViewBag.Roles, "Select Your Desired Role ..................", new { id = "roles" })
+                <span class="input-group-addon"><i class="fa fa-check-square-o" style="color:cornflowerblue"></i></span>
+            </div>
         </div>
     </div>
 
 
     <div class="form-group">
         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-6 input-group ">
-            @*<div class="input-group">*@
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-            @*</div>*@
+        <div class="col-md-3 input-group ">
+            <div class="input-group">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                <span class="input-group-addon"><i class="fa fa-envelope" style="color:cornflowerblue"></i></span>
+            </div>
         </div>
     </div>
 
@@ -79,7 +84,6 @@
     <script type="text/javascript">
         $(function () {
             $("#roles").chosen();
-
         });
         $("#roles").each(function () {
             $(this).children().first().hide();
@@ -87,6 +91,5 @@
         $("#roles").each(function () {
             $(this).children().last().hide();
         });
-
     </script>
 }
