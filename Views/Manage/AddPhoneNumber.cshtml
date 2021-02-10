@@ -2,20 +2,21 @@
 @{
   
 }
-
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <h2>@ViewBag.Title</h2>
 
 @using (Html.BeginForm("AddPhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
     <br/>
-    <h3>Add a phone number</h3>
+    <h3>Add A Phone Number</h3>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
         @Html.LabelFor(m => m.Number, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
+        <div class=" col-md-3 input-group">
             @Html.TextBoxFor(m => m.Number, new { @class = "form-control" })
+            <span class="input-group-addon"><i class="fas fa-phone-volume" style="color:cornflowerblue"></i></span>
         </div>
     </div>
     <div class="form-group">

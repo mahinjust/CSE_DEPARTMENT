@@ -45,7 +45,7 @@ namespace CSE_DEPARTMENT.Models
     {
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Current password")]
+        [Display(Name = "Current Password")]
         public string OldPassword { get; set; }
 
         [Required]
@@ -53,11 +53,11 @@ namespace CSE_DEPARTMENT.Models
         [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}$",
             ErrorMessage = "Password must be at least characters and contain one uppercase letter, one lowercase letter, one digit and one special character.")]
         [DataType(DataType.Password)]
-        [Display(Name = "New password")]
+        [Display(Name = "New Password")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
+        [Display(Name = "Confirm New Password")]
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
