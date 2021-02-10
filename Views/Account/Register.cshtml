@@ -28,6 +28,7 @@
     </div>
 
 
+
     <div class="form-group">
         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
         <div class="col-md-3 input-group ">
@@ -38,14 +39,19 @@
         </div>
     </div>
 
+
     <div class="form-group">
         @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
         <div class="col-md-3 input-group">
             <div class="input-group">
 
-                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @id = "txtPassword" })
                 <span class="input-group-addon"><img id="btnShow" src="~/Images/eye-icon.png" /></span>
 
+            </div>
+
+            <div class="input-group">
+                <input type="checkbox" id="cbShowPassword" />&nbsp;Show Password?
             </div>
         </div>
     </div>
@@ -59,11 +65,17 @@
         @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
         <div class="col-md-3 input-group">
             <div class="input-group">
-                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @id = "txtConfirmPassword" })
                 <span class="input-group-addon"><img id="btnShow" src="~/Images/eye-icon.png" /></span>
 
 
             </div>
+
+
+            <div class="input-group">
+                <input type="checkbox" id="cbShowConfirmPassword" />&nbsp;Show Password?
+            </div>
+
             <br />
             <input type="submit" class="btn btn-primary" value="Register" /> |
             &nbsp;
@@ -79,7 +91,7 @@
     @Scripts.Render("~/bundles/jqueryval")
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
-    <script src="~/Scripts/Site.js"></script>
+    @*<script src="~/Scripts/Site.js"></script>*@
 
     <script type="text/javascript">
         $(function () {
@@ -91,5 +103,27 @@
         $("#roles").each(function () {
             $(this).children().last().hide();
         });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#cbShowPassword').click(function () {
+                $('#txtPassword').attr('type', $(this).is(':checked') ? 'text' : 'password');
+
+            });
+
+
+        });
+
+        $(document).ready(function () {
+            $('#cbShowConfirmPassword').click(function () {
+                $('#txtConfirmPassword').attr('type', $(this).is(':checked') ? 'text' : 'password');
+
+            });
+
+
+        });
+
+
     </script>
 }

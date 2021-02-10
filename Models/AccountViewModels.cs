@@ -36,7 +36,7 @@ namespace CSE_DEPARTMENT.Models
         public string Code { get; set; }
         public string ReturnUrl { get; set; }
 
-        [Display(Name = "Remember this browser?")]
+        [Display(Name = "Remember This Browser?")]
         public bool RememberBrowser { get; set; }
 
         public bool RememberMe { get; set; }

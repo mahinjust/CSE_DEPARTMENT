@@ -20,6 +20,7 @@
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    
                     <div class="col-md-5 input-group ">
                         <div class="input-group">
                             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
@@ -32,11 +33,13 @@
                 </div>
 
                 <div class="form-group">
+                    
                     @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
                     <div class="col-md-5 input-group">
                         <div class="input-group">
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                            <span class="input-group-addon"><img id="btnShow" src="~/Images/eye-icon.png" /></span>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @id = "txtPassword" })
+
+                            <span class="input-group-addon"><img src="~/Images/eye-icon.png" /></span>
                         </div>
 
                         @Html.ValidationMessageFor(m => m.Password, "", new { @style = "color: black" })
@@ -44,7 +47,10 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
+
                         <div class="checkbox">
+                            <input type="checkbox" id="cbShowPassword" />&nbsp; &nbsp; &nbsp;Show Password?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp; &nbsp; &nbsp;<br />
                             @Html.CheckBoxFor(m => m.RememberMe)
                             @Html.LabelFor(m => m.RememberMe)
                         </div>
@@ -57,7 +63,7 @@
                         <div>
                             <input type="submit" value="Log in" class="btn btn-primary" /> |
                             &nbsp;
-                            @Html.ActionLink("Forgot Your Password?", "ForgotPassword", null, new { @class = "btn btn-danger" })
+                            @Html.ActionLink("Forgot your password?", "ForgotPassword", null, new { @class = "btn btn-danger" })
 
                         </div>
                     </div>
@@ -83,7 +89,7 @@
         </section>
 
         <p>
-            @Html.ActionLink("Register As A New User", "Register", null, new { @class = "btn btn-success" })
+            @Html.ActionLink("Register as a new user", "Register", null, new { @class = "btn btn-success" })
         </p>
 
     </div>
@@ -93,6 +99,19 @@
     @Scripts.Render("~/bundles/jqueryval")
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
-    <script src="~/Scripts/Site.js"></script>
+    @*<script src="~/Scripts/Site.js"></script>*@
+
+    <script>
+        $(document).ready(function () {
+            $('#cbShowPassword').click(function () {
+                $('#txtPassword').attr('type', $(this).is(':checked') ? 'text' : 'password');
+
+            });
+
+
+        });
+
+
+    </script>
 
 }
