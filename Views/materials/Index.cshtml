@@ -77,16 +77,16 @@
                                 @Html.DisplayFor(modelItem => item.specification)
                             </td>
                             <td class="btn-group">
-                                @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+                                @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Faculty")))
                                 {
                                     @Html.ActionLink("Edit", "Edit", new { id = item.materials_id }, new { @class = "btn btn-primary" })
                                 }
                                 @Html.ActionLink("Details", "Details", new { id = item.materials_id }, new { @class = "btn btn-info" })
-                                @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+                                @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Faculty")))
                                 {
                                     @Html.ActionLink("Delete", "Delete", new { id = item.materials_id }, new { @class = "btn btn-danger" })
                                 }
-                                </td>
+                            </td>
                         </tr>
                     }
                 </tbody>

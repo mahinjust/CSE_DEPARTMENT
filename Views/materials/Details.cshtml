@@ -82,9 +82,9 @@
     </div>
 </div>
 <p>
-    @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+    @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Faculty")))
     {
         @Html.ActionLink("Edit", "Edit", new { id = Model.materials_id }, new { @class = "btn btn-info" })
     }
-        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
-    </p>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
+</p>

@@ -69,14 +69,17 @@
 
                             @Html.ActionLink("Previous Academic Status", "Index", "previous_academic", null, new { @class = "collapse-item" })
 
-                            @Html.ActionLink("Profile", "Index", "students", null, new { @class = "collapse-item" })
+                            @Html.ActionLink("Student Profile", "Index", "students", null, new { @class = "collapse-item" })
 
                             @Html.ActionLink("Semester Results", "Index", "results", null, new { @class = "collapse-item" })
                             @Html.ActionLink("Campus Activities", "Index", "activities", null, new { @class = "collapse-item" })
-                            @Html.ActionLink("Year-Semester", "Index", "Years", null, new { @class = "collapse-item" })
-                            @Html.ActionLink("Session", "Index", "Sessions", null, new { @class = "collapse-item" })
+                            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Faculty")))
+                            {
+                                @Html.ActionLink("Year-Semester", "Index", "Years", null, new { @class = "collapse-item" })
+                                @Html.ActionLink("Session", "Index", "Sessions", null, new { @class = "collapse-item" })
+                            }
                             @Html.ActionLink("Courses", "Index", "Subjects", null, new { @class = "collapse-item" })
-                        </div>
+                            </div>
 
                     </div>
                 </li>
