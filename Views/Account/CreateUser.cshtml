@@ -1,122 +1,125 @@
-﻿@{
+﻿@using Microsoft.AspNet.Identity
+@{
     ViewBag.Title = "CreateUser";
 }
-<br />
-<h3>Create A New User's Account</h3>
-<hr />
 
-<script src="~/Scripts/jquery-3.4.1.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
-@*<script src="~/Scripts/Site.js"></script>*@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-@using (Html.BeginForm("CreateUser", "Account", FormMethod.Post))
-{
-
-
-    @Html.ValidationSummary()
     <br />
+    <h3>Create A New User's Account</h3>
+    <hr />
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    @*<script src="~/Scripts/Site.js"></script>*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    @using (Html.BeginForm("CreateUser", "Account", FormMethod.Post))
+    {
+
+
+        @Html.ValidationSummary()
+        <br />
 
 
 
 
-    <div class="form-group">
-        <label class="col-md-2 control-label">Email Address</label>
-        <div class="col-md-3 input-group ">
-            <div class="input-group">
-                @Html.TextBox("txtEmail", null, new { @class = "form-control valid", id = "txtEmail", @data_val = "true", @data_val_required = "Email Is A Required Field !" })
-                <span class="input-group-addon"><i class="fa fa-envelope" style="color:cornflowerblue"></i></span>
+        <div class="form-group">
+
+            <label class="col-md-2 control-label">Email Address</label>
+            <div class="col-md-3 input-group ">
+                <div class="input-group">
+                    @Html.TextBox("txtEmail", null, new { @class = "form-control valid", id = "txtEmail", @data_val = "true", @data_val_required = "Email Is A Required Field !" })
+                    <span class="input-group-addon"><i class="fa fa-envelope" style="color:cornflowerblue"></i></span>
+                </div>
+                <span id="lblError" style="color:black"></span>
             </div>
-            <span id="lblError" style="color:black"></span>
         </div>
-    </div>
 
 
-    <div class="form-group">
-        <label class="col-md-2 control-label">Password</label>
-        <div class="col-md-3 input-group">
-            <div class="input-group">
+        <div class="form-group">
+            <label class="col-md-2 control-label">Password</label>
+            <div class="col-md-3 input-group">
+                <div class="input-group">
 
-                @Html.Password("txtPassword", null, new { @class = "form-control valid", @data_val = "true", @data_val_required = "Password Is A Required Field !", @id = "txtPassword" })
-                <span class="input-group-addon"><img src="~/Images/eye-icon.png" /></span>
+                    @Html.Password("txtPassword", null, new { @class = "form-control valid", @data_val = "true", @data_val_required = "Password Is A Required Field !", @id = "txtPassword" })
+                    <span class="input-group-addon"><img src="~/Images/eye-icon.png" /></span>
 
 
+                </div>
+                <div class="input-group">
+                    <input type="checkbox" id="cbShowPassword" />&nbsp;Show Password?
+                </div>
+                <span id="lblErrorPass" style="color:black"></span>
             </div>
-            <div class="input-group">
-                <input type="checkbox" id="cbShowPassword" />&nbsp;Show Password?
-            </div>
-            <span id="lblErrorPass" style="color:black"></span>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label class="col-md-2 control-label">Confirm Password</label>
-        <div class="col-md-3 input-group">
-            <div class="input-group">
+        <div class="form-group">
+            <label class="col-md-2 control-label">Confirm Password</label>
+            <div class="col-md-3 input-group">
+                <div class="input-group">
 
-                @*@Html.Password("txtConfirmPassword", null, new { @class = "form-control valid", @data_val = "true", @data_val_required = "Password is a required field!" })
-                    <span class="input-group-addon"><img id="btnShow" src="~/Images/eye-icon.png" /></span>*@
-                <input data-val="true" data-val-equalto="Password and Confirmation Password must match." data-val-equalto-other="txtPassword" id="txtConfirmPassword" name="ConfirmPassword" type="password" class="form-control valid" />
-                <span class="input-group-addon"><img src="~/Images/eye-icon.png" /></span>
-                @*<span class="field-validation-valid error" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span>*@
+                    @*@Html.Password("txtConfirmPassword", null, new { @class = "form-control valid", @data_val = "true", @data_val_required = "Password is a required field!" })
+                        <span class="input-group-addon"><img id="btnShow" src="~/Images/eye-icon.png" /></span>*@
+                    <input data-val="true" data-val-equalto="Password and Confirmation Password must match." data-val-equalto-other="txtPassword" id="txtConfirmPassword" name="ConfirmPassword" type="password" class="form-control valid" />
+                    <span class="input-group-addon"><img src="~/Images/eye-icon.png" /></span>
+                    @*<span class="field-validation-valid error" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span>*@
 
+                </div>
+
+                <div class="input-group">
+                    <input type="checkbox" id="cbShowConfirmPassword" />&nbsp;Show Password?
+                </div>
+                <br />
+                <button type="submit" value="Submit" id="btnValidate" onclick="ValidateEmail()" class="btn btn-primary">Save</button> |
+                @Html.ActionLink("Show All User", "Multidata2", "ShowData", null, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Go Back", "Index", "Admin", null, new { @class = "btn btn-warning" })
             </div>
 
-            <div class="input-group">
-                <input type="checkbox" id="cbShowConfirmPassword" />&nbsp;Show Password?
-            </div>
-            <br />
-            <button type="submit" value="Submit" id="btnValidate" onclick="ValidateEmail()" class="btn btn-primary">Save</button> |
-            @Html.ActionLink("Show All User", "Multidata2", "ShowData", null, new { @class = "btn btn-success" }) |
-            @Html.ActionLink("Go Back", "Index", "Admin", null, new { @class = "btn btn-warning" })
         </div>
-    </div>
 
 
-    <script type="text/javascript">
-        function ValidateEmail() {
-            var email = document.getElementById("txtEmail").value;
-            var password = document.getElementById("txtPassword").value;
-            var lblError = document.getElementById("lblError");
-            var lblErrorPass = document.getElementById("lblErrorPass");
-            lblError.innerHTML = "";
-            lblErrorPass.innerHTML = "";
-            var expr = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-            var exprPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}$/;
-            if (!expr.test(email)) {
-                lblError.innerHTML = "Please Provide A Valid Email Address !";
+        <script type="text/javascript">
+            function ValidateEmail() {
+                var email = document.getElementById("txtEmail").value;
+                var password = document.getElementById("txtPassword").value;
+                var lblError = document.getElementById("lblError");
+                var lblErrorPass = document.getElementById("lblErrorPass");
+                lblError.innerHTML = "";
+                lblErrorPass.innerHTML = "";
+                var expr = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+                var exprPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}$/;
+                if (!expr.test(email)) {
+                    lblError.innerHTML = "Please Provide A Valid Email Address !";
+                }
+                if (!exprPass.test(password)) {
+                    lblErrorPass.innerHTML = "Password must be at least 8 characters and contain one uppercase letter, one lowercase letter, one digit and one special character !";
+                }
             }
-            if (!exprPass.test(password)) {
-                lblErrorPass.innerHTML = "Password must be at least 8 characters and contain one uppercase letter, one lowercase letter, one digit and one special character !";
-            }
-        }
-    </script>
+        </script>
 
-    <script>
+        <script>
 
-        $(document).ready(function () {
-            $('#cbShowPassword').click(function () {
-                $('#txtPassword').attr('type', $(this).is(':checked') ? 'text' : 'password');
+            $(document).ready(function () {
+                $('#cbShowPassword').click(function () {
+                    $('#txtPassword').attr('type', $(this).is(':checked') ? 'text' : 'password');
+
+                });
+
+
+            });
+
+            $(document).ready(function () {
+                $('#cbShowConfirmPassword').click(function () {
+                    $('#txtConfirmPassword').attr('type', $(this).is(':checked') ? 'text' : 'password');
+
+                });
+
 
             });
 
 
-        });
-
-        $(document).ready(function () {
-            $('#cbShowConfirmPassword').click(function () {
-                $('#txtConfirmPassword').attr('type', $(this).is(':checked') ? 'text' : 'password');
-
-            });
 
 
-        });
+        </script>
 
-
-
-
-    </script>
-
-}
+    }

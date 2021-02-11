@@ -180,12 +180,11 @@ namespace CSE_DEPARTMENT.Controllers
             return View();
         }
 
-        // GET: /Account/Register
-        [AllowAnonymous]
+        // GET: /Account/CreateUser
+
         public ActionResult CreateUser()
         {
-            ApplicationDbContext context = new ApplicationDbContext();
-            ViewBag.Roles = context.Roles.Select(r => new SelectListItem { Value = r.Name, Text = r.Name }).ToList();
+
 
             return View();
         }
@@ -222,7 +221,6 @@ namespace CSE_DEPARTMENT.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-
         [HttpPost]
         public ActionResult CreateUser(FormCollection form)
         {

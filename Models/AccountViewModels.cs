@@ -64,9 +64,9 @@ namespace CSE_DEPARTMENT.Models
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 8)]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}$",
-            ErrorMessage = "Password must be at least 8 characters and contain one uppercase letter, one lowercase letter, one digit and one special character.")]
+        //[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 8)]
+        //[RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}$",
+        //ErrorMessage = "Password must be at least 8 characters and contain one uppercase letter, one lowercase letter, one digit and one special character.")]
         public string Password { get; set; }
 
         [Display(Name = "Remember Me?")]
