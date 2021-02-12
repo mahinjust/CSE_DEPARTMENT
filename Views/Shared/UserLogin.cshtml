@@ -7,6 +7,10 @@
 
 
 <ul class="nav navbar-nav navbar-right">
+    <button type="button" class="btn btn-outline-success">
+        <li>@Html.ActionLink("Home", "Index", "HomePage", null, new { style = "text-decoration:none" })</li>
+    </button>
+    &nbsp;&nbsp;&nbsp;&nbsp;
 
     <button type="button" class="btn btn-outline-info">
         <li>
@@ -14,9 +18,10 @@
 
         </li>
     </button>
-    &nbsp;&nbsp;&nbsp;&nbsp; 
+    &nbsp;&nbsp;&nbsp;&nbsp;
+
     <button type="button" class="btn btn-outline-warning">
-        <li><a href="javascript:document.getElementById('logoutForm').submit()"style = "text-decoration:none" >Log Out</a></li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()" style="text-decoration:none">Log Out</a></li>
     </button>
 </ul>
     }

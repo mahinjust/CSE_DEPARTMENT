@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3 ">
+
+            <h3 class="m-0 font-weight-bold text-primary w3-animate-top">
+                MESSAGE FROM
+                THE CHAIRMAN
+            </h3>
+
+        </div>
+
+        <div class="card-body w3-animate-zoom">
+            <div class="table-responsive">
+                I warmly welcome you to the Department of Computer Science and Engineering (CSE) at Jashore University of Science and Technology (JUST). JUST started its journey on June 10, 2009 with four departments among which the department of CSE was the first department. Since then, CSE has been widely recognized for its excellent research and teaching capabilities. The department provides an outstanding opportunity to the students to get quality education in Computer Science and Engineering. The graduates from JUST-CSE are heavily recruited by both academia and industry. We are very proud of our graduates and their accomplishments; they are highly skilled IT professionals who pursue successful careers in a wide range of contexts in the competitive global job market.
+
+
+                To know more about the department and its programs, achievements and research activities, I invite you to visit rest of our website at www.cse.just.edu.bd . Last but not the least, ours is a growing family. You are most welcome to be a part of it. The common recruitment procedure is initiated through public advertisement.
+            </div>
+        </div>
+    </div>
+}
