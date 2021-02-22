@@ -47,7 +47,7 @@ namespace CSE_DEPARTMENT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "subject_id,Subject_Name,subject_code")] Subject subject)
+        public ActionResult Create([Bind(Include = "subject_id,Credit,Subject_Name,subject_code")] Subject subject)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace CSE_DEPARTMENT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "subject_id,Subject_Name,subject_code")] Subject subject)
+        public ActionResult Edit([Bind(Include = "subject_id,Credit,Subject_Name,subject_code")] Subject subject)
         {
             if (ModelState.IsValid)
             {

@@ -53,7 +53,7 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.designation)
                         </td>
-                        <td class="btn-group">
+                        <td>
                             @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
                             {
                     @Html.ActionLink("Edit", "Edit", new { id = item.staff_id }, new { @class = "btn btn-primary" })}

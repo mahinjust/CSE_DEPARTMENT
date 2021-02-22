@@ -20,6 +20,7 @@ namespace CSE_DEPARTMENT.Models
         public int subject_id { get; set; }
         public string Subject_Name { get; set; }
         public string subject_code { get; set; }
+        public double Credit { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<book> books { get; set; }
