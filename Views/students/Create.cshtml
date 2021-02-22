@@ -25,6 +25,15 @@
             </div>
 
             <div class="card-body">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, "Full Name", htmlAttributes: new { @class = "control-label col-md-5" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
                 <div class="form-group">
                     @Html.LabelFor(model => model.session_id, "Session", htmlAttributes: new { @class = "control-label col-md-5" })
                     <div class="col-md-10">
@@ -48,6 +57,20 @@
                         @Html.ValidationMessageFor(model => model.Roll_No, "", new { @class = "text-danger" })
                     </div>
                 </div>
+
+
+                <div class="form-group">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PhotoFile, "Choose Photo", htmlAttributes: new { @class = "control-label" })
+                        <span class="btn btn-default btn-file">
+
+                            @Html.TextBoxFor(model => model.PhotoFile, new { type = "file" })
+                            @Html.ValidationMessageFor(model => model.PhotoFile, "", new { @class = "text-danger" })
+                        </span>
+
+                    </div>
+                </div>
+
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.quota, "Quota", htmlAttributes: new { @class = "control-label col-md-5" })

@@ -18,6 +18,7 @@ namespace CSE_DEPARTMENT.Models
         [Key]
         public int result_id { get; set; }
         public int Roll_No { get; set; }
+        public string Name { get; set; }
         public int? student_id { get; set; }
         public int? session_id { get; set; }
         public int? year_id { get; set; }

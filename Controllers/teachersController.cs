@@ -47,12 +47,31 @@ namespace CSE_DEPARTMENT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "teacher_id,teacher_name,designation,favorite_quote,work_area,achievement,publication,publication_links,website")] teacher teacher)
+        public ActionResult Create(teacher teacher)
         {
+            teacher.Photo = "/Content/FacultyPhoto";
+
             if (ModelState.IsValid)
             {
                 db.teachers.Add(teacher);
                 db.SaveChanges();
+
+                if (teacher.PhotoFile != null)
+                {
+                    var folder = "/Content/FacultyPhoto";
+                    var file = string.Format("{0}.png", teacher.teacher_id);
+                    var response = FileHelper.UploadFile.UploadPhoto(teacher.PhotoFile, folder, file);
+                    if (response)
+                    {
+                        var pic = string.Format("{0}/{1}", folder, file);
+                        teacher.Photo = pic;
+                        db.Entry(teacher).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
+
+
+
                 return RedirectToAction("Index");
             }
 
@@ -89,7 +108,7 @@ namespace CSE_DEPARTMENT.Controllers
             }
             return View(teacher);
         }
-
+        
         // GET: teachers/Delete/5
         public ActionResult Delete(int? id)
         {

@@ -11,15 +11,22 @@ namespace CSE_DEPARTMENT.Models
     {
         [Key]
         public int currentacademic_id { get; set; }
-        
+
         public int? student_id { get; set; }
+
+        public string Name { get; set; }
+
+        public int Roll { get; set; }
+
         public int? session_id { get; set; }
+
         [DataType(DataType.Date)]
         public System.DateTime admission_date { get; set; }
         public string dept { get; set; }
+
+        public string co_curricular_activities { get; set; }
         public int? year_id { get; set; }
         public int? result_id { get; set; }
-        public string co_curricular_activities { get; set; }
 
         [ForeignKey("result_id")]
         public virtual result result { get; set; }
@@ -28,7 +35,7 @@ namespace CSE_DEPARTMENT.Models
         [ForeignKey("student_id")]
         public virtual student student { get; set; }
         [ForeignKey("year_id")]
-     
+
         public virtual Year Year { get; set; }
     }
 }

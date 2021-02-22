@@ -27,20 +27,14 @@
 
             <div class="card-body">
                 <div class="form-group">
-                    @Html.LabelFor(model => model.staff_name,"Staff Name" ,htmlAttributes: new { @class = "control-label col-md-5" })
+                    @Html.LabelFor(model => model.staff_name, "Full Name", htmlAttributes: new { @class = "control-label col-md-5" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.staff_name, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.staff_name, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.favorite_quote, "Favorite Quote", htmlAttributes: new { @class = "control-label col-md-5" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.favorite_quote, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.favorite_quote, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+           
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.designation, "Designation", htmlAttributes: new { @class = "control-label col-md-5" })

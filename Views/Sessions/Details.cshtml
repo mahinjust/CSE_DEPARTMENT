@@ -37,6 +37,6 @@
     @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
     {
         @Html.ActionLink("Edit", "Edit", new { id = Model.session_id }, new { @class = "btn btn-info" }) 
-    }
+    } |
 @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
 </p>

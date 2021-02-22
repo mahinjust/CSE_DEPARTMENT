@@ -8,11 +8,13 @@ using System.Web;
 
 namespace CSE_DEPARTMENT.Models
 {
- 
+
     public partial class activities
     {
         [Key]
         public int activities_id { get; set; }
+        public string Name { get; set; }
+        public int Roll { get; set; }
         public int? student_id { get; set; }
         public bool club_membership { get; set; }
         public string club_name { get; set; }

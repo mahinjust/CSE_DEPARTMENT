@@ -41,7 +41,7 @@ namespace CSE_DEPARTMENT.Controllers
         public ActionResult Create()
         {
             ViewBag.session_id = new SelectList(db.Sessions, "session_id", "session_name");
-            ViewBag.student_id = new SelectList(db.students, "student_id", "quata_description");
+            ViewBag.student_id = new SelectList(db.students, "student_id", "Name");
             ViewBag.year_id = new SelectList(db.Years, "year_id", "year_name");
             return View();
         }
@@ -51,7 +51,7 @@ namespace CSE_DEPARTMENT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "result_id,Roll_No,student_id,session_id,year_id,cgpa")] result result)
+        public ActionResult Create([Bind(Include = "result_id,Roll_No,Name,student_id,session_id,year_id,cgpa")] result result)
         {
             if (ModelState.IsValid)
             {
@@ -61,7 +61,7 @@ namespace CSE_DEPARTMENT.Controllers
             }
 
             ViewBag.session_id = new SelectList(db.Sessions, "session_id", "session_name", result.session_id);
-            ViewBag.student_id = new SelectList(db.students, "student_id", "quata_description", result.student_id);
+            ViewBag.student_id = new SelectList(db.students, "student_id", "Name", result.student_id);
             ViewBag.year_id = new SelectList(db.Years, "year_id", "year_name", result.year_id);
             return View(result);
         }
@@ -79,7 +79,7 @@ namespace CSE_DEPARTMENT.Controllers
                 return HttpNotFound();
             }
             ViewBag.session_id = new SelectList(db.Sessions, "session_id", "session_name", result.session_id);
-            ViewBag.student_id = new SelectList(db.students, "student_id", "quata_description", result.student_id);
+            ViewBag.student_id = new SelectList(db.students, "student_id", "Name", result.student_id);
             ViewBag.year_id = new SelectList(db.Years, "year_id", "year_name", result.year_id);
             return View(result);
         }
@@ -89,7 +89,7 @@ namespace CSE_DEPARTMENT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "result_id,Roll_No,student_id,session_id,year_id,cgpa")] result result)
+        public ActionResult Edit([Bind(Include = "result_id,Roll_No,Name,student_id,session_id,year_id,cgpa")] result result)
         {
             if (ModelState.IsValid)
             {
@@ -98,7 +98,7 @@ namespace CSE_DEPARTMENT.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.session_id = new SelectList(db.Sessions, "session_id", "session_name", result.session_id);
-            ViewBag.student_id = new SelectList(db.students, "student_id", "quata_description", result.student_id);
+            ViewBag.student_id = new SelectList(db.students, "student_id", "Name", result.student_id);
             ViewBag.year_id = new SelectList(db.Years, "year_id", "year_name", result.year_id);
             return View(result);
         }

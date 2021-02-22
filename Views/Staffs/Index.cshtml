@@ -15,7 +15,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h3 class="m-0 font-weight-bold text-primary">Staff Profiles</h3>
+        <h3 class="m-0 font-weight-bold text-primary">Staff Profile</h3>
 
     </div>
 
@@ -25,10 +25,10 @@
                 <thead>
                     <tr>
                         <th>
-                           Staff Name
+                            Full Name
                         </th>
                         <th>
-                            Favorite Quote
+                            Photo
                         </th>
                         <th>
                             Designation
@@ -41,27 +41,28 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.staff_name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.favorite_quote)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.designation)
-                            </td>
-                            <td>
-                                @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
-                                {
-                            @Html.ActionLink("Edit", "Edit", new { id = item.staff_id }, new { @class = "btn btn-primary" })}
-                                @Html.ActionLink("Details", "Details", new { id = item.staff_id }, new { @class = "btn btn-info" })
-                                @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
-                                {
-                            @Html.ActionLink("Delete", "Delete", new { id = item.staff_id }, new { @class = "btn btn-danger" })
-                                }
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.staff_name)
+                        </td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(item.Photo))
+                            {
+                    <img src="@Url.Content(item.Photo)" alt="Image" style="width:100px;height:150px;max-width:100%;height:auto" />}
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.designation)
+                        </td>
+                        <td class="btn-group">
+                            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+                            {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.staff_id }, new { @class = "btn btn-primary" })}
+                            @Html.ActionLink("Details", "Details", new { id = item.staff_id }, new { @class = "btn btn-info" })
+                            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+                            {
+                    @Html.ActionLink("Delete", "Delete", new { id = item.staff_id }, new { @class = "btn btn-danger" })}
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>
@@ -75,6 +76,6 @@
 <p>
     @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
     {
-@Html.ActionLink("Create A New Entry", "Create", null, new { @class = "btn btn-success" })
+         @Html.ActionLink("Create A New Entry", "Create", null, new { @class = "btn btn-success" })
     }
 </p>

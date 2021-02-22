@@ -27,7 +27,7 @@
 
             <div class="card-body">
                 <div class="form-group">
-                    @Html.LabelFor(model => model.staff_id, "Staff Name", htmlAttributes: new { @class = "control-label col-md-5" })
+                    @Html.LabelFor(model => model.staff_id, "Full Name", htmlAttributes: new { @class = "control-label col-md-5" })
                     <div class="col-md-10">
                         @Html.DropDownList("staff_id", null, htmlAttributes: new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.staff_id, "", new { @class = "text-danger" })

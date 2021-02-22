@@ -22,7 +22,11 @@ namespace CSE_DEPARTMENT.Models
         public int student_id { get; set; }
         public int? session_id { get; set; }
         public int? year_id { get; set; }
+        public string Name { get; set; }
         public int Roll_No { get; set; }
+        public string Photo { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase PhotoFile { get; set; }
         public bool quota { get; set; }
         public string quata_description { get; set; }
         public string skills { get; set; }

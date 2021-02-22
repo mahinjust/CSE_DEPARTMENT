@@ -14,79 +14,81 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h3 class="m-0 font-weight-bold text-primary">Faculty Profiles</h3>
+        <h3 class="m-0 font-weight-bold text-primary">Faculty Profile</h3>
     </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
-                <tr>
-                    <th>
-                        Teacher Name
-                    </th>
-                    <th>
-                        Designation
-                    </th>
-                    <th>
-                        Favorite Quote
-                    </th>
-                    <th>
-                        Work Area
-                    </th>
-                    <th>
-                        Achievement
-                    </th>
-                    <th>
-                        Publications
-                    </th>
-                    <th>
-                        Publication Links
-                    </th>
-                    <th>
-                       Personal Website
-                    </th>
-                    <th>Actions</th>
-                </tr>
+                    <tr>
+                        <th>
+                            Full Name
+                        </th>
+                        <th>
+                            Designation
+                        </th>
+                        <th>
+                            Photo
+                        </th>
+                        <th>
+                            Work Area
+                        </th>
+                        <th>
+                            Achievement
+                        </th>
+                        <th>
+                            Publications
+                        </th>
+                        <th>
+                            Publication Links
+                        </th>
+                        <th>
+                            Personal Website
+                        </th>
+                        <th>Actions</th>
+                    </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.teacher_name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.designation)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.favorite_quote)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.work_area)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.achievement)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.publication)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.publication_links)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.website)
-                            </td>
-                            <td class="btn-group">
-                                @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
-                                {
-                            @Html.ActionLink("Edit", "Edit", new { id = item.teacher_id }, new { @class = "btn btn-primary" })}
-                                @Html.ActionLink("Details", "Details", new { id = item.teacher_id }, new { @class = "btn btn-info" })
-                                @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
-                                {
-                            @Html.ActionLink("Delete", "Delete", new { id = item.teacher_id }, new { @class = "btn btn-danger" })
-                                }
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.teacher_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.designation)
+                        </td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(item.Photo))
+                            {
+                                <img src="@Url.Content(item.Photo)" alt="Image" style="width:100px;height:150px;max-width:100%;height:auto" />
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.work_area)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.achievement)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.publication)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.publication_links)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.website)
+                        </td>
+                        <td class="btn-group">
+                            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+                            {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.teacher_id }, new { @class = "btn btn-primary" })}
+                            @Html.ActionLink("Details", "Details", new { id = item.teacher_id }, new { @class = "btn btn-info" })
+                            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+                            {
+                    @Html.ActionLink("Delete", "Delete", new { id = item.teacher_id }, new { @class = "btn btn-danger" })}
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>

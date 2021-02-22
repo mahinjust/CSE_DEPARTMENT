@@ -20,7 +20,12 @@ namespace CSE_DEPARTMENT.Models
         public int teacher_id { get; set; }
         public string teacher_name { get; set; }
         public string designation { get; set; }
-        public string favorite_quote { get; set; }
+
+        public string Photo { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase PhotoFile { get; set; }
+
         public string work_area { get; set; }
         public string achievement { get; set; }
         public string publication { get; set; }

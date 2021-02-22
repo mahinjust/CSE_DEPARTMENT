@@ -21,7 +21,7 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <dl class="dl-horizontal">
                     <dt>
-                        Staff Name
+                        Full Name
                     </dt>
 
                     <dd>
@@ -29,11 +29,12 @@
                     </dd>
 
                     <dt>
-                        Favorite Quote
+                        @Html.DisplayNameFor(model => model.Photo)
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.favorite_quote)
+                        @{ string imagepath = Model.Photo;
+                <img src="@Url.Content(imagepath)" alt="Image" style="width:100px;height:150px;max-width:100%;height:auto" /> }
                     </dd>
 
                     <dt>

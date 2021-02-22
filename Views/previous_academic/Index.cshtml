@@ -15,7 +15,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h3 class="m-0 font-weight-bold text-primary">Previous Academic Status</h3>
+        <h3 class="m-0 font-weight-bold text-primary">Student's Previous Academic Status</h3>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -23,13 +23,16 @@
                 <thead>
                     <tr>
                         <th>
+                            Full Name
+                        </th>
+                        <th>
                             HSC Roll No
                         </th>
                         <th>
                             HSC Registration No
                         </th>
                         <th>
-                           HSC Result
+                            HSC Result
                         </th>
                         <th>
                             HSC Board
@@ -38,10 +41,10 @@
                             HSC College
                         </th>
                         <th>
-                           HSC Section
+                            HSC Section
                         </th>
                         <th>
-                           SSC Roll No
+                            SSC Roll No
                         </th>
                         <th>
                             SSC Registration No
@@ -67,57 +70,59 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.hsc_roll)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.hsc_reg)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.hsc_result)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.hsc_board)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.hsc_college)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.hsc_section)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ssc_roll)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ssc_reg)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ssc_result)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ssc_board)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ssc_school)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ssc_section)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.co_curricular_activities)
-                            </td>
-                            <td class="btn-group">
-                                @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
-                                {
-                            @Html.ActionLink("Edit", "Edit", new { id = item.previousacademic_id }, new { @class = "btn btn-primary" })}
-                                @Html.ActionLink("Details", "Details", new { id = item.previousacademic_id }, new { @class = "btn btn-info" })
-                                @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
-                                {
-                            @Html.ActionLink("Delete", "Delete", new { id = item.previousacademic_id }, new { @class = "btn btn-danger" })
-                                }
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.hsc_roll)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.hsc_reg)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.hsc_result)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.hsc_board)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.hsc_college)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.hsc_section)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ssc_roll)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ssc_reg)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ssc_result)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ssc_board)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ssc_school)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ssc_section)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.co_curricular_activities)
+                        </td>
+                        <td class="btn-group">
+                            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+                            {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.previousacademic_id }, new { @class = "btn btn-primary" })}
+                            @Html.ActionLink("Details", "Details", new { id = item.previousacademic_id }, new { @class = "btn btn-info" })
+                            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+                            {
+                    @Html.ActionLink("Delete", "Delete", new { id = item.previousacademic_id }, new { @class = "btn btn-danger" })}
+                        </td>
+                    </tr>
                     }
 
                 </tbody>

@@ -19,11 +19,19 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <dl class="dl-horizontal">
                     <dt>
-                        Student Name
+                        Full Name
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.student.Roll_No)
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+
+                    <dt>
+                        Roll No
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Roll)
                     </dd>
                     <dt>
                         Club Membership
@@ -85,6 +93,6 @@
     @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
     {
         @Html.ActionLink("Edit", "Edit", new { id = Model.activities_id }, new { @class = "btn btn-info" }) 
-    }
+    } |
 @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
 </p>

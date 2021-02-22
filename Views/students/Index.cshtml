@@ -22,6 +22,9 @@
                 <thead>
                     <tr>
                         <th>
+                            Full Name
+                        </th>
+                        <th>
                             Session
                         </th>
                         <th>
@@ -31,13 +34,16 @@
                             Roll No
                         </th>
                         <th>
-                           Quota
+                            Photo
                         </th>
                         <th>
-                           Quota Description
+                            Quota
                         </th>
                         <th>
-                           Skills
+                            Quota Description
+                        </th>
+                        <th>
+                            Skills
                         </th>
                         <th>
                             Hobby
@@ -49,25 +55,25 @@
                             Fathers Occupation
                         </th>
                         <th>
-                           Fathers Contact No
+                            Fathers Contact No
                         </th>
                         <th>
                             Mothers Name
                         </th>
                         <th>
-                           Mothers Occupation
+                            Mothers Occupation
                         </th>
                         <th>
-                           Mothers Contact No
+                            Mothers Contact No
                         </th>
                         <th>
-                          Guardians Name
+                            Guardians Name
                         </th>
                         <th>
                             Guardians Occupation
                         </th>
                         <th>
-                           Guardians Contact No
+                            Guardians Contact No
                         </th>
                         <th>Actions</th>
                     </tr>
@@ -75,66 +81,73 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Session.session_name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Year.year_name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Roll_No)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.quota)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.quata_description)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.skills)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.hobby)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.fathers_name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.fathers_occupation)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.fathers_contact_no)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.mothers_name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.mothers_occupation)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.mothers_contact_no)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.guardians_name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.guardians_occupation)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.guardians_contact_no)
-                            </td>
-                            <td class="btn-group">
-                                @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
-                                {
-                            @Html.ActionLink("Edit", "Edit", new { id = item.student_id }, new { @class = "btn btn-primary" })}
-                                @Html.ActionLink("Details", "Details", new { id = item.student_id }, new { @class = "btn btn-info" })
-                                @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
-                                {
-                            @Html.ActionLink("Delete", "Delete", new { id = item.student_id }, new { @class = "btn btn-danger" })
-                                }
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Session.session_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Year.year_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Roll_No)
+                        </td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(item.Photo))
+                            {
+                    <img src="@Url.Content(item.Photo)" alt="Image" style="width:100px;height:150px;max-width:100%;height:auto" />}
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.quota)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.quata_description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.skills)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.hobby)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fathers_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fathers_occupation)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fathers_contact_no)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.mothers_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.mothers_occupation)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.mothers_contact_no)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.guardians_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.guardians_occupation)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.guardians_contact_no)
+                        </td>
+                        <td class="btn-group">
+                            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+                            {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.student_id }, new { @class = "btn btn-primary" })}
+                            @Html.ActionLink("Details", "Details", new { id = item.student_id }, new { @class = "btn btn-info" })
+                            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+                            {
+                    @Html.ActionLink("Delete", "Delete", new { id = item.student_id }, new { @class = "btn btn-danger" })}
+                        </td>
+                    </tr>
                     }
 
                 </tbody>

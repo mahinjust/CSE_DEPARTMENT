@@ -47,12 +47,31 @@ namespace CSE_DEPARTMENT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "staff_id,staff_name,favorite_quote,designation")] Staff staff)
+        public ActionResult Create(Staff staff)
         {
+            staff.Photo = "/Content/StaffPhoto";
+
             if (ModelState.IsValid)
             {
                 db.Staffs.Add(staff);
                 db.SaveChanges();
+
+                if (staff.PhotoFile != null)
+                {
+                    var folder = "/Content/StaffPhoto";
+                    var file = string.Format("{0}.png", staff.staff_id);
+                    var response = FileHelper.UploadFile.UploadPhoto(staff.PhotoFile, folder, file);
+                    if (response)
+                    {
+                        var pic = string.Format("{0}/{1}", folder, file);
+                        staff.Photo = pic;
+                        db.Entry(staff).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
+
+
+
                 return RedirectToAction("Index");
             }
 
@@ -79,7 +98,7 @@ namespace CSE_DEPARTMENT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "staff_id,staff_name,favorite_quote,designation")] Staff staff)
+        public ActionResult Edit([Bind(Include = "staff_id,staff_name,Photo,designation")] Staff staff)
         {
             if (ModelState.IsValid)
             {

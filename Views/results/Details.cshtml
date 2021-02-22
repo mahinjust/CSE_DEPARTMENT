@@ -20,14 +20,21 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <dl class="dl-horizontal">
                     <dt>
-                       Session
+                        Full Name
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+                    <dt>
+                        Session
                     </dt>
 
                     <dd>
                         @Html.DisplayFor(model => model.Session.session_name)
                     </dd>
 
-                    
+
 
                     <dt>
                         Year
@@ -65,6 +72,6 @@
     @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
     {
 @Html.ActionLink("Edit", "Edit", new { id = Model.result_id }, new { @class = "btn btn-info" })
-    }
+    } |
 @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
 </p>

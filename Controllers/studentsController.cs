@@ -50,17 +50,34 @@ namespace CSE_DEPARTMENT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "student_id,session_id,year_id,Roll_No,quota,quata_description,skills,hobby,fathers_name,fathers_occupation,fathers_contact_no,mothers_name,mothers_occupation,mothers_contact_no,guardians_name,guardians_occupation,guardians_contact_no")] student student)
+        public ActionResult Create(student student)
         {
+            student.Photo = "/Content/StudentPhoto";
+
             if (ModelState.IsValid)
             {
                 db.students.Add(student);
                 db.SaveChanges();
+
+                if (student.PhotoFile != null)
+                {
+                    var folder = "/Content/StudentPhoto";
+                    var file = string.Format("{0}.png", student.student_id);
+                    var response = FileHelper.UploadFile.UploadPhoto(student.PhotoFile, folder, file);
+                    if (response)
+                    {
+                        var pic = string.Format("{0}/{1}", folder, file);
+                        student.Photo = pic;
+                        db.Entry(student).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
+
+
+
                 return RedirectToAction("Index");
             }
 
-            ViewBag.session_id = new SelectList(db.Sessions, "session_id", "session_name", student.session_id);
-            ViewBag.year_id = new SelectList(db.Years, "year_id", "year_name", student.year_id);
             return View(student);
         }
 

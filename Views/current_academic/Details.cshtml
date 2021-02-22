@@ -21,6 +21,20 @@
                 <dl class="dl-horizontal">
 
                     <dt>
+                        Full Name
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+                    <dt>
+                        Roll No
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Roll)
+                    </dd>
+                    <dt>
                         Session
                     </dt>
 
@@ -53,14 +67,6 @@
                         @Html.DisplayFor(model => model.dept)
                     </dd>
 
-                    <dt>
-                        Semester Result
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.result.cgpa)
-                    </dd>
-
 
                 </dl>
             </table>
@@ -75,6 +81,6 @@
     @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
     {
 @Html.ActionLink("Edit", "Edit", "null", new { id = Model.currentacademic_id }, new { @class = "btn btn-info" })
-    }
+    } |
  @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
 </p>

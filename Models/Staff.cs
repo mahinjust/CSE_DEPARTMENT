@@ -18,10 +18,13 @@ namespace CSE_DEPARTMENT.Models
         [Key]
         public int staff_id { get; set; }
         public string staff_name { get; set; }
-        public string favorite_quote { get; set; }
+        public string Photo { get; set; }
         public string designation { get; set; }
         [Display(Name = "UserId")]
         public virtual string Id { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase PhotoFile { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<staff_career> staff_career { get; set; }

@@ -245,6 +245,7 @@
     <Compile Include="Controllers\teachersController.cs" />
     <Compile Include="Controllers\teacher_careerController.cs" />
     <Compile Include="Controllers\YearsController.cs" />
+    <Compile Include="FileHelper\UploadFile.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -283,6 +284,18 @@
     <Compile Include="Migrations\202101261837387_year%28updated%29.cs" />
     <Compile Include="Migrations\202101261837387_year%28updated%29.Designer.cs">
       <DependentUpon>202101261837387_year%28updated%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102221512444_namephoto.cs" />
+    <Compile Include="Migrations\202102221512444_namephoto.Designer.cs">
+      <DependentUpon>202102221512444_namephoto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102221537488_roll.cs" />
+    <Compile Include="Migrations\202102221537488_roll.Designer.cs">
+      <DependentUpon>202102221537488_roll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102221708176_roll1.cs" />
+    <Compile Include="Migrations\202102221708176_roll1.Designer.cs">
+      <DependentUpon>202102221708176_roll1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -2016,8 +2029,15 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\chosen-sprite%402x.png" />
     <Content Include="Content\chosen-sprite.png" />
+    <Content Include="Content\FacultyPhoto\23.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\StaffPhoto\4.png" />
+    <Content Include="Content\StaffPhoto\5.png" />
+    <Content Include="Content\StudentPhoto\3.png" />
+    <Content Include="Content\StudentPhoto\4.png" />
+    <Content Include="Content\StudentPhoto\5.png" />
+    <Content Include="Content\StudentPhoto\6.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\bootstrap-theme.css.map" />
@@ -2254,11 +2274,6 @@
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\activities\Create.cshtml" />
-    <Content Include="Views\activities\Delete.cshtml" />
-    <Content Include="Views\activities\Details.cshtml" />
-    <Content Include="Views\activities\Edit.cshtml" />
-    <Content Include="Views\activities\Index.cshtml" />
     <Content Include="Views\books\Create.cshtml" />
     <Content Include="Views\books\Delete.cshtml" />
     <Content Include="Views\books\Details.cshtml" />
@@ -2318,16 +2333,33 @@
     <Content Include="Views\Years\Details.cshtml" />
     <Content Include="Views\Years\Edit.cshtml" />
     <Content Include="Views\Years\Index.cshtml" />
-    <Content Include="Views\current_academic\Create.cshtml" />
-    <Content Include="Views\current_academic\Delete.cshtml" />
-    <Content Include="Views\current_academic\Details.cshtml" />
-    <Content Include="Views\current_academic\Edit.cshtml" />
-    <Content Include="Views\current_academic\Index.cshtml" />
+    <Content Include="Views\teacher_career\Create.cshtml" />
+    <Content Include="Views\teacher_career\Delete.cshtml" />
+    <Content Include="Views\teacher_career\Details.cshtml" />
+    <Content Include="Views\teacher_career\Edit.cshtml" />
+    <Content Include="Views\teacher_career\Index.cshtml" />
+    <Content Include="Views\staff_career\Create.cshtml" />
+    <Content Include="Views\staff_career\Delete.cshtml" />
+    <Content Include="Views\staff_career\Details.cshtml" />
+    <Content Include="Views\staff_career\Edit.cshtml" />
+    <Content Include="Views\staff_career\Index.cshtml" />
+    <Content Include="Views\Shared\UserLogin.cshtml" />
+    <Content Include="Views\HomePage\Index.cshtml" />
     <Content Include="Views\previous_academic\Create.cshtml" />
     <Content Include="Views\previous_academic\Delete.cshtml" />
     <Content Include="Views\previous_academic\Details.cshtml" />
     <Content Include="Views\previous_academic\Edit.cshtml" />
     <Content Include="Views\previous_academic\Index.cshtml" />
+    <Content Include="Views\results\Create.cshtml" />
+    <Content Include="Views\results\Delete.cshtml" />
+    <Content Include="Views\results\Details.cshtml" />
+    <Content Include="Views\results\Edit.cshtml" />
+    <Content Include="Views\results\Index.cshtml" />
+    <Content Include="Views\Staffs\Create.cshtml" />
+    <Content Include="Views\Staffs\Delete.cshtml" />
+    <Content Include="Views\Staffs\Details.cshtml" />
+    <Content Include="Views\Staffs\Edit.cshtml" />
+    <Content Include="Views\Staffs\Index.cshtml" />
     <Content Include="Views\students\Create.cshtml" />
     <Content Include="Views\students\Delete.cshtml" />
     <Content Include="Views\students\Details.cshtml" />
@@ -2338,28 +2370,16 @@
     <Content Include="Views\teachers\Details.cshtml" />
     <Content Include="Views\teachers\Edit.cshtml" />
     <Content Include="Views\teachers\Index.cshtml" />
-    <Content Include="Views\teacher_career\Create.cshtml" />
-    <Content Include="Views\teacher_career\Delete.cshtml" />
-    <Content Include="Views\teacher_career\Details.cshtml" />
-    <Content Include="Views\teacher_career\Edit.cshtml" />
-    <Content Include="Views\teacher_career\Index.cshtml" />
-    <Content Include="Views\Staffs\Create.cshtml" />
-    <Content Include="Views\Staffs\Delete.cshtml" />
-    <Content Include="Views\Staffs\Details.cshtml" />
-    <Content Include="Views\Staffs\Edit.cshtml" />
-    <Content Include="Views\Staffs\Index.cshtml" />
-    <Content Include="Views\staff_career\Create.cshtml" />
-    <Content Include="Views\staff_career\Delete.cshtml" />
-    <Content Include="Views\staff_career\Details.cshtml" />
-    <Content Include="Views\staff_career\Edit.cshtml" />
-    <Content Include="Views\staff_career\Index.cshtml" />
-    <Content Include="Views\results\Create.cshtml" />
-    <Content Include="Views\results\Delete.cshtml" />
-    <Content Include="Views\results\Details.cshtml" />
-    <Content Include="Views\results\Edit.cshtml" />
-    <Content Include="Views\results\Index.cshtml" />
-    <Content Include="Views\Shared\UserLogin.cshtml" />
-    <Content Include="Views\HomePage\Index.cshtml" />
+    <Content Include="Views\activities\Create.cshtml" />
+    <Content Include="Views\activities\Delete.cshtml" />
+    <Content Include="Views\activities\Details.cshtml" />
+    <Content Include="Views\activities\Edit.cshtml" />
+    <Content Include="Views\activities\Index.cshtml" />
+    <Content Include="Views\current_academic\Create.cshtml" />
+    <Content Include="Views\current_academic\Delete.cshtml" />
+    <Content Include="Views\current_academic\Details.cshtml" />
+    <Content Include="Views\current_academic\Edit.cshtml" />
+    <Content Include="Views\current_academic\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2401,6 +2421,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101261837387_year%28updated%29.resx">
       <DependentUpon>202101261837387_year%28updated%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102221512444_namephoto.resx">
+      <DependentUpon>202102221512444_namephoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102221537488_roll.resx">
+      <DependentUpon>202102221537488_roll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102221708176_roll1.resx">
+      <DependentUpon>202102221708176_roll1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

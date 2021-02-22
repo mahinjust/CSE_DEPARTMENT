@@ -40,7 +40,7 @@ namespace CSE_DEPARTMENT.Controllers
         // GET: previous_academic/Create
         public ActionResult Create()
         {
-            ViewBag.student_id = new SelectList(db.students, "student_id", "quata_description");
+            ViewBag.student_id = new SelectList(db.students, "student_id", "Name");
             return View();
         }
 
@@ -49,7 +49,7 @@ namespace CSE_DEPARTMENT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "previousacademic_id,student_id,hsc_roll,hsc_reg,hsc_result,hsc_board,hsc_college,hsc_section,ssc_roll,ssc_reg,ssc_result,ssc_board,ssc_school,ssc_section,co_curricular_activities")] previous_academic previous_academic)
+        public ActionResult Create([Bind(Include = "previousacademic_id,student_id,Name,hsc_roll,hsc_reg,hsc_result,hsc_board,hsc_college,hsc_section,ssc_roll,ssc_reg,ssc_result,ssc_board,ssc_school,ssc_section,co_curricular_activities")] previous_academic previous_academic)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +58,7 @@ namespace CSE_DEPARTMENT.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.student_id = new SelectList(db.students, "student_id", "quata_description", previous_academic.student_id);
+            ViewBag.student_id = new SelectList(db.students, "student_id", "Name", previous_academic.student_id);
             return View(previous_academic);
         }
 
@@ -74,7 +74,7 @@ namespace CSE_DEPARTMENT.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.student_id = new SelectList(db.students, "student_id", "quata_description", previous_academic.student_id);
+            ViewBag.student_id = new SelectList(db.students, "student_id", "Name", previous_academic.student_id);
             return View(previous_academic);
         }
 
@@ -83,7 +83,7 @@ namespace CSE_DEPARTMENT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "previousacademic_id,student_id,hsc_roll,hsc_reg,hsc_result,hsc_board,hsc_college,hsc_section,ssc_roll,ssc_reg,ssc_result,ssc_board,ssc_school,ssc_section,co_curricular_activities")] previous_academic previous_academic)
+        public ActionResult Edit([Bind(Include = "previousacademic_id,student_id,Name,hsc_roll,hsc_reg,hsc_result,hsc_board,hsc_college,hsc_section,ssc_roll,ssc_reg,ssc_result,ssc_board,ssc_school,ssc_section,co_curricular_activities")] previous_academic previous_academic)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace CSE_DEPARTMENT.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.student_id = new SelectList(db.students, "student_id", "quata_description", previous_academic.student_id);
+            ViewBag.student_id = new SelectList(db.students, "student_id", "Name", previous_academic.student_id);
             return View(previous_academic);
         }
 
