@@ -43,9 +43,12 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="#">
+                    <br />
                     <i class='fas fa-desktop' style='font-size:24px'></i>
+
                     <span>CSE Department</span>
                 </a>
+              
             </li>
 
             @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Student") || User.IsInRole("Faculty")))
@@ -79,7 +82,7 @@
                                 @Html.ActionLink("Session", "Index", "Sessions", null, new { @class = "collapse-item" })
                             }
                             @Html.ActionLink("Courses", "Index", "Subjects", null, new { @class = "collapse-item" })
-                            </div>
+                        </div>
 
                     </div>
                 </li>
@@ -144,17 +147,18 @@
                 </li>
             }
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Academic Section
-
-            </div>
 
             @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Staff") || User.IsInRole("Faculty") || User.IsInRole("Student")))
             {
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Academic Section
+
+                </div>
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="/Books/Index">
@@ -228,13 +232,13 @@
             }
 
 
-            <!-- Divider -->
+             @*Divider*@ 
             @*<hr class="sidebar-divider d-none d-md-block">*@
 
-            <!-- Sidebar Toggler (Sidebar) -->
-            @*<div class="text-center d-none d-md-inline">
+             @*Sidebar Toggler (Sidebar)*@ 
+            <div class="text-center d-none d-md-inline">
             <button class="rounded-circle border-0" id="sidebarToggle"></button>
-        </div>*@
+        </div>
 
 
 
@@ -252,7 +256,7 @@
 
                 <!-- Topbar -->
 
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" style="position: fixed; top: 0; width: 86%">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" style="position: fixed; top: 0; width: 100%; height:auto ">
                     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                         <div class="d-flex justify-content-start">
 
@@ -262,42 +266,86 @@
 
 
                     </a>
-                    <!-- Sidebar Toggle (Topbar) -->
-                    @*<button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>*@
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                    <!-- Topbar Search -->
-                    <!-- Topbar Navbar -->
-                <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto">
 
-                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                    <li class="nav-item dropdown no-arrow d-sm-none">
-                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-search fa-fw"></i>
+
+
+                        <li class="nav-item dropdown no-arrow" style="margin-top:15px">
+
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
+                            {
+
+                                <button type="button" class="btn btn-outline-info">
+                            <li>@Html.ActionLink("Admin Home", "Index", "HomePage", null, new { style = "text-decoration:none" })</li>
+                            </button>
+
+
+
+                            <button type="button" class="btn btn-outline-success">
+                                <li>@Html.ActionLink("Go Back To Admin Arena", "Index", "Admin", null, new { style = "text-decoration:none" })</li>
+                            </button>
+
+
+
+
+
+                        }
+
+
+                        else
+                        {
+                            <div class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <li>
+                                        @Html.Partial("UserLogin")
+                                    </li>
+                                </ul>
+
+
+                            </div>
+                        }
+
+                            </li>
+                        </ul>
+                        <!-- Sidebar Toggle (Topbar) -->
+                        @*<button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                <i class="fa fa-bars"></i>
+            </button>*@
+
+                        <!-- Topbar Search -->
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">
+
+                            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                            <li class="nav-item dropdown no-arrow d-sm-none">
+                                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-search fa-fw"></i>
+                                </a>
+
+                                <div class="topbar-divider d-none d-sm-block"></div>
+
+                                <!-- Nav Item - User Information -->
+
+
+
+                            <li class="nav-item dropdown no-arrow">
+                                @*@if (User.Identity.IsAuthenticated && !User.IsInRole("SuperAdmin"))
+                    {
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><b>Welcome, @User.Identity.Name</b></span>
+                            <img class="img-profile rounded-circle" src="~/Content/Admin Template/img/welcome.gif">
                         </a>
-
-                        <div class="topbar-divider d-none d-sm-block"></div>
-
-                        <!-- Nav Item - User Information -->
-
-
-
-                    <li class="nav-item dropdown no-arrow">
-                        @*@if (User.Identity.IsAuthenticated && !User.IsInRole("SuperAdmin"))
-            {
-                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><b>Welcome, @User.Identity.Name</b></span>
-                    <img class="img-profile rounded-circle" src="~/Content/Admin Template/img/welcome.gif">
-
-                </a>
-
-            }*@
-                        @if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
+                    }*@
+                                @*@if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
                         {
 
-                        <button type="button" class="btn btn-outline-info">
-                            <li>@Html.ActionLink("Admin Home", "Index", "HomePage", null, new { style = "text-decoration:none" })</li>
+                            <button type="button" class="btn btn-outline-info">
+                        <li>@Html.ActionLink("Admin Home", "Index", "HomePage", null, new { style = "text-decoration:none" })</li>
                         </button>
 
 
@@ -323,127 +371,120 @@
 
 
                         </div>
-                    }
+                    }*@
 
 
 
 
-                        <!-- Dropdown - User Information -->
-                        @*<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-
-
-                &nbsp; &nbsp;&nbsp;&nbsp;
-                <a href="@Url.Action("Index", "Manage")">
-                    <i class="fas fa-user text-gray"></i>
-                    <span>
-                        <strong>Manage Profile</strong>
-                    </span>
-                </a>
-
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-
-
-                    <i class="fas fa-sign-out-alt  text-gray"></i>
-                    <span>
-                        <strong>Logout</strong>
-                    </span>
-
-
-                </a>
-            </div>*@
-                        </li>
+                                <!-- Dropdown - User Information -->
+                                @*<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        &nbsp; &nbsp;&nbsp;&nbsp;
+                        <a href="@Url.Action("Index", "Manage")">
+                            <i class="fas fa-user text-gray"></i>
+                            <span>
+                                <strong>Manage Profile</strong>
+                            </span>
+                        </a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-sign-out-alt  text-gray"></i>
+                            <span>
+                                <strong>Logout</strong>
+                            </span>
+                        </a>
+                    </div>*@
+                            </li>
 
 
 
-                    </ul>
+                        </ul>
 
 
-                </nav>
+                    </nav>
 
-                <!-- End of Topbar -->
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-                    @RenderBody()
+                    <!-- End of Topbar -->
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
+                        @RenderBody()
+                    </div>
+                    <!-- /.container-fluid -->
+
                 </div>
-                <!-- /.container-fluid -->
+
 
             </div>
 
-
         </div>
 
-    </div>
+
+        <!-- End of Content Wrapper -->
+        <!-- End of Page Wrapper -->
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page">
+            <i class="fas fa-angle-double-up"></i>
+        </a>
 
 
-    <!-- End of Content Wrapper -->
-    <!-- End of Page Wrapper -->
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page">
-        <i class="fas fa-angle-double-up"></i>
-    </a>
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select <b>"Logout"</b> below if you are ready to end your current session</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline-secondary btn-lg" data-dismiss="modal" type="button">Cancel</button>
+                        <button class="btn btn-outline-warning" type="button"> @Html.Partial("_LoginPartial")</button>
 
 
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select <b>"Logout"</b> below if you are ready to end your current session</div>
-                <div class="modal-footer">
-                    <button class="btn btn-outline-secondary btn-lg" data-dismiss="modal" type="button">Cancel</button>
-                    <button class="btn btn-outline-warning" type="button"> @Html.Partial("_LoginPartial")</button>
-
-
-                    @*@Html.ActionLink("LogOff", "Index", "UserLogin",new { @class= "btn btn-outline-warning" })*@
+                        @*@Html.ActionLink("LogOff", "Index", "UserLogin",new { @class= "btn btn-outline-warning" })*@
 
 
 
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
 
 
 
-    <div class="text-center">
-        <footer>
+        <div class="text-center">
+            <footer>
 
-            <p><b> &copy; @*@DateTime.Now.Year*@ DEVELOPERS TEAM, CSE-16 </b></p>
+                <p><b> &copy; @*@DateTime.Now.Year*@ DEVELOPERS TEAM, CSE-16 </b></p>
 
-        </footer>
-    </div>
+            </footer>
+        </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="~/Content/Admin Template/vendor/jquery/jquery.min.js"></script>
-    <script src="~/Content/Admin Template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="~/Content/Admin Template/vendor/jquery/jquery.min.js"></script>
+        <script src="~/Content/Admin Template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="~/Content/Admin Template/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="~/Content/Admin Template/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="~/Content/Admin Template/js/sb-admin-2.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="~/Content/Admin Template/js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="~/Content/Admin Template/vendor/chart.js/Chart.min.js"></script>
+        <!-- Page level plugins -->
+        <script src="~/Content/Admin Template/vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="~/Content/Admin Template/js/demo/chart-area-demo.js"></script>
-    <script src="~/Content/Admin Template/js/demo/chart-pie-demo.js"></script>
-
-
-    <!-- Page level plugins -->
-    <script src="~/Content/Admin Template/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="~/Content/Admin Template/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="~/Content/Admin Template/js/demo/datatables-demo.js"></script>
+        <!-- Page level custom scripts -->
+        <script src="~/Content/Admin Template/js/demo/chart-area-demo.js"></script>
+        <script src="~/Content/Admin Template/js/demo/chart-pie-demo.js"></script>
 
 
-</body>
+        <!-- Page level plugins -->
+        <script src="~/Content/Admin Template/vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="~/Content/Admin Template/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="~/Content/Admin Template/js/demo/datatables-demo.js"></script>
+
+
+    </body>

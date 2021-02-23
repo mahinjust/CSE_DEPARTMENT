@@ -34,13 +34,13 @@
                 <div>
 
 
-                @Html.ActionLink("Computer Science & Engineering Department, JUST ", "", "", new { area = "" }, new { @class = "navbar-brand", onclick = "javascript:return false;" })
+                    @Html.ActionLink("Computer Science & Engineering Department, JUST ", "", "", new { area = "" }, new { @class = "navbar-brand", onclick = "javascript:return false;" })
                 </div>
 
 
 
             </div>
-
+            
 
             @if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
             {

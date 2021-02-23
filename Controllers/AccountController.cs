@@ -213,7 +213,7 @@ namespace CSE_DEPARTMENT.Controllers
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", "<a href=\"" + callbackUrl + "\"</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "HomePage");
                 }
                 AddErrors(result);
             }
