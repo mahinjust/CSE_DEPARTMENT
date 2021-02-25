@@ -13,9 +13,12 @@ namespace CSE_DEPARTMENT.Models
         public int materials_id { get; set; }
         public int? subject_id { get; set; }
         public int? year_id { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public string materials_topic { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public string arranged_by { get; set; }
         public string reference { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         [DataType(DataType.Date)]
         public System.DateTime publish_date { get; set; }
         public string specification { get; set; }

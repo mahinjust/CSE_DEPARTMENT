@@ -11,17 +11,18 @@ namespace CSE_DEPARTMENT.Models
     {
         [Key]
         public int currentacademic_id { get; set; }
-
+        
         public int? student_id { get; set; }
-
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public string Name { get; set; }
-
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public int Roll { get; set; }
 
         public int? session_id { get; set; }
-
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         [DataType(DataType.Date)]
         public System.DateTime admission_date { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public string dept { get; set; }
 
         public string co_curricular_activities { get; set; }
@@ -35,7 +36,7 @@ namespace CSE_DEPARTMENT.Models
         [ForeignKey("student_id")]
         public virtual student student { get; set; }
         [ForeignKey("year_id")]
-
+     
         public virtual Year Year { get; set; }
     }
 }

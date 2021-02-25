@@ -18,9 +18,12 @@ namespace CSE_DEPARTMENT.Models
 
         [Key]
         public int subject_id { get; set; }
-        public string Subject_Name { get; set; }
-        public string subject_code { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public double Credit { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
+        public string Subject_Name { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
+        public string subject_code { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<book> books { get; set; }

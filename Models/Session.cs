@@ -18,7 +18,9 @@ namespace CSE_DEPARTMENT.Models
         }
 
         [Key]
+       
         public int session_id { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public string session_name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

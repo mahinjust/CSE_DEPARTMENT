@@ -18,17 +18,22 @@ namespace CSE_DEPARTMENT.Models
 
         [Key]
         public int teacher_id { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public string teacher_name { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public string designation { get; set; }
+       
 
         public string Photo { get; set; }
 
         [NotMapped]
         public HttpPostedFileBase PhotoFile { get; set; }
-
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public string work_area { get; set; }
         public string achievement { get; set; }
+      
         public string publication { get; set; }
+       
         public string publication_links { get; set; }
         public string website { get; set; }
         [Display(Name = "UserId")]

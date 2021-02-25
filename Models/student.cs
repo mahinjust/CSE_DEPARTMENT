@@ -20,10 +20,14 @@ namespace CSE_DEPARTMENT.Models
 
         [Key]
         public int student_id { get; set; }
+       
         public int? session_id { get; set; }
         public int? year_id { get; set; }
+       
         public string Name { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public int Roll_No { get; set; }
+   
         public string Photo { get; set; }
         [NotMapped]
         public HttpPostedFileBase PhotoFile { get; set; }
@@ -31,14 +35,23 @@ namespace CSE_DEPARTMENT.Models
         public string quata_description { get; set; }
         public string skills { get; set; }
         public string hobby { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public string fathers_name { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public string fathers_occupation { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public string fathers_contact_no { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public string mothers_name { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public string mothers_occupation { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public string mothers_contact_no { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public string guardians_name { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public string guardians_occupation { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public string guardians_contact_no { get; set; }
         [Display(Name = "UserId")]
         public virtual string Id { get; set; }

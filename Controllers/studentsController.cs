@@ -77,6 +77,8 @@ namespace CSE_DEPARTMENT.Controllers
 
                 return RedirectToAction("Index");
             }
+            ViewBag.session_id = new SelectList(db.Sessions, "session_id", "session_name");
+            ViewBag.year_id = new SelectList(db.Years, "year_id", "year_name");
 
             return View(student);
         }

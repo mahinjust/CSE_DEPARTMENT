@@ -17,11 +17,14 @@ namespace CSE_DEPARTMENT.Models
 
         [Key]
         public int result_id { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public int Roll_No { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public string Name { get; set; }
         public int? student_id { get; set; }
         public int? session_id { get; set; }
         public int? year_id { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public double cgpa { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

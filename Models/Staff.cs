@@ -17,8 +17,11 @@ namespace CSE_DEPARTMENT.Models
 
         [Key]
         public int staff_id { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public string staff_name { get; set; }
+       
         public string Photo { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
         public string designation { get; set; }
         [Display(Name = "UserId")]
         public virtual string Id { get; set; }

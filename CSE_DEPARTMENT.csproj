@@ -301,6 +301,14 @@
     <Compile Include="Migrations\202102221931581_credit.Designer.cs">
       <DependentUpon>202102221931581_credit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102251542557_required.cs" />
+    <Compile Include="Migrations\202102251542557_required.Designer.cs">
+      <DependentUpon>202102251542557_required.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102251636409_reg.cs" />
+    <Compile Include="Migrations\202102251636409_reg.Designer.cs">
+      <DependentUpon>202102251636409_reg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\activities.cs" />
@@ -315,7 +323,6 @@
     </Compile>
     <Compile Include="Models\book.cs" />
     <Compile Include="Models\current_academic.cs" />
-    <Compile Include="Models\Department.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\materials.cs" />
@@ -2437,6 +2444,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102221931581_credit.resx">
       <DependentUpon>202102221931581_credit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102251542557_required.resx">
+      <DependentUpon>202102251542557_required.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102251636409_reg.resx">
+      <DependentUpon>202102251636409_reg.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
