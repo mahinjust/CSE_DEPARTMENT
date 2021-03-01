@@ -25,7 +25,7 @@
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.Name)
+                        @Html.DisplayFor(model => model.student.Name)
                     </dd>
                     <dt>
                         Roll No
@@ -80,7 +80,7 @@
 <p>
     @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
     {
-@Html.ActionLink("Edit", "Edit", "null", new { id = Model.currentacademic_id }, new { @class = "btn btn-info" })
+        @Html.ActionLink("Edit", "Edit", "null", new { id = Model.currentacademic_id }, new { @class = "btn btn-info" })
     } |
- @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
 </p>

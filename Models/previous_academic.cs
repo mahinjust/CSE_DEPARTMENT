@@ -12,8 +12,7 @@ namespace CSE_DEPARTMENT.Models
         [Key]
         public int previousacademic_id { get; set; }
         public int? student_id { get; set; }
-        [Required(ErrorMessage = "This Is A Required Field!!")]
-        public string Name { get; set; }
+      
         [Required(ErrorMessage = "This Is A Required Field!!")]
         public int hsc_roll { get; set; }
         [Required(ErrorMessage = "This Is A Required Field!!")]

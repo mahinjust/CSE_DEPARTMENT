@@ -51,6 +51,24 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Apis, Version=1.50.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.1.50.0\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.50.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Auth.1.50.0\lib\net45\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.50.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Auth.1.50.0\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Classroom.v1, Version=1.50.0.2235, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Classroom.v1.1.50.0.2235\lib\net45\Google.Apis.Classroom.v1.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.50.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Core.1.50.0\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.50.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.1.50.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Authenticator, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\GoogleAuthenticator.2.1.1\lib\net45\Google.Authenticator.dll</HintPath>
     </Reference>
@@ -308,6 +326,14 @@
     <Compile Include="Migrations\202102251636409_reg.cs" />
     <Compile Include="Migrations\202102251636409_reg.Designer.cs">
       <DependentUpon>202102251636409_reg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103010854553_previous.cs" />
+    <Compile Include="Migrations\202103010854553_previous.Designer.cs">
+      <DependentUpon>202103010854553_previous.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103011157341_current.cs" />
+    <Compile Include="Migrations\202103011157341_current.Designer.cs">
+      <DependentUpon>202103011157341_current.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -2257,6 +2283,9 @@
     <Content Include="Content\Admin Template\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Content\bootstrap-chosen.scss" />
     <Content Include="Content\bootstrap-chosen.less" />
+    <Content Include="credentials.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\chosen.jquery.js" />
@@ -2351,11 +2380,6 @@
     <Content Include="Views\staff_career\Index.cshtml" />
     <Content Include="Views\Shared\UserLogin.cshtml" />
     <Content Include="Views\HomePage\Index.cshtml" />
-    <Content Include="Views\previous_academic\Create.cshtml" />
-    <Content Include="Views\previous_academic\Delete.cshtml" />
-    <Content Include="Views\previous_academic\Details.cshtml" />
-    <Content Include="Views\previous_academic\Edit.cshtml" />
-    <Content Include="Views\previous_academic\Index.cshtml" />
     <Content Include="Views\results\Create.cshtml" />
     <Content Include="Views\results\Delete.cshtml" />
     <Content Include="Views\results\Details.cshtml" />
@@ -2381,16 +2405,21 @@
     <Content Include="Views\activities\Details.cshtml" />
     <Content Include="Views\activities\Edit.cshtml" />
     <Content Include="Views\activities\Index.cshtml" />
-    <Content Include="Views\current_academic\Create.cshtml" />
-    <Content Include="Views\current_academic\Delete.cshtml" />
-    <Content Include="Views\current_academic\Details.cshtml" />
-    <Content Include="Views\current_academic\Edit.cshtml" />
-    <Content Include="Views\current_academic\Index.cshtml" />
     <Content Include="Views\Subjects\Create.cshtml" />
     <Content Include="Views\Subjects\Delete.cshtml" />
     <Content Include="Views\Subjects\Details.cshtml" />
     <Content Include="Views\Subjects\Edit.cshtml" />
     <Content Include="Views\Subjects\Index.cshtml" />
+    <Content Include="Views\previous_academic\Create.cshtml" />
+    <Content Include="Views\previous_academic\Delete.cshtml" />
+    <Content Include="Views\previous_academic\Details.cshtml" />
+    <Content Include="Views\previous_academic\Edit.cshtml" />
+    <Content Include="Views\previous_academic\Index.cshtml" />
+    <Content Include="Views\current_academic\Create.cshtml" />
+    <Content Include="Views\current_academic\Delete.cshtml" />
+    <Content Include="Views\current_academic\Details.cshtml" />
+    <Content Include="Views\current_academic\Edit.cshtml" />
+    <Content Include="Views\current_academic\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2450,6 +2479,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102251636409_reg.resx">
       <DependentUpon>202102251636409_reg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103010854553_previous.resx">
+      <DependentUpon>202103010854553_previous.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103011157341_current.resx">
+      <DependentUpon>202103011157341_current.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

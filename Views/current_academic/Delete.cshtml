@@ -26,7 +26,7 @@
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.Name)
+                        @Html.DisplayFor(model => model.student.Name)
                     </dd>
 
                     <dt>
@@ -76,12 +76,13 @@
 
                 @using (Html.BeginForm())
                 {
-            @Html.AntiForgeryToken()
+                    @Html.AntiForgeryToken()
 
-                            <div class="form-actions no-color">
-                                <input type="submit" value="Delete" class="btn btn-danger" /> |
-                                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
-                            </div>}
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Delete" class="btn btn-danger" /> |
+                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
+                    </div>
+}
             </table>
 
         </div>

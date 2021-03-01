@@ -27,10 +27,10 @@
             <div class="card-body">
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Name, "Full Name", htmlAttributes: new { @class = "control-label col-md-5" })
+                    @Html.LabelFor(model => model.student_id, "Full Name", htmlAttributes: new { @class = "control-label col-md-5" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        @Html.DropDownList("student_id", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.student_id, "", new { @class = "text-danger" })
                     </div>
                 </div>
 

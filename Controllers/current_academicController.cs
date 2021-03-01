@@ -10,7 +10,6 @@ using CSE_DEPARTMENT.Models;
 
 namespace CSE_DEPARTMENT.Controllers
 {
-    [Authorize]
     public class current_academicController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -40,7 +39,7 @@ namespace CSE_DEPARTMENT.Controllers
         // GET: current_academic/Create
         public ActionResult Create()
         {
-            ViewBag.result_id = new SelectList(db.results, "result_id", "result_id");
+            ViewBag.result_id = new SelectList(db.results, "result_id", "Name");
             ViewBag.session_id = new SelectList(db.Sessions, "session_id", "session_name");
             ViewBag.student_id = new SelectList(db.students, "student_id", "Name");
             ViewBag.year_id = new SelectList(db.Years, "year_id", "year_name");
@@ -52,7 +51,7 @@ namespace CSE_DEPARTMENT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "currentacademic_id,student_id,Name,Roll,session_id,admission_date,dept,co_curricular_activities,year_id,result_id")] current_academic current_academic)
+        public ActionResult Create([Bind(Include = "currentacademic_id,student_id,Roll,session_id,admission_date,dept,co_curricular_activities,year_id,result_id")] current_academic current_academic)
         {
             if (ModelState.IsValid)
             {
@@ -61,7 +60,7 @@ namespace CSE_DEPARTMENT.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.result_id = new SelectList(db.results, "result_id", "result_id", current_academic.result_id);
+            ViewBag.result_id = new SelectList(db.results, "result_id", "Name", current_academic.result_id);
             ViewBag.session_id = new SelectList(db.Sessions, "session_id", "session_name", current_academic.session_id);
             ViewBag.student_id = new SelectList(db.students, "student_id", "Name", current_academic.student_id);
             ViewBag.year_id = new SelectList(db.Years, "year_id", "year_name", current_academic.year_id);
@@ -80,7 +79,7 @@ namespace CSE_DEPARTMENT.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.result_id = new SelectList(db.results, "result_id", "result_id", current_academic.result_id);
+            ViewBag.result_id = new SelectList(db.results, "result_id", "Name", current_academic.result_id);
             ViewBag.session_id = new SelectList(db.Sessions, "session_id", "session_name", current_academic.session_id);
             ViewBag.student_id = new SelectList(db.students, "student_id", "Name", current_academic.student_id);
             ViewBag.year_id = new SelectList(db.Years, "year_id", "year_name", current_academic.year_id);
@@ -92,7 +91,7 @@ namespace CSE_DEPARTMENT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "currentacademic_id,student_id,Name,Roll,session_id,admission_date,dept,co_curricular_activities,year_id,result_id")] current_academic current_academic)
+        public ActionResult Edit([Bind(Include = "currentacademic_id,student_id,Roll,session_id,admission_date,dept,co_curricular_activities,year_id,result_id")] current_academic current_academic)
         {
             if (ModelState.IsValid)
             {
@@ -100,7 +99,7 @@ namespace CSE_DEPARTMENT.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.result_id = new SelectList(db.results, "result_id", "result_id", current_academic.result_id);
+            ViewBag.result_id = new SelectList(db.results, "result_id", "Name", current_academic.result_id);
             ViewBag.session_id = new SelectList(db.Sessions, "session_id", "session_name", current_academic.session_id);
             ViewBag.student_id = new SelectList(db.students, "student_id", "Name", current_academic.student_id);
             ViewBag.year_id = new SelectList(db.Years, "year_id", "year_name", current_academic.year_id);
