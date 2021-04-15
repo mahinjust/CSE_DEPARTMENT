@@ -146,6 +146,11 @@
                             }
                             else {
                                 $(this).show();
+                                if (txtenter == 0) {
+                                         var url = '@Url.Action("UsersWithRoles", "ManageUsers")';
+                                         window.location.href = url;
+                                    }
+
                             }
                         }
                     });

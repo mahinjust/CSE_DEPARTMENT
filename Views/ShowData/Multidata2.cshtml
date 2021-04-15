@@ -157,6 +157,10 @@
                             }
                             else {
                                 $(this).show();
+                                if (txtenter == 0) {
+                                    var url = '@Url.Action("Multidata2", "ShowData")';
+                                    window.location.href = url;
+                                }
                             }
                         }
                     });
