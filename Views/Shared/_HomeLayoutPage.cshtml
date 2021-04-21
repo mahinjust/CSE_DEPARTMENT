@@ -48,7 +48,7 @@
 
                     <span>CSE Department</span>
                 </a>
-              
+
             </li>
 
             @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Student") || User.IsInRole("Faculty")))
@@ -232,13 +232,13 @@
             }
 
 
-             @*Divider*@ 
+            @*Divider*@
             @*<hr class="sidebar-divider d-none d-md-block">*@
 
-             @*Sidebar Toggler (Sidebar)*@ 
+            @*Sidebar Toggler (Sidebar)*@
             <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-        </div>
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
 
 
 
@@ -256,7 +256,7 @@
 
                 <!-- Topbar -->
 
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" style="position: fixed; top: 0; width: 100%; height:auto ">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow " id="navbar" style="position: fixed; top: 0; width: 98%; height:auto;transition: top 0.1s;">
                     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                         <div class="d-flex justify-content-start">
 
@@ -314,8 +314,8 @@
                         </ul>
                         <!-- Sidebar Toggle (Topbar) -->
                         @*<button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                <i class="fa fa-bars"></i>
-            </button>*@
+                                <i class="fa fa-bars"></i>
+                            </button>*@
 
                         <!-- Topbar Search -->
                         <!-- Topbar Navbar -->
@@ -335,63 +335,63 @@
 
                             <li class="nav-item dropdown no-arrow">
                                 @*@if (User.Identity.IsAuthenticated && !User.IsInRole("SuperAdmin"))
-                    {
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><b>Welcome, @User.Identity.Name</b></span>
-                            <img class="img-profile rounded-circle" src="~/Content/Admin Template/img/welcome.gif">
-                        </a>
-                    }*@
+                                    {
+                                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><b>Welcome, @User.Identity.Name</b></span>
+                                            <img class="img-profile rounded-circle" src="~/Content/Admin Template/img/welcome.gif">
+                                        </a>
+                                    }*@
                                 @*@if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
-                        {
+                                        {
 
-                            <button type="button" class="btn btn-outline-info">
-                        <li>@Html.ActionLink("Admin Home", "Index", "HomePage", null, new { style = "text-decoration:none" })</li>
-                        </button>
-
-
-
-                        <button type="button" class="btn btn-outline-success">
-                            <li>@Html.ActionLink("Go Back To Admin Arena", "Index", "Admin", null, new { style = "text-decoration:none" })</li>
-                        </button>
+                                            <button type="button" class="btn btn-outline-info">
+                                        <li>@Html.ActionLink("Admin Home", "Index", "HomePage", null, new { style = "text-decoration:none" })</li>
+                                        </button>
 
 
 
+                                        <button type="button" class="btn btn-outline-success">
+                                            <li>@Html.ActionLink("Go Back To Admin Arena", "Index", "Admin", null, new { style = "text-decoration:none" })</li>
+                                        </button>
 
 
-                    }
-
-                    else
-                    {
-                        <div class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav">
-                                <li>
-                                    @Html.Partial("UserLogin")
-                                </li>
-                            </ul>
 
 
-                        </div>
-                    }*@
+
+                                    }
+
+                                    else
+                                    {
+                                        <div class="navbar-collapse collapse">
+                                            <ul class="nav navbar-nav">
+                                                <li>
+                                                    @Html.Partial("UserLogin")
+                                                </li>
+                                            </ul>
+
+
+                                        </div>
+                                    }*@
 
 
 
 
                                 <!-- Dropdown - User Information -->
                                 @*<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                        &nbsp; &nbsp;&nbsp;&nbsp;
-                        <a href="@Url.Action("Index", "Manage")">
-                            <i class="fas fa-user text-gray"></i>
-                            <span>
-                                <strong>Manage Profile</strong>
-                            </span>
-                        </a>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                            <i class="fas fa-sign-out-alt  text-gray"></i>
-                            <span>
-                                <strong>Logout</strong>
-                            </span>
-                        </a>
-                    </div>*@
+                                        &nbsp; &nbsp;&nbsp;&nbsp;
+                                        <a href="@Url.Action("Index", "Manage")">
+                                            <i class="fas fa-user text-gray"></i>
+                                            <span>
+                                                <strong>Manage Profile</strong>
+                                            </span>
+                                        </a>
+                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                            <i class="fas fa-sign-out-alt  text-gray"></i>
+                                            <span>
+                                                <strong>Logout</strong>
+                                            </span>
+                                        </a>
+                                    </div>*@
                             </li>
 
 
@@ -460,6 +460,18 @@
 
             </footer>
         </div>
+        <script>
+            var prevScrollpos = window.pageYOffset;
+            window.onscroll = function () {
+                var currentScrollPos = window.pageYOffset;
+                if (prevScrollpos > currentScrollPos) {
+                    document.getElementById("navbar").style.top = "0";
+                } else {
+                    document.getElementById("navbar").style.top = "-100px";
+                }
+                prevScrollpos = currentScrollPos;
+            }
+        </script>
 
         <!-- Bootstrap core JavaScript-->
         <script src="~/Content/Admin Template/vendor/jquery/jquery.min.js"></script>
