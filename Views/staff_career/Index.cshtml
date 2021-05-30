@@ -81,10 +81,11 @@
                                 {
                             @Html.ActionLink("Edit", "Edit", new { id = item.staffcareer_id }, new { @class = "btn btn-primary" })}
                                 @Html.ActionLink("Details", "Details", new { id = item.staffcareer_id }, new { @class = "btn btn-info" })
+                                @Html.ActionLink("Preview", "Details", new { id = item.staffcareer_id }, new { @class = "btn btn-secondary" })
+                                @Html.ActionLink("Download", "Details", new { id = item.staffcareer_id }, new { @class = "btn btn-success" })
                                 @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
                                 {
-                            @Html.ActionLink("Delete", "Delete", new { id = item.staffcareer_id }, new { @class = "btn btn-danger" })
-                                }
+                            @Html.ActionLink("Delete", "Delete", new { id = item.staffcareer_id }, new { @class = "btn btn-danger" })}
                             </td>
                         </tr>
                     }
