@@ -12,9 +12,16 @@ namespace CSE_DEPARTMENT.Models
         public int notice_id { get; set; }
         [Required(ErrorMessage = "This Is A Required Field!!")]
         public string notice_upload { get; set; }
+
+        public IEnumerable<HttpPostedFileBase> files { get; set; }
+        [Required(ErrorMessage = "This Is A Required Field!!")]
+        public string File { get; set; }
+        public long Size { get; set; }
+        public string Type { get; set; }
+
         [Required(ErrorMessage = "This Is A Required Field!!")]
         public string notice_topic { get; set; }
-        
+
         public string published_by { get; set; }
         [Required(ErrorMessage = "This Is A Required Field!!")]
         [DataType(DataType.Date)]
