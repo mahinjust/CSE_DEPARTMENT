@@ -339,6 +339,10 @@
     <Compile Include="Migrations\202106181940070_upload-download.Designer.cs">
       <DependentUpon>202106181940070_upload-download.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108081610245_last.cs" />
+    <Compile Include="Migrations\202108081610245_last.Designer.cs">
+      <DependentUpon>202108081610245_last.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\activities.cs" />
@@ -2433,7 +2437,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Books\" />
     <Folder Include="Files\" />
+    <Folder Include="Materials\" />
+    <Folder Include="Notices\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-3.4.1.min.map" />
@@ -2493,6 +2500,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106181940070_upload-download.resx">
       <DependentUpon>202106181940070_upload-download.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108081610245_last.resx">
+      <DependentUpon>202108081610245_last.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

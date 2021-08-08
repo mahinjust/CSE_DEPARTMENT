@@ -1,36 +1,15 @@
-﻿@*@model IEnumerable<CSE_DEPARTMENT.Models.notice>*@
-@using System.Data;
-@model IEnumerable<CSE_DEPARTMENT.Models.notice>
+﻿@model IEnumerable<CSE_DEPARTMENT.Models.notice>
 
-@{ ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml"; }
-
-
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
-@*<style type="text/css">
-        .btn {
-            width: 100px;
-            height: 40px;
-            background: #00BCD4;
-            border-style: solid;
-            border-color: white;
-            color: white;
-        }
-
-        .gridborder {
-            border-top: 1px solid #DED8D8;
-        }
-    </style>*@
-
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_HomeLayoutPage.cshtml";
+}
 <br />
 <br />
 <br />
 <br />
 <br />
 <br />
-
-
-
 
 
 <div class="card shadow mb-4">
@@ -40,75 +19,114 @@
     </div>
 
     <div class="card-body">
-
-        <div>
-            @using (@Html.BeginForm(null, null, FormMethod.Post,
-             new { enctype = "multipart/form-data" }))
-            {
-                if (TempData["Message"] != null)
-                {
-
-                    <p style="font-family: Arial; font-size: 16px; font-weight: 200; color: green">@TempData["Message"]</p> }
-
-                <table>
-                    @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
-                    {
-                        <tr>
-
-                            <td>
-                                <b style="color: #91979e">  File:</b>
-                            </td>
-                            <td>
-                                <input type="file" name="files" id="files" multiple="multiple" />
-                            </td>
-                            <td>
-
-                                <input type="submit" class="btn btn-success" name="submit" />
-
-                            </td>
-                        </tr>
-                    }
-
-                </table>}
+        <div class="table-responsive">
             <table class="table table-condensed" id="dataTable" width="100%" cellspacing="0">
-                <tr>
-                    <th class="sorting_asc">
-                        @Html.DisplayNameFor(model => model.File)
-                    </th>
-                    <th class="sorting">
-                        @Html.DisplayNameFor(model => model.Size)
-                    </th>
-                    <th class="sorting">
-                        @Html.DisplayNameFor(model => model.Type)
-                    </th>
-                    <th class="sorting">Action</th>
-                </tr>
-
-                @foreach (var item in Model)
-                {
+                <thead>
                     <tr>
-                        <td class="sorting_1">
-                            @Html.DisplayFor(modelItem => item.File)
-                        </td>
-                        <td class="sorting_1">
-                            @Html.DisplayFor(modelItem => item.Size)
-                        </td>
-                        <td class="sorting_1">
-                            @Html.DisplayFor(modelItem => item.Type)
-                        </td>
-                        <th class="sorting">
-                            @Html.ActionLink("Download", "Download", new { fileName = item.File }, new { @class = "btn btn-info" })
-                            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
-                            {
-                                @Html.ActionLink("Delete", "Delete", new { fileName = item.File }, new { @class = "btn btn-danger" })}
+                        <th>
+                            Notice
+                        </th>
+                        <th>
+                            Notice Tags
+                        </th>
+                        <th>
+                            Published By
+                        </th>
+                        <th>
+                            Published Date
+                        </th>
+                        <th>
+                            Created By
+                        </th>
+                        <th>
+                            Created Date
+                        </th>
+                        <th>
+                            Updated By
+                        </th>
+                        <th>
+                            Updated Date
+                        </th>
+                        <th>
+                            Deadline
+                        </th>
+                        <th>
+                            Priority
+                        </th>
+                        <th>
+                            Specification
+                        </th>
+                        <th>
+                            Actions
                         </th>
                     </tr>
-}
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.notice_upload)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.notice_topic)
+                        </td>
+                
+                        <td>
+                            @Html.DisplayFor(modelItem => item.published_by)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.publish_date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.created_by)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.created_date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.updated_by)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.updated_date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.deadline)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.priority)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.specification)
+                        </td>
+                        <td class="btn-group">
+                            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+                            {
+                                @Html.ActionLink("Edit", "Edit", new { id = item.notice_id }, new { @class = "btn btn-primary" })
+                            }
+                            @Html.ActionLink("Details", "Details", new { id = item.notice_id }, new { @class = "btn btn-secondary" })
+                            @Html.ActionLink("Download", "Download", new { fileName = item.notice_upload}, new { @class = "btn btn-info" })
+                            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+                            {
+                                @Html.ActionLink("Delete", "Delete", new { id = item.notice_id }, new { @class = "btn btn-danger" })
+                            }
+                        </td>
+                    </tr>
+                    }
+                </tbody>
             </table>
+
         </div>
-
-
 
     </div>
 
+</div>
 
+<p>
+    @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+    {
+        @Html.ActionLink("Create A New Entry", "Create", null, new { @class = "btn btn-success" })
+    }
+
+</p>

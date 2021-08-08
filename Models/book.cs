@@ -22,10 +22,16 @@ namespace CSE_DEPARTMENT.Models
         public string edition { get; set; }
         public int? subject_id { get; set; }
 
-      
+
         [ForeignKey("year_id")]
         public virtual Year Year { get; set; }
         [ForeignKey("subject_id")]
         public virtual Subject Subject { get; set; }
+
+        public IEnumerable<HttpPostedFileBase> files { get; set; }
+        //[Required(ErrorMessage = "This Is A Required Field!!")]
+        //public string File { get; set; }
+        //public long? Size { get; set; }
+        //public string Type { get; set; }
     }
 }

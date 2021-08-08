@@ -14,6 +14,7 @@ namespace CSE_DEPARTMENT.Models
         public int? subject_id { get; set; }
         public int? year_id { get; set; }
         [Required(ErrorMessage = "This Is A Required Field!!")]
+
         public string materials_topic { get; set; }
         [Required(ErrorMessage = "This Is A Required Field!!")]
         public string arranged_by { get; set; }
@@ -29,5 +30,7 @@ namespace CSE_DEPARTMENT.Models
 
         [ForeignKey("year_id")]
         public virtual Year Year { get; set; }
+
+        public IEnumerable<HttpPostedFileBase> files { get; set; }
     }
 }

@@ -39,8 +39,25 @@
                     </div>
                 </div>
 
+
                 <div class="form-group">
-                    @Html.LabelFor(model => model.materials_topic, "Materials Topic", htmlAttributes: new { @class = "control-label col-md-5" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.files, "Upload Materials(Note: For downloading the uploaded material you will have to provide uploaded document name as same as the Materials Name & Maximum 5 MB file is allowed for uploading)", htmlAttributes: new { @class = "control-label" })
+                        <div class="col-md-10">
+                            <span class="btn btn-default btn-file">
+
+                                @Html.TextBoxFor(model => model.files, new { type = "file", @id = "files", @name = "files" })
+                                @Html.ValidationMessageFor(model => model.files, "", new { @class = "text-danger" })
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.materials_topic, "Materials Name(Note: Please provide corresponding extension type after the material name(Ex: if the material is a pdf then provide .pdf extension)", htmlAttributes: new { @class = "control-label" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.materials_topic, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.materials_topic, "", new { @class = "text-danger" })

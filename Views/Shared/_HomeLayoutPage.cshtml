@@ -149,73 +149,50 @@
 
 
 
-            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Staff") || User.IsInRole("Faculty") || User.IsInRole("Student")))
-            {
-                <!-- Divider -->
-                <hr class="sidebar-divider">
+            <hr class="sidebar-divider">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                <b>Academic Section</b>
+            </div>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAcademic" aria-expanded="true" aria-controls="collapseAcademic">
 
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    Academic Section
+                    <i style="font-size:24px" class="fa">&#xf19c;</i>
+                    <span>Academic Information</span>
+                </a>
+                <div id="collapseAcademic" class="collapse" aria-labelledby="headingAcademic" data-parent="#accordionSidebar">
+
+
+                    <div class="py-2 collapse-inner rounded" style="background-color: #bcd4c0">
+
+                        @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Staff") || User.IsInRole("Faculty") || User.IsInRole("Student")))
+                        {
+                            @Html.ActionLink("E-Library", "Index", "Books", null, new { @class = "collapse-item" })
+                        }
+
+                        @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Student") || User.IsInRole("Faculty")))
+                        {
+                            @Html.ActionLink("Class Materials", "Index", "materials", null, new { @class = "collapse-item" })
+                        }
+                        @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Staff") || User.IsInRole("Faculty") || User.IsInRole("Student")))
+                        {
+                            @Html.ActionLink("E-Notice", "Index", "notices", null, new { @class = "collapse-item" })
+                        }
+                        @Html.ActionLink("Semester Results", "Index", "results", null, new { @class = "collapse-item" })
+
+                        @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Staff") || User.IsInRole("Faculty") || User.IsInRole("Student")))
+                        {
+                            @Html.ActionLink("Class Routine", "Index", "routines", null, new { @class = "collapse-item" })
+                        }
+                        @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Student") || User.IsInRole("Faculty")))
+                        {
+                            @Html.ActionLink("Google Class Room", "Index", "GoogleClassRoom", null, new { @class = "collapse-item" })
+                        }
+                    </div>
 
                 </div>
-                <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="/Books/Index">
-                        <i class='fas fa-book-open' style='font-size:24px'></i>
-                        <span>E-Library </span>
+            </li>
 
-                    </a>
-
-
-
-                </li>
-            }
-            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Student") || User.IsInRole("Faculty")))
-            {
-
-                <!-- Nav Item - Utilities Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="/materials/Index">
-                        <i class='fas fa-laptop-code' style='font-size:24px'></i>
-                        <span>Class Materials</span>
-                    </a>
-
-                </li>
-            }
-            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Staff") || User.IsInRole("Faculty") || User.IsInRole("Student")))
-            {
-
-                <!-- Nav Item - Sessions Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="/notices/Index">
-                        <i class='fas fa-chalkboard' style='font-size:24px'></i>
-                        <span>E-Notice</span>
-                    </a>
-
-                </li>
-            }
-            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Staff") || User.IsInRole("Faculty") || User.IsInRole("Student")))
-            {
-
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="/routines/Index">
-                        <i class='far fa-calendar-alt' style='font-size:24px'></i>
-                        <span>Class Routine</span>
-                    </a>
-
-                </li>
-            }
-            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Student") || User.IsInRole("Faculty")))
-            {
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="https://classroom.google.com/">
-                        <i class='fas fa-chalkboard-teacher' style='font-size:24px'></i>
-                        <span>Google Class Room</span>
-                    </a>
-
-                </li>
-            }
             <hr class="sidebar-divider">
             @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Staff") || User.IsInRole("Faculty") || User.IsInRole("Student")))
             {

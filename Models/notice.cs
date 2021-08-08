@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CSE_DEPARTMENT.Models
 {
@@ -12,13 +13,6 @@ namespace CSE_DEPARTMENT.Models
         public int notice_id { get; set; }
         [Required(ErrorMessage = "This Is A Required Field!!")]
         public string notice_upload { get; set; }
-
-        public IEnumerable<HttpPostedFileBase> files { get; set; }
-        [Required(ErrorMessage = "This Is A Required Field!!")]
-        public string File { get; set; }
-        public long Size { get; set; }
-        public string Type { get; set; }
-
         [Required(ErrorMessage = "This Is A Required Field!!")]
         public string notice_topic { get; set; }
 
@@ -41,5 +35,7 @@ namespace CSE_DEPARTMENT.Models
         [Required(ErrorMessage = "This Is A Required Field!!")]
         public string priority { get; set; }
         public string specification { get; set; }
+
+        public IEnumerable<HttpPostedFileBase> files { get; set; }
     }
 }

@@ -31,7 +31,7 @@
                             Year Name
                         </th>
                         <th>
-                            Materials Topic
+                            Materials Name
                         </th>
                         <th>
                             Arranged By
@@ -54,42 +54,41 @@
 
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Subject.Subject_Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Year.year_name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.materials_topic)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.arranged_by)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.reference)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.publish_date)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.specification)
-                            </td>
-                            <td class="btn-group">
-                                @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Faculty")))
-                                {
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.materials_id }, new { @class = "btn btn-primary" })
-                                }
-                                @Html.ActionLink("Details", "Details", new { id = item.materials_id }, new { @class = "btn btn-info" })
-                                @Html.ActionLink("Preview", "Details", new { id = item.materials_id }, new { @class = "btn btn-secondary" })
-                                @Html.ActionLink("Download", "Details", new { id = item.materials_id }, new { @class = "btn btn-success" })
-                                @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin") || User.IsInRole("Faculty")))
-                                {
-                                    @Html.ActionLink("Delete", "Delete", new { id = item.materials_id }, new { @class = "btn btn-danger" })
-                                }
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Subject.Subject_Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Year.year_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.materials_topic)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.arranged_by)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.reference)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.publish_date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.specification)
+                        </td>
+                        <td class="btn-group">
+                            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+                            {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.materials_id}, new { @class = "btn btn-primary" })}
+                            @Html.ActionLink("Details", "Details", new { id = item.materials_id }, new { @class = "btn btn-secondary" })
+
+                            @Html.ActionLink("Download", "Download", new { fileName = item.materials_topic }, new { @class = "btn btn-info" })
+
+                            @if (User.Identity.IsAuthenticated && (User.IsInRole("SuperAdmin")))
+                            {
+                    @Html.ActionLink("Delete", "Delete", new { id = item.materials_id }, new { @class = "btn btn-danger" })}
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>
